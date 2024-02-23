@@ -4,7 +4,7 @@ def create_summary():
     summary_content = "# Summary\n\n"
 
     # Get list of language folders in src directory
-    language_folders = [folder for folder in os.listdir("src") if os.path.isdir(os.path.join("src", folder))]
+    language_folders = [folder for folder in os.listdir("src") if os.path.isdir(os.path.join("src", folder)) and folder != "images"]
 
     # Loop through language folders
     for lang_folder in language_folders:
@@ -25,34 +25,22 @@ def create_summary():
         summary_file.write(summary_content)
 
 def create_language_menu():
-    # Get list of language folders in src directory
-    language_folders = [folder for folder in os.listdir("src") if os.path.isdir(os.path.join("src", folder))]
+    # Get list of language folders in src directory, excluding "images"
+    language_folders = [folder for folder in os.listdir("src") if os.path.isdir(os.path.join("src", folder)) and folder != "images"]
     
     # Generate HTML content for language menu
-    language_menu_html = ""
+    language_menu_html = '<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;">'
+    language_menu_html += '<button class="dropbtn" style="background-color: #fff; border: 1px solid #ccc; padding: 10px; cursor: pointer;">Select Language</button>'
+    language_menu_html += '<div class="dropdown-content" style="display: none; position: absolute; background-color: #fff; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;">'
     for lang_folder in language_folders:
-        language_menu_html += f"<li><a href='{lang_folder}'>{lang_folder}</a></li>"
+        language_menu_html += f"<a style='color: black; padding: 12px 16px; text-decoration: none; display: block;' href='{lang_folder}'>{lang_folder}</a>"
+    language_menu_html += "</div></div>"
 
     return language_menu_html
 
 def process_md_files():
     # Generate language menu HTML content
     language_menu_html = create_language_menu()
-
-    # Generate CSS for floating div
-    css_content = """
-    <style>
-    .language-menu {
-        position: fixed;
-        top: 50px;
-        right: 20px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 10px;
-        z-index: 1000;
-    }
-    </style>
-    """
 
     # Traverse through all .md files in src directory
     for root, dirs, files in os.walk("src"):
@@ -62,8 +50,8 @@ def process_md_files():
                 with open(os.path.join(root, file), "r") as md_file:
                     content = md_file.read()
                 
-                # Add language menu and CSS to content
-                modified_content = f"{css_content}\n<div class='language-menu'><ul>{language_menu_html}</ul></div>\n{content}"
+                # Add language menu
+                modified_content = f"{content}\n{language_menu_html}"
                 
                 # Write modified content back to the file
                 with open(os.path.join(root, file), "w") as md_file:
