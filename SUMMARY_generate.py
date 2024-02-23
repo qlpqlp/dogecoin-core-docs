@@ -3,7 +3,7 @@ import os
 def create_summary():
     summary_content = "# Summary\n\n"
     summary_content += "# Dogecoin Core\n\n"
-    summary_content += "- [README](src/en/README.md)\n\n"
+    summary_content += "- [README](./src/en/README.md)\n\n"
 
     # Get list of language folders in src directory
     language_folders = [folder for folder in os.listdir("src") if os.path.isdir(os.path.join("src", folder)) and folder != "images"]
@@ -21,7 +21,7 @@ def create_summary():
                 if doc_file.endswith(".md"):
                     # Add sub-menu item for each .md file
                     file_name = os.path.splitext(doc_file)[0]
-                    summary_content += f"- [{file_name}]({lang_folder}/doc/{doc_file})\n"
+                    summary_content += f"- [{file_name}](./{lang_folder}/doc/{doc_file})\n"
 
     # Write summary content to SUMMARY.md file
     with open("src/SUMMARY.md", "w") as summary_file:
@@ -33,11 +33,9 @@ def create_language_menu():
     
     # Generate HTML content for language menu
     language_menu_html = '<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;">'
-    language_menu_html += '<input type="checkbox" id="languageCheckbox" style="display: none;" />'
-    language_menu_html += '<label for="languageCheckbox" class="dropbtn" style="background-color: #fff; border: 1px solid #ccc; padding: 10px; cursor: pointer;">Select Language</label>'
-    language_menu_html += '<div class="dropdown-content" style="position: absolute; background-color: #fff; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;">'
+    language_menu_html += '<div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;">'
     for lang_folder in language_folders:
-        language_menu_html += f"<a style='color: black; padding: 12px 16px; text-decoration: none; display: block;' href='{lang_folder}'>{lang_folder}</a>"
+        language_menu_html += f"<a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='./{lang_folder}/index.html'>{lang_folder}</a>"
     language_menu_html += "</div></div>"
 
     return language_menu_html
