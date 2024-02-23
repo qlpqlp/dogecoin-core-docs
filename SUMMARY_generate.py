@@ -3,13 +3,7 @@ import os
 def create_summary():
     summary_content = "# Summary\n\n"
     summary_content += "# Dogecoin Core\n\n"
-
-    # Read the README.md file outside the doc folder
-    with open("src/en/README.md", "r") as readme_file:
-        readme_content = readme_file.read().strip()  # Read and strip whitespace
-        
-    # Add Dogecoin Core menu item
-    summary_content += f"* [Dogecoin Core]({readme_content})\n\n"
+    summary_content += "- [README](src/en/README.md)\n\n"
 
     # Get list of language folders in src directory
     language_folders = [folder for folder in os.listdir("src") if os.path.isdir(os.path.join("src", folder)) and folder != "images"]
@@ -27,7 +21,7 @@ def create_summary():
                 if doc_file.endswith(".md"):
                     # Add sub-menu item for each .md file
                     file_name = os.path.splitext(doc_file)[0]
-                    summary_content += f"  * [{file_name}]({lang_folder}/doc/{doc_file})\n"
+                    summary_content += f"- [{file_name}]({lang_folder}/doc/{doc_file})\n"
 
     # Write summary content to SUMMARY.md file
     with open("src/SUMMARY.md", "w") as summary_file:
