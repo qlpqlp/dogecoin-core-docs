@@ -5,7 +5,7 @@ def create_summary():
     summary_content += "# Dogecoin Core\n\n"
 
     # Read the README.md file outside the doc folder
-    with open("src/README.md", "r") as readme_file:
+    with open("src/en/README.md", "r") as readme_file:
         readme_content = readme_file.read().strip()  # Read and strip whitespace
         
     # Add Dogecoin Core menu item
