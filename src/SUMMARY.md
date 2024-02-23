@@ -5,7 +5,7 @@
 - [CN](./cn/README.md)
 - [BR](./br/README.md)
 - [FA](./fa/README.md)
-- [VI](./vi/README.md)
+- [VN](./vn/README.md)
 - [PT](./pt/README.md)
 
 # Development
