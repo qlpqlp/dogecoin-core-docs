@@ -31,27 +31,28 @@ def create_language_menu():
     # Generate HTML content for language menu
     language_menu_html = ""
     for lang_folder in language_folders:
-        language_menu_html += f"<li><a href='#' onclick='navigateToLanguage(\"{lang_folder}\")'>{lang_folder}</a></li>"
+        language_menu_html += f"<li><a href='{lang_folder}'>{lang_folder}</a></li>"
 
     return language_menu_html
 
-def generate_language_selection_script():
-    # Generate JavaScript function to navigate to language folder and file
-    js_script = """
-    <script>
-    function navigateToLanguage(langFolder) {
-        var langFile = langFolder + '.md'; // Assuming language file has the same name as folder
-        var url = 'src/' + langFolder + '/' + langFile;
-        window.location.href = url;
-    }
-    </script>
-    """
-    return js_script
-
 def process_md_files():
-    # Generate language menu and JavaScript
+    # Generate language menu HTML content
     language_menu_html = create_language_menu()
-    js_script = generate_language_selection_script()
+
+    # Generate CSS for floating div
+    css_content = """
+    <style>
+    .language-menu {
+        position: fixed;
+        top: 50px;
+        right: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 10px;
+        z-index: 1000;
+    }
+    </style>
+    """
 
     # Traverse through all .md files in src directory
     for root, dirs, files in os.walk("src"):
@@ -61,8 +62,8 @@ def process_md_files():
                 with open(os.path.join(root, file), "r") as md_file:
                     content = md_file.read()
                 
-                # Add language menu and JavaScript to content
-                modified_content = f"{content}\n\n{js_script}\n\n<div class='language-menu'>{language_menu_html}</div>"
+                # Add language menu and CSS to content
+                modified_content = f"{css_content}\n<div class='language-menu'><ul>{language_menu_html}</ul></div>\n{content}"
                 
                 # Write modified content back to the file
                 with open(os.path.join(root, file), "w") as md_file:
