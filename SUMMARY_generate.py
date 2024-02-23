@@ -1,15 +1,13 @@
-import os
-
 def create_summary():
     summary_content = "# Summary\n\n"
     summary_content += "# Dogecoin Core\n\n"
-    summary_content += "- [README](./src/en/README.md)\n\n"
+    summary_content += "- [README](./en/README.md)\n\n"
 
     # Get list of language folders in src directory
     language_folders = [folder for folder in os.listdir("src") if os.path.isdir(os.path.join("src", folder)) and folder != "images"]
 
-    # Add Development menu item
-    summary_content += "# Development\n"
+    # List to store other files
+    other_files = []
 
     # Loop through language folders
     for lang_folder in language_folders:
@@ -17,11 +15,21 @@ def create_summary():
         doc_folder_path = os.path.join("src", lang_folder, "doc")
         if os.path.exists(doc_folder_path) and os.path.isdir(doc_folder_path):
             # Loop through .md files in the 'doc' folder
-            for doc_file in sorted(os.listdir(doc_folder_path)):  # Sort files alphabetically
-                if doc_file.endswith(".md"):
+            for doc_file in os.listdir(doc_folder_path):
+                if doc_file.endswith(".md") and doc_file != "README.md":
                     # Add sub-menu item for each .md file
                     file_name = os.path.splitext(doc_file)[0]
-                    summary_content += f"- [{file_name}](./{lang_folder}/doc/{doc_file})\n"
+                    other_files.append((file_name, f"./{lang_folder}/doc/{doc_file}"))
+
+    # Sort other files alphabetically
+    other_files.sort()
+
+    # Add Development menu item
+    summary_content += "# Development\n"
+
+    # Add other files to summary
+    for file_name, file_link in other_files:
+        summary_content += f"- [{file_name}]{file_link}\n"
 
     # Write summary content to SUMMARY.md file
     with open("src/SUMMARY.md", "w") as summary_file:
