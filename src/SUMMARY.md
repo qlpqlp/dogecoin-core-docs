@@ -10,3 +10,4 @@
 
 # Development
 - [EN](./en/doc/README.md)
+    - [BIPS](./en/doc/bips.md)
