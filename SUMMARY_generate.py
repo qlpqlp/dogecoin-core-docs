@@ -35,6 +35,9 @@ def create_language_menu():
     # Get list of language folders in src directory, excluding "images"
     language_folders = [folder for folder in os.listdir("src") if os.path.isdir(os.path.join("src", folder)) and folder != "images"]
     
+    # Sort language folders starting with "en" first, then alphabetically
+    language_folders.sort(key=lambda x: (x != "en", x))
+
     # Generate HTML content for language menu
     language_menu_html = '<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;">'
     language_menu_html += '<div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;">'
