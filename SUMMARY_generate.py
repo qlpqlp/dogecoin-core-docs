@@ -24,7 +24,7 @@ def create_summary():
                 if doc_file.endswith(".md"):
                     # Add sub-menu item for each .md file
                     file_name = os.path.splitext(doc_file)[0]
-                    summary_content += f"- [{file_name.replace("-", " ").capitalize()}](./{lang_folder}/doc/{doc_file})\n"
+                    summary_content += f"- [{file_name.replace('--', ' ').capitalize()}](./{lang_folder}/doc/{doc_file})\n"
 
     # Write summary content to SUMMARY.md file
     with open("src/SUMMARY.md", "w") as summary_file:
