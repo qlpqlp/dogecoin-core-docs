@@ -42,7 +42,7 @@ def create_language_menu():
     language_menu_html = '<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;">'
     language_menu_html += '<div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;">'
     for lang_folder in language_folders:
-        language_menu_html += f"<a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/dogecoin-core-docs/{lang_folder}/index.html'>{lang_folder}</a>"
+        language_menu_html += f"<a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/{lang_folder}/index.html'>{lang_folder}</a>"
     language_menu_html += "</div></div>"
 
     return language_menu_html
