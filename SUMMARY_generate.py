@@ -12,7 +12,7 @@ def create_summary():
     # Loop through language folders
     for lang_folder in language_folders:
         summary_content += f"# [{lang_folder}] Dogecoin Core\n\n"
-        summary_content += f"- [README](./{lang_folder}/README.md)\n\n"
+        summary_content += f"- [Readme](./{lang_folder}/README.md)\n\n"
         
         # Construct path to doc folder inside each language folder
         doc_folder_path = os.path.join("src", lang_folder, "doc")        
@@ -24,7 +24,7 @@ def create_summary():
                 if doc_file.endswith(".md"):
                     # Add sub-menu item for each .md file
                     file_name = os.path.splitext(doc_file)[0]
-                    summary_content += f"- [{file_name}](./{lang_folder}/doc/{doc_file})\n"
+                    summary_content += f"- [{file_name.replace("-", " ").capitalize()}](./{lang_folder}/doc/{doc_file})\n"
 
     # Write summary content to SUMMARY.md file
     with open("src/SUMMARY.md", "w") as summary_file:
@@ -40,9 +40,9 @@ def create_language_menu():
 
     # Generate HTML content for language menu
     language_menu_html = '<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;">'
-    language_menu_html += '<div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;">'
+    language_menu_html += '<div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;border-radius:5px">'
     for lang_folder in language_folders:
-        language_menu_html += f"<a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/{lang_folder}/index.html'>{lang_folder}</a>"
+        language_menu_html += f"<a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/{lang_folder}/index.html'>{lang_folder.upper()}</a>"
     language_menu_html += "</div></div>"
 
     return language_menu_html
