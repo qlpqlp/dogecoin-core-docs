@@ -14,12 +14,11 @@ def create_summary():
         summary_content += f"# [{lang_folder}] Dogecoin Core\n\n"
         summary_content += f"- [README](./{lang_folder}/README.md)\n\n"
         
-        # Add Development menu item
-        summary_content += f"# [{lang_folder}] Development\n"
-        
         # Construct path to doc folder inside each language folder
         doc_folder_path = os.path.join("src", lang_folder, "doc")        
         if os.path.exists(doc_folder_path) and os.path.isdir(doc_folder_path):
+            # Add Development menu item
+            summary_content += f"# [{lang_folder}] Development\n"            
             # Loop through .md files in the 'doc' folder
             for doc_file in sorted(os.listdir(doc_folder_path)):  # Sort files alphabetically
                 if doc_file.endswith(".md"):
