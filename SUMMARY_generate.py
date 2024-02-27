@@ -1,8 +1,9 @@
-import os
+import os  # Import the os module
 
 def create_summary():
     summary_content = "# Summary\n\n"
     summary_content += "# Dogecoin Core\n\n"
+    summary_content += "- [README](./en/README.md)\n\n"
 
     # Get list of language folders in src directory
     language_folders = [folder for folder in os.listdir("src") if os.path.isdir(os.path.join("src", folder)) and folder != "images"]
@@ -15,19 +16,12 @@ def create_summary():
         # Construct path to doc folder inside each language folder
         doc_folder_path = os.path.join("src", lang_folder, "doc")
         if os.path.exists(doc_folder_path) and os.path.isdir(doc_folder_path):
-            # Get all files in the doc folder
-            doc_files = sorted(os.listdir(doc_folder_path))  # Sort files alphabetically
-            # Separate README files
-            readme_files = [f for f in doc_files if f.startswith("README")]
-            other_files = [f for f in doc_files if not f.startswith("README")]
-            # Add README files to the summary
-            for readme_file in readme_files:
-                file_name = os.path.splitext(readme_file)[0]
-                summary_content += f"- [{file_name}]({lang_folder}/doc/{readme_file})\n"
-            # Add other files to the summary
-            for doc_file in other_files:
-                file_name = os.path.splitext(doc_file)[0]
-                summary_content += f"- [{file_name}]({lang_folder}/doc/{doc_file})\n"
+            # Loop through .md files in the 'doc' folder
+            for doc_file in sorted(os.listdir(doc_folder_path)):  # Sort files alphabetically
+                if doc_file.endswith(".md"):
+                    # Add sub-menu item for each .md file
+                    file_name = os.path.splitext(doc_file)[0]
+                    summary_content += f"- [{file_name}](./{lang_folder}/doc/{doc_file})\n"
 
     # Write summary content to SUMMARY.md file
     with open("src/SUMMARY.md", "w") as summary_file:
@@ -41,7 +35,7 @@ def create_language_menu():
     language_menu_html = '<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;">'
     language_menu_html += '<div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;">'
     for lang_folder in language_folders:
-        language_menu_html += f"<a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='./{lang_folder}/index.html'>{lang_folder}</a>"
+        language_menu_html += f"<a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/{lang_folder}/index.html'>{lang_folder}</a>"
     language_menu_html += "</div></div>"
 
     return language_menu_html
