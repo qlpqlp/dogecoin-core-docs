@@ -1,0 +1,512 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Release-notes - Dogecoin Core [DOGE, Ð]</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Dogecoin CORE Documentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">[en] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../en/index.html"><strong aria-hidden="true">1.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[en] Development</li><li class="chapter-item expanded "><a href="../../en/doc/Building-Dogecoin-1.14-for-Mac.html"><strong aria-hidden="true">2.</strong> Building-dogecoin-1.14-for-mac</a></li><li class="chapter-item expanded "><a href="../../en/doc/CONTRIBUTING.html"><strong aria-hidden="true">3.</strong> Contributing</a></li><li class="chapter-item expanded "><a href="../../en/doc/FAQ.html"><strong aria-hidden="true">4.</strong> Faq</a></li><li class="chapter-item expanded "><a href="../../en/doc/index.html"><strong aria-hidden="true">5.</strong> Readme</a></li><li class="chapter-item expanded "><a href="../../en/doc/README_osx.html"><strong aria-hidden="true">6.</strong> Readme_osx</a></li><li class="chapter-item expanded "><a href="../../en/doc/REST-interface.html"><strong aria-hidden="true">7.</strong> Rest-interface</a></li><li class="chapter-item expanded "><a href="../../en/doc/assets-attribution.html"><strong aria-hidden="true">8.</strong> Assets-attribution</a></li><li class="chapter-item expanded "><a href="../../en/doc/benchmarking.html"><strong aria-hidden="true">9.</strong> Benchmarking</a></li><li class="chapter-item expanded "><a href="../../en/doc/bips.html"><strong aria-hidden="true">10.</strong> Bips</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-archlinux.html"><strong aria-hidden="true">11.</strong> Build-archlinux</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-fedora.html"><strong aria-hidden="true">12.</strong> Build-fedora</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-freebsd.html"><strong aria-hidden="true">13.</strong> Build-freebsd</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-nixos.html"><strong aria-hidden="true">14.</strong> Build-nixos</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-openbsd.html"><strong aria-hidden="true">15.</strong> Build-openbsd</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-osx.html"><strong aria-hidden="true">16.</strong> Build-osx</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-unix.html"><strong aria-hidden="true">17.</strong> Build-unix</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-windows.html"><strong aria-hidden="true">18.</strong> Build-windows</a></li><li class="chapter-item expanded "><a href="../../en/doc/developer-notes.html"><strong aria-hidden="true">19.</strong> Developer-notes</a></li><li class="chapter-item expanded "><a href="../../en/doc/dnsseed-policy.html"><strong aria-hidden="true">20.</strong> Dnsseed-policy</a></li><li class="chapter-item expanded "><a href="../../en/doc/experiments.html"><strong aria-hidden="true">21.</strong> Experiments</a></li><li class="chapter-item expanded "><a href="../../en/doc/fee-recommendation.html"><strong aria-hidden="true">22.</strong> Fee-recommendation</a></li><li class="chapter-item expanded "><a href="../../en/doc/files.html"><strong aria-hidden="true">23.</strong> Files</a></li><li class="chapter-item expanded "><a href="../../en/doc/fuzzing.html"><strong aria-hidden="true">24.</strong> Fuzzing</a></li><li class="chapter-item expanded "><a href="../../en/doc/getting-started.html"><strong aria-hidden="true">25.</strong> Getting-started</a></li><li class="chapter-item expanded "><a href="../../en/doc/gitian-building.html"><strong aria-hidden="true">26.</strong> Gitian-building</a></li><li class="chapter-item expanded "><a href="../../en/doc/init.html"><strong aria-hidden="true">27.</strong> Init</a></li><li class="chapter-item expanded "><a href="../../en/doc/reduce-memory.html"><strong aria-hidden="true">28.</strong> Reduce-memory</a></li><li class="chapter-item expanded "><a href="../../en/doc/reduce-traffic.html"><strong aria-hidden="true">29.</strong> Reduce-traffic</a></li><li class="chapter-item expanded "><a href="../../en/doc/release-notes.html" class="active"><strong aria-hidden="true">30.</strong> Release-notes</a></li><li class="chapter-item expanded "><a href="../../en/doc/release-process.html"><strong aria-hidden="true">31.</strong> Release-process</a></li><li class="chapter-item expanded "><a href="../../en/doc/shared-libraries.html"><strong aria-hidden="true">32.</strong> Shared-libraries</a></li><li class="chapter-item expanded "><a href="../../en/doc/tor.html"><strong aria-hidden="true">33.</strong> Tor</a></li><li class="chapter-item expanded "><a href="../../en/doc/translation_process.html"><strong aria-hidden="true">34.</strong> Translation_process</a></li><li class="chapter-item expanded "><a href="../../en/doc/translation_strings_policy.html"><strong aria-hidden="true">35.</strong> Translation_strings_policy</a></li><li class="chapter-item expanded "><a href="../../en/doc/travis-ci.html"><strong aria-hidden="true">36.</strong> Travis-ci</a></li><li class="chapter-item expanded "><a href="../../en/doc/zmq.html"><strong aria-hidden="true">37.</strong> Zmq</a></li><li class="chapter-item expanded affix "><li class="part-title">[br] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../br/index.html"><strong aria-hidden="true">38.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[cn] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../cn/index.html"><strong aria-hidden="true">39.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[fa] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../fa/index.html"><strong aria-hidden="true">40.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[pt] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../pt/index.html"><strong aria-hidden="true">41.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[vn] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../vn/index.html"><strong aria-hidden="true">42.</strong> Readme</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dogecoin Core [DOGE, Ð]</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/tree/main/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/edit/main/src/en/doc/release-notes.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Dogecoin Core version 1.14.6 is now available from:</p>
+<p><a href="https://github.com/dogecoin/dogecoin/releases/tag/v1.14.6/">https://github.com/dogecoin/dogecoin/releases/tag/v1.14.6/</a></p>
+<p>This is a new minor version release, including important security updates and
+changes to network efficiency. All Dogecoin Core users - miners, services,
+relay operators and wallet users - are strongly recommended to upgrade.</p>
+<p>Please report bugs using the issue tracker at github:</p>
+<p><a href="https://github.com/dogecoin/dogecoin/issues">https://github.com/dogecoin/dogecoin/issues</a></p>
+<p>To receive notifications about updates, subscribe to the release mailing list:</p>
+<p><a href="https://sourceforge.net/projects/dogecoin/lists/dogecoin-releases">https://sourceforge.net/projects/dogecoin/lists/dogecoin-releases</a></p>
+<p>Releases are also announced on reddit:</p>
+<p><a href="https://www.reddit.com/r/dogecoindev/">https://www.reddit.com/r/dogecoindev/</a></p>
+<h1 id="compatibility"><a class="header" href="#compatibility">Compatibility</a></h1>
+<p>Dogecoin Core is extensively tested on Ubuntu Server LTS, Intel-based macOS
+and Windows 10.</p>
+<p>Dogecoin Core should also work on most other Unix-like systems but is not
+frequently tested on them.</p>
+<h1 id="notable-changes"><a class="header" href="#notable-changes">Notable changes</a></h1>
+<h2 id="important-security-updates"><a class="header" href="#important-security-updates">Important Security Updates</a></h2>
+<p>This release contains fixes that harden node and network security. These fixes
+are important for every node operator and wallet user.</p>
+<h3 id="alert-system-removal"><a class="header" href="#alert-system-removal">Alert system removal</a></h3>
+<p>The P2P alert system has been removed and alert messages are no longer
+processed. This was planned for the next major release, but as bugs were found
+in the implementation, the full deprecation of this feature has been executed
+early, because it makes no sense to overhaul a system that is unused and
+already marked for removal in the near future.</p>
+<h3 id="harden-the-transaction-download-mechanism"><a class="header" href="#harden-the-transaction-download-mechanism">Harden the transaction download mechanism</a></h3>
+<p>Significantly reduce the impact of peers that withhold transaction information
+(accidentally or otherwise) in the announcement stage, before the transaction
+is mined, by enforcing strict controls, limits and timeouts on all transaction
+announcements and giving preference to outgoing connections when deciding which
+peer to request transaction information from.</p>
+<p>This improves the resilience of the entire network and improves reliability of
+transaction relay throughout.</p>
+<h3 id="other-security-related-fixes"><a class="header" href="#other-security-related-fixes">Other security-related fixes</a></h3>
+<ul>
+<li>Harden the protocol implementation to reject buggy or malformed messages.
+This helps protect the network against broken custom clients.</li>
+<li>Limit and tightly manage memory usage in events of high network traffic or
+when connected to extremely slow peers. This protects nodes on lower end
+hardware to not run out of memory in the face of increased network activity.</li>
+</ul>
+<h2 id="fee-recommendation"><a class="header" href="#fee-recommendation">Fee Recommendation</a></h2>
+<p>This release changes the recommended dust limit for all participants on the
+Dogecoin network from 1 DOGE to 0.01 DOGE. The full recommendation can be found
+<a href="fee-recommendation.html">in the documentation</a>.</p>
+<p>This change has been implemented in the wallet as the default value of
+<code>-discardthreshold</code>, resulting in the following default logic:</p>
+<ol>
+<li>The wallet will attempt to not create any outputs smaller than 0.03 DOGE as
+change if possible.</li>
+<li>If after signing there is more than 0.01 DOGE left in the change output, the
+wallet will keep the output as-is.</li>
+<li>If the change output drops under 0.01 DOGE, the wallet will discard the
+change and instead give it to miners as fee.</li>
+<li>Any output under 0.01 DOGE will not be accepted as valid by default.</li>
+</ol>
+<h2 id="breaking-changes"><a class="header" href="#breaking-changes">Breaking changes</a></h2>
+<h3 id="configuration-of-a-wallet-backup-directory"><a class="header" href="#configuration-of-a-wallet-backup-directory">Configuration of a wallet backup directory</a></h3>
+<p>Adds a new command line parameter <code>-backupdir</code> that allows operators to specify
+where to store wallet backups and dumps. When not set, the node will add a
+directory under the data directory called "backups".</p>
+<p><strong>This is a breaking change.</strong></p>
+<p>The behavior of the <code>dumpwallet</code> and <code>backupwallet</code> RPC methods has changed, as
+these will ignore any path given other than the filename, and will always store
+the filename in the directory defined with <code>-backupdir</code> or the above-mentioned
+default location.</p>
+<p>These methods will also refuse to overwrite any existing files and will produce
+error messages to that effect.</p>
+<h3 id="maximum-number-of-addnode-records"><a class="header" href="#maximum-number-of-addnode-records">Maximum number of addnode records</a></h3>
+<p>To protect against users accidentally submitting an insane amount of address
+records using the <code>addnode</code> RPC call, the maximum number of "addnode" records
+has been limited to 800, which is 100x the maximum number of manually added
+nodes that the software connects to (8).</p>
+<p>Once this maximum is reached, the software will refuse to add any more
+addresses and return an error.</p>
+<p>Users can remove existing addnode records from the software by running:</p>
+<pre><code>dogecoin-cli addnode &lt;address&gt; remove
+</code></pre>
+<h2 id="features"><a class="header" href="#features">Features</a></h2>
+<h3 id="improve-stuck-transaction-detection"><a class="header" href="#improve-stuck-transaction-detection">Improve stuck transaction detection</a></h3>
+<p>A new RPC method has been added to help wallet operators identify if any
+transactions are stuck (have not been mined and are not in the mempool)
+and enable resolution. This helps in cases where node-local fee or dust
+policies change, to prevent the node from sending out old transactions that
+got lost.</p>
+<p>The method can be called with:</p>
+<pre><code>dogecoin-cli liststucktransactions
+</code></pre>
+<h3 id="add-pruning-configuration-to-the-ui"><a class="header" href="#add-pruning-configuration-to-the-ui">Add pruning configuration to the UI</a></h3>
+<p>Adds pruning configuration to the UI, to make it easier to save diskspace for
+users of graphical (wallet) installations. Before, this could only be done
+through manual editing of the configuration file.</p>
+<p>The new setting allows a user to decrease the total disk space used for keeping
+full blocks the node down to 3GB, by removing blocks that are no longer needed
+for full incremental validation of the blockchain.</p>
+<p><strong>Caveats</strong></p>
+<p>Note that when running a pruned node, the following applies:</p>
+<ul>
+<li>The node will no longer relay blocks and transactions.</li>
+<li>If the node needs to recover after a hardware failure, it might need to
+re-download the entire chain.</li>
+<li>Features that need the entire block chain, such as rescanning the chain
+for wallet transactions, or importing old keys, will not function.</li>
+<li>Reverting this setting will make the node re-download the entire chain.</li>
+</ul>
+<h3 id="manage-the-number-of-connections-without-restart"><a class="header" href="#manage-the-number-of-connections-without-restart">Manage the number of connections without restart</a></h3>
+<p>A new RPC method <code>setmaxconnections</code> has been introduced that enables wallet
+and node operators to change the maximum number of connections their node
+allows without needing to restart (and with that, lose all connections)
+allowing for more fine-grained control of the node's network capacities.</p>
+<p>The node will allow reducing the number of connections until a minimum of 28,
+and will automatically adapt to a maximum that the host OS allows.</p>
+<p>To change the maximum number of connections, run:</p>
+<pre><code>dogecoin-cli setmaxconnections &lt;desired_amount&gt;
+</code></pre>
+<h3 id="improve-the-traffic-graph-in-the-ui"><a class="header" href="#improve-the-traffic-graph-in-the-ui">Improve the traffic graph in the UI</a></h3>
+<p>Significantly improves the graph in the UI's traffic monitor by not throwing
+away data every time the graph scale got resampled, but instead keeping track
+of the traffic we see in the background and then rendering it on demand.</p>
+<h3 id="add-a-rescan-rpc-method"><a class="header" href="#add-a-rescan-rpc-method">Add a rescan RPC method</a></h3>
+<p>A new RPC method, <code>rescan</code>, has been added to allow node operators to rescan
+the chain for wallet transactions from a certain height. This can help speed
+up the rescan process for keys that are known to be generated after a certain
+date or block height, as older blocks do not necessarily require to be scanned
+in that scenario. This may also be helpful when adding large quantities of
+watchonly addresses.</p>
+<p>NOTE: rescanning the blockchain takes a lot of time.</p>
+<p>To use the rescan functionality, use:</p>
+<pre><code>dogecoin-cli rescan &lt;start_block&gt;
+</code></pre>
+<p>It will inform of the state before and after when the process finishes:</p>
+<pre><code>{
+  "before": {
+    "balance": 69.00000000,
+    "txcount": 1
+  },
+  "after": {
+    "balance": 420.00000000,
+    "txcount": 3
+  },
+  "blocks_scanned": 31337,
+  "time_elapsed": 23
+}
+</code></pre>
+<h3 id="new-rest-endpoint-blockhashbyheight"><a class="header" href="#new-rest-endpoint-blockhashbyheight">New REST endpoint: blockhashbyheight</a></h3>
+<p>A new endpoint has been added to the REST server to find the current best known
+block at a certain height, without having to do RPC calls. This is useful for
+service implementations that need to track or query blocks.</p>
+<p>The new endpoint can be queried with:</p>
+<pre><code>GET /rest/blockhashbyheight/&lt;height&gt;
+</code></pre>
+<h2 id="translation-updates"><a class="header" href="#translation-updates">Translation Updates</a></h2>
+<p>Significant updates have been provided to the following languages:</p>
+<ul>
+<li>Bulgarian</li>
+<li>Dutch</li>
+<li>French</li>
+<li>Italian</li>
+<li>Korean</li>
+<li>Persian</li>
+<li>Portuguese (pt_PT)</li>
+<li>Tamil</li>
+</ul>
+<p>Policies and tooling have been updated to enable translators better in their
+efforts to make Dogecoin more accessible to people that do not speak English.</p>
+<h2 id="rpc-api-changes"><a class="header" href="#rpc-api-changes">RPC API Changes</a></h2>
+<ul>
+<li>The <code>verifychain</code> RPC command no longer accepts negative values</li>
+<li>Added <code>liststucktransactions</code></li>
+<li>Added <code>setmaxconnections</code></li>
+<li>Added <code>rescan</code></li>
+<li><code>addnode</code> will now return error <code>-32</code> when the address provided is too long</li>
+<li><code>getpeerinfo</code> provides 2 new fields per peer, <code>addr_processed</code> and
+<code>addr_rate_limited</code>, that track <code>addr</code> message processing</li>
+<li><code>dumpwallet</code> and <code>backupwallet</code> now write their output to the configurable
+backup directory and do not overwrite existing files</li>
+</ul>
+<h2 id="dependency-updates"><a class="header" href="#dependency-updates">Dependency Updates</a></h2>
+<ul>
+<li>Updated the default dependency zlib to <code>1.2.12</code>.</li>
+<li>Updated the default dependency libevent to <code>2.1.12-stable</code>.</li>
+<li>Update the LevelDB subtree to use the same version as Bitcoin <code>22.0</code>, from
+the bitcoin-core maintained fork.</li>
+</ul>
+<h1 id="minor-changes"><a class="header" href="#minor-changes">Minor Changes</a></h1>
+<ul>
+<li>Added ARMv8 and ARMv82 crypto extensions as an experimental feature. This
+significantly improves the speed at which 64-bit ARM hardware can validate
+blocks and transactions.</li>
+<li>Fixed the graphical wallet to properly display in High-DPI resolutions.</li>
+<li>Improved privacy by preventing leaks of information about our wallet when
+setting the locktime field (automatically.)</li>
+<li>Added scrypt to the benchmark code.</li>
+<li>Change the granularity of data downloaded in the network tab to no longer
+display gigabytes and terrabytes, as this obscures too much detail. Instead,
+the largest unit is now megabytes.</li>
+<li>Fixed a bug in the getutxos REST endpoint to also show data when not
+including the mempool.</li>
+<li>Improved the tips displayed in the UI to be more concise and give better
+advice.</li>
+<li>Removed information from the graphical wallet that was attempting to indicate
+stuck transactions based on peer-to-peer traffic, but this does not work
+since 1.14.2, and can be misleading (showing false positives and negatives.)</li>
+<li>Improved and updated the <a href="bips.html">bip list</a> documentation that explains the
+protocol features implemented by Dogecoin Core.</li>
+<li>Greatly improved the <code>gitian-build</code> script to ease doing deterministic builds
+for everyone, and the <a href="gitian-building.html">documentation</a> of that process.</li>
+</ul>
+<h1 id="credits"><a class="header" href="#credits">Credits</a></h1>
+<p>Credit goes to all awesome contributors to this release, alphabetically:</p>
+<ul>
+<li>AbcSxyZ</li>
+<li>alamshafil</li>
+<li>Ayushman Singh Chauhan</li>
+<li>Bhaskar Kashyap</li>
+<li>ch0k1</li>
+<li>Chao Liu</li>
+<li>chromatic</li>
+<li>Chuanyi</li>
+<li>Chun Kuan Lee</li>
+<li>Dakoda Greaves</li>
+<li>DogecoinItalia</li>
+<li>dogespacewizard</li>
+<li>Ed Tubbs</li>
+<li>Evan Klitzke</li>
+<li>fanquake</li>
+<li>fdov</li>
+<li>Gregory Maxwell</li>
+<li>Hennadii Stepanov</li>
+<li>huedaya</li>
+<li>iamagf</li>
+<li>inevitable360</li>
+<li>Jade Hamel</li>
+<li>Jadi</li>
+<li>Jeremy Rubin</li>
+<li>Jimkov</li>
+<li>just-an-dev</li>
+<li>justAndrea1111</li>
+<li>katesalazar</li>
+<li>Kaz Wesley</li>
+<li>MVShishkov</li>
+<li>Maniixer</li>
+<li>MarcoFalke</li>
+<li>Martyornot</li>
+<li>Matheus Bach</li>
+<li>Matt Corallo</li>
+<li>Micael Malta</li>
+<li>Michi Lumin</li>
+<li>Misha Behersky</li>
+<li>MishaBoar</li>
+<li>Mohammad Ali Haghshenas</li>
+<li>Motahhar Mokf</li>
+<li>Patrick Lodder</li>
+<li>Pieter Wuille</li>
+<li>practicalswift</li>
+<li>RnoHach</li>
+<li>Roman Zeyde</li>
+<li>Russell Yanofsky</li>
+<li>scarletletters</li>
+<li>sinetek</li>
+<li>Staartvos</li>
+<li>Steve Chung</li>
+<li>thisiskeanyvy</li>
+<li>vertiond</li>
+<li>VJ</li>
+<li>Wladimir J. van der Laan</li>
+<li>ZeeAmini</li>
+</ul>
+<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;"><div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;border-radius:5px"><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/en/index.html'>EN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/br/index.html'>BR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/cn/index.html'>CN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/fa/index.html'>FA</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/pt/index.html'>PT</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/vn/index.html'>VN</a></div></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../en/doc/reduce-traffic.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../en/doc/release-process.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../en/doc/reduce-traffic.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../en/doc/release-process.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Build-fedora - Dogecoin Core [DOGE, Ð]</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Dogecoin CORE Documentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">[en] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../en/index.html"><strong aria-hidden="true">1.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[en] Development</li><li class="chapter-item expanded "><a href="../../en/doc/Building-Dogecoin-1.14-for-Mac.html"><strong aria-hidden="true">2.</strong> Building-dogecoin-1.14-for-mac</a></li><li class="chapter-item expanded "><a href="../../en/doc/CONTRIBUTING.html"><strong aria-hidden="true">3.</strong> Contributing</a></li><li class="chapter-item expanded "><a href="../../en/doc/FAQ.html"><strong aria-hidden="true">4.</strong> Faq</a></li><li class="chapter-item expanded "><a href="../../en/doc/index.html"><strong aria-hidden="true">5.</strong> Readme</a></li><li class="chapter-item expanded "><a href="../../en/doc/README_osx.html"><strong aria-hidden="true">6.</strong> Readme_osx</a></li><li class="chapter-item expanded "><a href="../../en/doc/REST-interface.html"><strong aria-hidden="true">7.</strong> Rest-interface</a></li><li class="chapter-item expanded "><a href="../../en/doc/assets-attribution.html"><strong aria-hidden="true">8.</strong> Assets-attribution</a></li><li class="chapter-item expanded "><a href="../../en/doc/benchmarking.html"><strong aria-hidden="true">9.</strong> Benchmarking</a></li><li class="chapter-item expanded "><a href="../../en/doc/bips.html"><strong aria-hidden="true">10.</strong> Bips</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-archlinux.html"><strong aria-hidden="true">11.</strong> Build-archlinux</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-fedora.html" class="active"><strong aria-hidden="true">12.</strong> Build-fedora</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-freebsd.html"><strong aria-hidden="true">13.</strong> Build-freebsd</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-nixos.html"><strong aria-hidden="true">14.</strong> Build-nixos</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-openbsd.html"><strong aria-hidden="true">15.</strong> Build-openbsd</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-osx.html"><strong aria-hidden="true">16.</strong> Build-osx</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-unix.html"><strong aria-hidden="true">17.</strong> Build-unix</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-windows.html"><strong aria-hidden="true">18.</strong> Build-windows</a></li><li class="chapter-item expanded "><a href="../../en/doc/developer-notes.html"><strong aria-hidden="true">19.</strong> Developer-notes</a></li><li class="chapter-item expanded "><a href="../../en/doc/dnsseed-policy.html"><strong aria-hidden="true">20.</strong> Dnsseed-policy</a></li><li class="chapter-item expanded "><a href="../../en/doc/experiments.html"><strong aria-hidden="true">21.</strong> Experiments</a></li><li class="chapter-item expanded "><a href="../../en/doc/fee-recommendation.html"><strong aria-hidden="true">22.</strong> Fee-recommendation</a></li><li class="chapter-item expanded "><a href="../../en/doc/files.html"><strong aria-hidden="true">23.</strong> Files</a></li><li class="chapter-item expanded "><a href="../../en/doc/fuzzing.html"><strong aria-hidden="true">24.</strong> Fuzzing</a></li><li class="chapter-item expanded "><a href="../../en/doc/getting-started.html"><strong aria-hidden="true">25.</strong> Getting-started</a></li><li class="chapter-item expanded "><a href="../../en/doc/gitian-building.html"><strong aria-hidden="true">26.</strong> Gitian-building</a></li><li class="chapter-item expanded "><a href="../../en/doc/init.html"><strong aria-hidden="true">27.</strong> Init</a></li><li class="chapter-item expanded "><a href="../../en/doc/reduce-memory.html"><strong aria-hidden="true">28.</strong> Reduce-memory</a></li><li class="chapter-item expanded "><a href="../../en/doc/reduce-traffic.html"><strong aria-hidden="true">29.</strong> Reduce-traffic</a></li><li class="chapter-item expanded "><a href="../../en/doc/release-notes.html"><strong aria-hidden="true">30.</strong> Release-notes</a></li><li class="chapter-item expanded "><a href="../../en/doc/release-process.html"><strong aria-hidden="true">31.</strong> Release-process</a></li><li class="chapter-item expanded "><a href="../../en/doc/shared-libraries.html"><strong aria-hidden="true">32.</strong> Shared-libraries</a></li><li class="chapter-item expanded "><a href="../../en/doc/tor.html"><strong aria-hidden="true">33.</strong> Tor</a></li><li class="chapter-item expanded "><a href="../../en/doc/translation_process.html"><strong aria-hidden="true">34.</strong> Translation_process</a></li><li class="chapter-item expanded "><a href="../../en/doc/translation_strings_policy.html"><strong aria-hidden="true">35.</strong> Translation_strings_policy</a></li><li class="chapter-item expanded "><a href="../../en/doc/travis-ci.html"><strong aria-hidden="true">36.</strong> Travis-ci</a></li><li class="chapter-item expanded "><a href="../../en/doc/zmq.html"><strong aria-hidden="true">37.</strong> Zmq</a></li><li class="chapter-item expanded affix "><li class="part-title">[br] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../br/index.html"><strong aria-hidden="true">38.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[cn] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../cn/index.html"><strong aria-hidden="true">39.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[fa] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../fa/index.html"><strong aria-hidden="true">40.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[pt] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../pt/index.html"><strong aria-hidden="true">41.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[vn] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../vn/index.html"><strong aria-hidden="true">42.</strong> Readme</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dogecoin Core [DOGE, Ð]</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/tree/main/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/edit/main/src/en/doc/build-fedora.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="fedora-build-guide"><a class="header" href="#fedora-build-guide">Fedora build guide</a></h2>
+<p><strong>Last tested with:</strong> 1.14.6-dev (as of 22884709)
+<strong>Tested on:</strong> Fedora 35,35,36</p>
+<h3 id="build-requirements"><a class="header" href="#build-requirements">Build requirements</a></h3>
+<p><strong>Fedora &lt; 36:</strong></p>
+<pre><code class="language-sh">sudo dnf install gcc-c++ libtool which diffutils make autoconf automake \
+                 openssl-devel libevent-devel boost-devel libdb-cxx-devel
+</code></pre>
+<p><strong>Fedora &gt;= 36:</strong></p>
+<pre><code class="language-sh">sudo dnf install gcc-c++ libtool which diffutils make autoconf automake \
+                 openssl1.1-devel libevent-devel boost-devel libdb-cxx-devel
+</code></pre>
+<h3 id="optional-elements"><a class="header" href="#optional-elements">Optional elements</a></h3>
+<h4 id="miniupnp"><a class="header" href="#miniupnp">MiniUPNP</a></h4>
+<p>Useful when your node is running behind a NAT router.</p>
+<pre><code class="language-sh">sudo dnf install miniupnpc-devel
+</code></pre>
+<h4 id="zeromq"><a class="header" href="#zeromq">ZeroMQ</a></h4>
+<pre><code class="language-sh">sudo dnf install zeromq-devel
+</code></pre>
+<h4 id="gui-requirements"><a class="header" href="#gui-requirements">GUI requirements</a></h4>
+<p>To build the GUI with Qt 5 you need the following:</p>
+<pre><code class="language-sh">sudo dnf install qt5-qttools-devel qt5-qtbase-devel protobuf-devel qrencode-devel
+</code></pre>
+<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;"><div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;border-radius:5px"><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/en/index.html'>EN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/br/index.html'>BR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/cn/index.html'>CN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/fa/index.html'>FA</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/pt/index.html'>PT</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/vn/index.html'>VN</a></div></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../en/doc/build-archlinux.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../en/doc/build-freebsd.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../en/doc/build-archlinux.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../en/doc/build-freebsd.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
