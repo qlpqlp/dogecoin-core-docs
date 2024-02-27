@@ -5,13 +5,18 @@ def create_summary():
 
     # Get list of language folders in src directory
     language_folders = [folder for folder in os.listdir("src") if os.path.isdir(os.path.join("src", folder)) and folder != "images"]
+    
+    # Sort language folders starting with "en" first, then alphabetically
+    language_folders.sort(key=lambda x: (x != "en", x))
 
     # Loop through language folders
     for lang_folder in language_folders:
         summary_content += f"# [{lang_folder}] Dogecoin Core\n\n"
         summary_content += f"- [README](./{lang_folder}/README.md)\n\n"
+        
         # Add Development menu item
-        summary_content += "# Development\n"
+        summary_content += f"# [{lang_folder}] Development\n"
+        
         # Construct path to doc folder inside each language folder
         doc_folder_path = os.path.join("src", lang_folder, "doc")        
         if os.path.exists(doc_folder_path) and os.path.isdir(doc_folder_path):
@@ -25,6 +30,7 @@ def create_summary():
     # Write summary content to SUMMARY.md file
     with open("src/SUMMARY.md", "w") as summary_file:
         summary_file.write(summary_content)
+
 
 def create_language_menu():
     # Get list of language folders in src directory, excluding "images"
