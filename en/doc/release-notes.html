@@ -1,0 +1,474 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Release-notes - Dogecoin Core [DOGE, Ð]</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="Dogecoin CORE Documentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">[en] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../en/index.html"><strong aria-hidden="true">1.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[en] Development</li><li class="chapter-item expanded "><a href="../../en/doc/Building-Dogecoin-1.14-for-Mac-removed.html"><strong aria-hidden="true">2.</strong> Building-dogecoin-1.14-for-mac-removed</a></li><li class="chapter-item expanded "><a href="../../en/doc/CONTRIBUTING-removed.html"><strong aria-hidden="true">3.</strong> Contributing-removed</a></li><li class="chapter-item expanded "><a href="../../en/doc/FAQ.html"><strong aria-hidden="true">4.</strong> Faq</a></li><li class="chapter-item expanded "><a href="../../en/doc/index.html"><strong aria-hidden="true">5.</strong> Readme</a></li><li class="chapter-item expanded "><a href="../../en/doc/README_osx.html"><strong aria-hidden="true">6.</strong> Readme_osx</a></li><li class="chapter-item expanded "><a href="../../en/doc/REST-interface.html"><strong aria-hidden="true">7.</strong> Rest-interface</a></li><li class="chapter-item expanded "><a href="../../en/doc/assets-attribution.html"><strong aria-hidden="true">8.</strong> Assets-attribution</a></li><li class="chapter-item expanded "><a href="../../en/doc/benchmarking.html"><strong aria-hidden="true">9.</strong> Benchmarking</a></li><li class="chapter-item expanded "><a href="../../en/doc/bips.html"><strong aria-hidden="true">10.</strong> Bips</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-archlinux.html"><strong aria-hidden="true">11.</strong> Build-archlinux</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-fedora.html"><strong aria-hidden="true">12.</strong> Build-fedora</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-freebsd.html"><strong aria-hidden="true">13.</strong> Build-freebsd</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-macos.html"><strong aria-hidden="true">14.</strong> Build-macos</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-nixos.html"><strong aria-hidden="true">15.</strong> Build-nixos</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-openbsd.html"><strong aria-hidden="true">16.</strong> Build-openbsd</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-osx-removed.html"><strong aria-hidden="true">17.</strong> Build-osx-removed</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-unix.html"><strong aria-hidden="true">18.</strong> Build-unix</a></li><li class="chapter-item expanded "><a href="../../en/doc/build-windows.html"><strong aria-hidden="true">19.</strong> Build-windows</a></li><li class="chapter-item expanded "><a href="../../en/doc/developer-notes.html"><strong aria-hidden="true">20.</strong> Developer-notes</a></li><li class="chapter-item expanded "><a href="../../en/doc/dnsseed-policy.html"><strong aria-hidden="true">21.</strong> Dnsseed-policy</a></li><li class="chapter-item expanded "><a href="../../en/doc/experiments.html"><strong aria-hidden="true">22.</strong> Experiments</a></li><li class="chapter-item expanded "><a href="../../en/doc/fee-recommendation.html"><strong aria-hidden="true">23.</strong> Fee-recommendation</a></li><li class="chapter-item expanded "><a href="../../en/doc/files.html"><strong aria-hidden="true">24.</strong> Files</a></li><li class="chapter-item expanded "><a href="../../en/doc/fuzzing.html"><strong aria-hidden="true">25.</strong> Fuzzing</a></li><li class="chapter-item expanded "><a href="../../en/doc/getting-started.html"><strong aria-hidden="true">26.</strong> Getting-started</a></li><li class="chapter-item expanded "><a href="../../en/doc/gitian-building.html"><strong aria-hidden="true">27.</strong> Gitian-building</a></li><li class="chapter-item expanded "><a href="../../en/doc/init.html"><strong aria-hidden="true">28.</strong> Init</a></li><li class="chapter-item expanded "><a href="../../en/doc/reduce-memory.html"><strong aria-hidden="true">29.</strong> Reduce-memory</a></li><li class="chapter-item expanded "><a href="../../en/doc/reduce-traffic.html"><strong aria-hidden="true">30.</strong> Reduce-traffic</a></li><li class="chapter-item expanded "><a href="../../en/doc/release-notes.html" class="active"><strong aria-hidden="true">31.</strong> Release-notes</a></li><li class="chapter-item expanded "><a href="../../en/doc/release-process.html"><strong aria-hidden="true">32.</strong> Release-process</a></li><li class="chapter-item expanded "><a href="../../en/doc/rpc-maturity.html"><strong aria-hidden="true">33.</strong> Rpc-maturity</a></li><li class="chapter-item expanded "><a href="../../en/doc/shared-libraries.html"><strong aria-hidden="true">34.</strong> Shared-libraries</a></li><li class="chapter-item expanded "><a href="../../en/doc/tor.html"><strong aria-hidden="true">35.</strong> Tor</a></li><li class="chapter-item expanded "><a href="../../en/doc/translation_process.html"><strong aria-hidden="true">36.</strong> Translation_process</a></li><li class="chapter-item expanded "><a href="../../en/doc/translation_strings_policy.html"><strong aria-hidden="true">37.</strong> Translation_strings_policy</a></li><li class="chapter-item expanded "><a href="../../en/doc/travis-ci.html"><strong aria-hidden="true">38.</strong> Travis-ci</a></li><li class="chapter-item expanded "><a href="../../en/doc/zmq.html"><strong aria-hidden="true">39.</strong> Zmq</a></li><li class="chapter-item expanded affix "><li class="part-title">[br] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../br/index.html"><strong aria-hidden="true">40.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[cn] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../cn/index.html"><strong aria-hidden="true">41.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[fr] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../fr/index.html"><strong aria-hidden="true">42.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[ir] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../ir/index.html"><strong aria-hidden="true">43.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[pt] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../pt/index.html"><strong aria-hidden="true">44.</strong> Readme</a></li><li class="chapter-item expanded affix "><li class="part-title">[vn] Dogecoin Core</li><li class="chapter-item expanded "><a href="../../vn/index.html"><strong aria-hidden="true">45.</strong> Readme</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dogecoin Core [DOGE, Ð]</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/tree/main/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/edit/main/src/en/doc/release-notes.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>Dogecoin Core version 1.14.7 is now available from:</p>
+<p><a href="https://github.com/dogecoin/dogecoin/releases/tag/v1.14.7/">https://github.com/dogecoin/dogecoin/releases/tag/v1.14.7/</a></p>
+<p>This is a new minor version release, including enchancements to several RPC
+methods and important security updates for Dogecoin-Qt. Dogecoin-Qt users on
+any platform are strongly recommended to upgrade.</p>
+<p>Please report bugs using the issue tracker at GitHub:</p>
+<p><a href="https://github.com/dogecoin/dogecoin/issues">https://github.com/dogecoin/dogecoin/issues</a></p>
+<p>To receive notifications about updates, subscribe to the release mailing list:</p>
+<p><a href="https://sourceforge.net/projects/dogecoin/lists/dogecoin-releases">https://sourceforge.net/projects/dogecoin/lists/dogecoin-releases</a></p>
+<h1 id="compatibility"><a class="header" href="#compatibility">Compatibility</a></h1>
+<p>Dogecoin Core is extensively tested on Ubuntu Server LTS, macOS and Windows.
+Minimum OS compatibility can be found <a href="../INSTALL.html">in the INSTALL guide</a>.</p>
+<h1 id="notable-changes"><a class="header" href="#notable-changes">Notable changes</a></h1>
+<h2 id="important-security-updates"><a class="header" href="#important-security-updates">Important Security Updates</a></h2>
+<p>This release contains fixes for Dogecoin Qt across all platforms that increase
+security for end users.</p>
+<h3 id="disable-bip-70-payment-server-by-default"><a class="header" href="#disable-bip-70-payment-server-by-default">Disable BIP-70 payment server by default</a></h3>
+<p>To mitigate future potential risk inside Dogecoin Qt, support for BIP-70 payment
+requests and related BIP-71 and BIP-72 payment URIs and MIME types have been
+disabled by default, because this functionality interacts with remote websites
+in an automated manner and could be used to amplify any future vulnerabilities
+inside Dogecoin Qt. By default, incoming BIP-70 payment requests and files or
+URLs that use the functionality are rejected and an explanation is shown to the
+user.</p>
+<p>BIP-21 payment requests remain fully supported.</p>
+<p>The functionality can be re-enabled by using <code>enable-bip70=1</code> either in your
+dogecoin.conf or as an argument to Dogecoin-Qt if absolutely needed. Please use
+extreme caution when exercising this option.</p>
+<p>This is step 1 in full deprecation of BIP-70, BIP-71 and BIP-72 inside Dogecoin
+Core. Future releases may completely remove this feature.</p>
+<p><em>Implemented with #3412</em></p>
+<h3 id="other-security-related-fixes"><a class="header" href="#other-security-related-fixes">Other security-related fixes</a></h3>
+<ul>
+<li>Reduce the build scope of the Qt dependency to only include those features we
+use, to not package potential vulnerabilities. Also stop using libX11 features
+outside of libxcb (#3358)</li>
+<li>Backport patches for all Qt versions until 5.15.12 + community patches to the
+pinned Qt 5.7.1, because we cannot update that due to backward compatibility
+guarantees (#3415)</li>
+<li>Added security guidance to INSTALL.md and build guides, to remind those that
+self-compile to update their system libraries. (#3384)</li>
+<li>Updated the <code>rpcuser.py</code> script to improve the password and salt generation
+methods it uses (#3388). If you've used this script in the past, replacing
+current authentication in <code>dogecoin.conf</code> with new credentials generated with
+the new version of this script is recommended.</li>
+</ul>
+<h2 id="maintain-rpc-fee-estimation-facilities"><a class="header" href="#maintain-rpc-fee-estimation-facilities">Maintain RPC fee estimation facilities</a></h2>
+<p>Fee estimation was explicitly not ported or supported on Dogecoin Core since
+1.14.0, but as the non-functional data from <code>estimatefee</code> and <code>estimatesmartfee</code>
+were anyway used in the field, services using these RPC methods were unable to
+provide fee estimates to their users. Therefore this feature has now been ported
+to support Dogecoin parametrization.</p>
+<p>The RPC methods <code>estimatefee</code> and <code>estimatesmartfee</code> are now under active
+maintenance and will be further enhanced in the future.</p>
+<p>NOTE: Because the minimum and maximum tracked fees and spacing of fee buckets
+has changed, the <code>fee_estimates.dat</code> file from earlier versions <strong>will be
+discarded</strong> after restarting this version of the software. This means that after
+the first restart, the estimates will reset, but become usable again after the
+node has processed a few blocks, and will improve in precision over up to 12
+hours after the first restart. Any subsequent restarts will use the estimates
+from the file as usual.</p>
+<p><em><strong>If you have in the past ran a custom compiled version of 1.14.7 or created
+your own higher version, you must manually delete the <code>fee_estimates.dat</code> file
+from your datadir for the new parametrization to take full effect.</strong></em></p>
+<p><em>Implemented with #3389 and #3433</em></p>
+<h2 id="add-fully-verbose-transaction-decoding-to-getblock"><a class="header" href="#add-fully-verbose-transaction-decoding-to-getblock">Add fully verbose transaction decoding to <code>getblock</code></a></h2>
+<p>Updates the <code>getblock</code> RPC to use verbosity levels 0-2 besides the existing
+boolean. This allows operators to decode a full block in one go when using
+level <code>2</code>, instead of having to query <code>getrawtransaction</code> for each individual
+txid returned with the boolean <code>true</code>.</p>
+<p>Mapping between boolean and integer parameter functionality:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Verbosity</th><th style="text-align: right">boolean</th><th style="text-align: right">level (int)</th></tr></thead><tbody>
+<tr><td style="text-align: left">Hex encoded block</td><td style="text-align: right">false</td><td style="text-align: right">0</td></tr>
+<tr><td style="text-align: left">Block with txids</td><td style="text-align: right">true</td><td style="text-align: right">1</td></tr>
+<tr><td style="text-align: left">Block with decoded transactions</td><td style="text-align: right">-</td><td style="text-align: right">2</td></tr>
+</tbody></table>
+</div>
+<p>For more information see:</p>
+<pre><code>dogecoin-cli help getblock
+</code></pre>
+<p><em>Implemented with #3299, #3306 and #3307</em></p>
+<h2 id="features"><a class="header" href="#features">Features</a></h2>
+<h3 id="add-the-getblockstats-rpc-method"><a class="header" href="#add-the-getblockstats-rpc-method">Add the <code>getblockstats</code> RPC method</a></h3>
+<p>The new <code>getblockstats</code> RPC method computes statistics for a given block hash if
+the block is available on the node (pruned nodes can only run statistics over
+blocks that aren't pruned.)</p>
+<p>The user can select which stats are returned to save processing time for stats
+that aren't wanted. For more information, use:</p>
+<pre><code>dogecoin-cli help getblockstats
+</code></pre>
+<p><em>Implemented with #3297</em></p>
+<h3 id="add-a-height-parameter-to--walletnotify"><a class="header" href="#add-a-height-parameter-to--walletnotify">Add a <code>height</code> parameter to <code>-walletnotify</code></a></h3>
+<p>Adds <code>%i</code> in the command to include the height of the block containing the
+transaction. If the transaction is not in any block, the height is <code>0</code>.</p>
+<p><em>Implemented with #3257 and #3382</em></p>
+<h2 id="translation-updates"><a class="header" href="#translation-updates">Translation Updates</a></h2>
+<p>Updates have been provided to the following languages:</p>
+<ul>
+<li>Chinese (#3103, #3419)</li>
+<li>Dutch (#3435)</li>
+<li>French (#3148, #3195)</li>
+<li>French-Canadian (#3441)</li>
+<li>Italian (#3428)</li>
+<li>Korean (#3395, #3430)</li>
+<li>Polish (#3431)</li>
+</ul>
+<h2 id="rpc-api-changes"><a class="header" href="#rpc-api-changes">RPC API Changes</a></h2>
+<ul>
+<li>Added <code>getblockstats</code> (#3297)</li>
+<li>Allowed <code>verbosity</code> to be expressed as an integer to <code>getblock</code> and add full
+verbosity under level <code>2</code> that serializes all transactions as JSON in the
+reply (#3299, #3306, #3307)</li>
+<li>Added a <code>height</code> parameter to <code>importpubkey</code> (#3102) and <code>importaddress</code> (#3235)
+which allows the user to specify from which chain height to rescan for wallet
+transactions.</li>
+<li>Added <code>getmocktime</code> (regtest-only) (#3322)</li>
+<li>Added documentation for RPC method maturity in <a href="rpc-maturity.html">rpc-maturity.md</a>
+(#3443)</li>
+</ul>
+<h2 id="dependency-updates"><a class="header" href="#dependency-updates">Dependency Updates</a></h2>
+<ul>
+<li>Updated the depends, CI and build system to Ubuntu Focal (#3143, #3144,
+#3145, #3222)</li>
+<li>Updated expat to version 2.5.0 (#3271)</li>
+<li>Updated the secp256k1 subtree to 44c2452 (#3082, #3142)</li>
+<li>Updated zlib to version 1.3 (#3345)</li>
+<li>Updated protobuf to version 3.6.1 (#3357)</li>
+<li>Updated fontconfig to version 2.12.6 (#3364)</li>
+<li>Updated the experimental intel-ipsec-mb dependency to version 1.2, adds
+AVX2 support for Windows x86_64 (#3071, #3146, #3214)</li>
+</ul>
+<p>NOTE: on systems that cannot use pinned dependencies from <code>depends/</code>, please
+be aware that due to a bug in <code>boost-1.83</code>, building may lead to failure.
+More information about the bug can be found at the <code>boostorg/signals</code> GitHub
+repository at https://github.com/boostorg/signals2/issues/68.</p>
+<h1 id="bug-fixes"><a class="header" href="#bug-fixes">Bug Fixes</a></h1>
+<ul>
+<li>Fixed a bug where <code>-maxtxfee</code> was not being respected outside of the wallet,
+which caused problems with the <code>sendrawtransaction</code> RPC call. (#3088)</li>
+<li>Fixed the example <code>dogecoind.service</code> file (#3066)</li>
+<li>Fixed a bug where misnamed signal handlers were causing excessive warnings
+in Dogecoin Qt logs (#3063)</li>
+<li>Fixed a bug where extremely long wallet labels could cause Qt popups to flow
+over screen limits, causing the user to have no means of accepting or
+rejecting the transaction (#3224)</li>
+<li>Fixed an interaction error where running Qt tests interacted with the mainnet
+datadir (#3286)</li>
+<li>Fixed a bug that caused qt4 compilation to fail (#3427)</li>
+</ul>
+<h1 id="minor-changes"><a class="header" href="#minor-changes">Minor Changes</a></h1>
+<ul>
+<li>Enforced explicit enabling of experimental features by introducing a build
+flag (<code>--enable-experimental</code>) and enforce these at compile time (#3136).
+See <a href="experiments.html">experiments.md</a> for more information about which
+experiments are available to self-compile.</li>
+<li>Re-enabled Scrypt SSE2 routines and encapsulated it as an experimental feature
+to help speeding up PoW verification on x86_64 architecture. (#2773)</li>
+<li>Packaged the Noto Sans font to make sure all languages can be rendered (#2676)</li>
+<li>Updated <code>assumevalid</code> to help new nodes save CPU time by setting it to block
+<code>e7d4577405223918491477db725a393bcfc349d8ee63b0a4fde23cbfbfd81dea</code>, at height
+5,050,000 on mainnet (#3416)</li>
+<li>Enhanced the paper wallet print function to default to the User's paper format
+instead of A4 (#3239)</li>
+<li>Updated build guides for MacOS (#2686), Windows (#3340, #3411), Fedora (#3434)</li>
+<li>Introduced modern tooling for inspecting and constraining our binaries (#3204)</li>
+<li>Refactored out C-style NUL-terminated strings in interfaces (#3157)</li>
+<li>Enhanced the CI to run unit tests in armhf and aarch64 linux builds (#3025)</li>
+<li>Added a translation in Vietnamese (#3060), and fixed missing information in
+the Chinese README translations (#3070)</li>
+<li>Updated the python <code>ltc-scrypt</code> module to a maintained fork (#3080), which
+can be found at https://github.com/dogecoin/ltc-scrypt</li>
+<li>Backported a pure Python implementation of RIPEMD160 from Bitcoin Core (#3081)</li>
+<li>Removed historical OpenSSL comparison tests to increase compatibility with
+OpenSSL 3+ (#3079)</li>
+<li>Ported extended tests for <code>rpcbind</code> (#3228) and <code>feefilter</code> (#3241)</li>
+</ul>
+<h1 id="credits"><a class="header" href="#credits">Credits</a></h1>
+<p>Credit goes to all awesome contributors to this release, alphabetically:</p>
+<ul>
+<li>Ajay Chowdhury</li>
+<li>alamshafil</li>
+<li>Anish M</li>
+<li>Anthony Chen</li>
+<li>Bertrand Jacquin</li>
+<li>bobdos</li>
+<li>Brett T. Warden</li>
+<li>Carl Dong</li>
+<li>chromatic</li>
+<li>cijsk</li>
+<li>Cory Fields</li>
+<li>daanksy</li>
+<li>Dakoda Greaves</li>
+<li>danielw86dev</li>
+<li>Dylan Ferris</li>
+<li>Ed Tubbs</li>
+<li>fanquake</li>
+<li>Fierce Skit</li>
+<li>fultondoge</li>
+<li>georgeartem</li>
+<li>hwanyoungChoi</li>
+<li>ilsubyega</li>
+<li>Jalin Wang</li>
+<li>jimjimmiejames</li>
+<li>John-Inubook</li>
+<li>junderw</li>
+<li>kalvdans</li>
+<li>mangekyousharingan</li>
+<li>MarsDoge</li>
+<li>Martin</li>
+<li>Martyornot</li>
+<li>Michi Lumin</li>
+<li>mintodev</li>
+<li>MishaBoar</li>
+<li>NinVoido</li>
+<li>omahs</li>
+<li>oshawa-connection</li>
+<li>Patrick Lodder</li>
+<li>Pieter Wuille</li>
+<li>pmb</li>
+<li>practicalswift</li>
+<li>randomwalk266</li>
+<li>Schmeckl3s</li>
+<li>serious-gemini</li>
+<li>Shubham Mathur</li>
+<li>Skylar Loomis</li>
+<li>sunerok</li>
+<li>thisiskeanyvy</li>
+<li>Thành Nhân</li>
+<li>tosufever</li>
+<li>victorsk2019</li>
+</ul>
+<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;"><div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;border-radius:5px"><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/en/index.html'>EN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/br/index.html'>BR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/cn/index.html'>CN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/fr/index.html'>FR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/ir/index.html'>IR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/pt/index.html'>PT</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/vn/index.html'>VN</a></div></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../en/doc/reduce-traffic.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../en/doc/release-process.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../en/doc/reduce-traffic.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../en/doc/release-process.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
