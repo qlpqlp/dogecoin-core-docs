@@ -4,6 +4,7 @@ Dogecoin Core [DOGE, Ð]
 <img src="https://static.tumblr.com/ppdj5y9/Ae9mxmxtp/300coin.png" alt="Dogecoin" width="300"/>
 </h1>
 
+
 <div align="center">
 
 [![DogecoinBadge](https://img.shields.io/badge/Doge-Coin-yellow.svg)](https://dogecoin.com)
@@ -11,8 +12,7 @@ Dogecoin Core [DOGE, Ð]
 
 </div>
 
-
-Dogecoin é uma criptomoeda voltada para a comunidade inspirada num meme Shiba Inu. O software Dogecoin Core permite que qualquer pessoa opere um nó nas redes blockchain Dogecoin e usa o método de hash Scrypt para Prova de Trabvalho. É adaptado do Bitcoin Core e outras criptomoedas.
+Dogecoin é uma criptomoeda voltada para a comunidade inspirada num meme Shiba Inu. O software Dogecoin Core permite que qualquer pessoa opere um nó nas redes blockchain Dogecoin e usa o método de hash Scrypt para Prova de Trabalho. É adaptado do Bitcoin Core e outras criptomoedas.
 
 Para mais informações acerca das taxas de transação utilizadas na rede Dogecoin, por favor clica aqui:
 [taxas recomendadas](doc/fee-recommendation.md).
@@ -29,7 +29,7 @@ A API JSON-RPC incluida no Dogecoin Core é auto documentada e pode ser vista co
 
 O Dogecoin Core utiliza por padrão a porta `22556` para comunicação em rede
 ponto-a-ponto que é necessária para sincronizar a blockchain da "rede principal",
-(mainnet), e se manter actualizadadas novas transações e blocos. Adicionalmente a
+(mainnet), e se manter atualizadas de novas transações e blocos. Adicionalmente a
 porta JSONRPC pode ser aberta que por defeito é `22555` para a rede principal.
 É fortemente recomendado a não expor as portas RPC publicamente na internet.
 
@@ -38,13 +38,13 @@ porta JSONRPC pode ser aberta que por defeito é `22555` para a rede principal.
 | P2P      |   22556 |   44556 |   18444 |
 | RPC      |   22555 |   44555 |   18332 |
 
-## Desenvolvimento continuo - Plano, a Lua 🌒
+## Desenvolvimento continuo - Plano Lua 🌒
 
 O Dogecoin Core é um programa de código aberto gerido pela comunidade. O processo de desenvolvimento é aberto e visivel publicamente; qualquer um pode ver, discutir e trabalhar no programa.
 
 Recursos principais de Desenvolvimento:
 
-* [Projetos do Github](https://github.com/dogecoin/dogecoin/projects) é utilizado para conduzir trabalhos planeado ou que estejam em desenvolvimento para as próximas atualizações.
+* [Projetos do Github](https://github.com/dogecoin/dogecoin/projects) é utilizado para conduzir trabalhos planeados ou que estejam em desenvolvimento para as próximas atualizações.
 * [Discussão do Github](https://github.com/dogecoin/dogecoin/discussions) é usado para discutir sobre as funcionalidades, planeadas ou não, relacionadas ao desenvolvimento do programa Dogecoin Core, os protocolos adjacentes e o criptoativo DOGE.
 * [Dogecoindev subreddit](https://www.reddit.com/r/dogecoindev/)
 
