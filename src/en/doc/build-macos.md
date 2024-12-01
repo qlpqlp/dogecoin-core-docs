@@ -1,4 +1,4 @@
-# Building Dogecoin Core on MacOS #
+# Building dogecoin-qt 1.14 on MacOS #
 
 Tested on MacOs Ventura and Sonoma on Intel (x86_64) and Apple Silicon (arm64) macs.
 
@@ -35,8 +35,9 @@ chmod -R go-w "$(brew --prefix)/share/zsh"
 Install dependencies via Brew.
 
 ```sh
-brew install autoconf automake libtool miniupnpc openssl pkg-config protobuf \
+brew install autoconf automake libtool miniupnpc openssl pkg-config protobuf@21 \
              qt5 zeromq qrencode librsvg boost berkeley-db@5 libevent
+brew link protobuf@21
 ```
 
 ### Go back to your Dogecoin repo ###
@@ -45,7 +46,7 @@ brew install autoconf automake libtool miniupnpc openssl pkg-config protobuf \
 cd ~/dogecoin
 
 ./autogen.sh
-./configure --enable-c++17 --with-gui --with-boost=`brew --prefix boost`
+./configure --with-gui=qt5 --with-boost=`brew --prefix boost`
 make
 ```
 

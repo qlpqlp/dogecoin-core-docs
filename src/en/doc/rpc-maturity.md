@@ -119,7 +119,6 @@ Core RPC. Maturity is expressed over 3 stages:
 | stop                   | STABLE     |                                            |
 | submitauxblock         | STABLE     |                                            |
 | submitblock            | STABLE     |                                            |
-| uptime                 | STABLE     | Introduced in 1.15.0                       |
 | validateaddress        | STABLE     |                                            |
 | verifychain            | STABLE     |                                            |
 | verifymessage          | STABLE     |                                            |
