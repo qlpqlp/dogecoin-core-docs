@@ -1,0 +1,262 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Bips - Dogecoin Core [DOGE, Ð]</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Dogecoin CORE Documentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dogecoin Core [DOGE, Ð]</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/tree/main/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/edit/main/src/en/doc/bips.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="bip-list"><a class="header" href="#bip-list">BIP List</a></h2>
+<p>This document lists the protocol features that are implemented by Dogecoin Core
+(up-to-date up to <strong>v1.14.6</strong>):</p>
+<h3 id="from-bitcoin"><a class="header" href="#from-bitcoin">From Bitcoin</a></h3>
+<ul>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0011.mediawiki"><code>BIP 11</code></a>: Multisig outputs are standard since <strong>v1.4.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0013.mediawiki"><code>BIP 13</code></a>: The address format for P2SH addresses has been implemented since <strong>v1.0.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki"><code>BIP 14</code></a>: The subversion string is being used as User Agent since <strong>v1.0.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki"><code>BIP 16</code></a>: The pay-to-script-hash evaluation rules have been implemented since <strong>v1.6.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki"><code>BIP 21</code></a>: The URI format for Dogecoin payments has been implemented since <strong>v1.0.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0022.mediawiki"><code>BIP 22</code></a>: The 'getblocktemplate' (GBT) RPC protocol for mining has been implemented since <strong>v1.7.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0023.mediawiki"><code>BIP 23</code></a>: Some extensions to GBT have been implemented since <strong>v1.10.0</strong>, including longpolling and block proposals.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0030.mediawiki"><code>BIP 30</code></a>: The evaluation rules to forbid creating new transactions with the same txid as previous not-fully-spent transactions were implemented since <strong>v1.0.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0031.mediawiki"><code>BIP 31</code></a>: The 'pong' protocol message (and the protocol version bump to 60001) has been implemented since <strong>v1.0.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki"><code>BIP 32</code></a>: Hierarchical Deterministic Wallets has been implemented since <strong>v1.14.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki"><code>BIP 34</code></a>: The rule that requires blocks to contain their height (number) in the coinbase input, and the introduction of version 2 blocks has been implemented since <strong>v1.4.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0035.mediawiki"><code>BIP 35</code></a>: The 'mempool' protocol message (and the protocol version bump to 60002) has been implemented since <strong>v1.0.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0037.mediawiki"><code>BIP 37</code></a>: The bloom filtering for transaction relaying, partial merkle trees for blocks, and the protocol version bump to 70001 (enabling low-bandwidth SPV clients) has been implemented since <strong>v1.4.0</strong></li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0061.mediawiki"><code>BIP 61</code></a>: The 'reject' protocol message (and the protocol version bump to 70002) was added in <strong>v1.7.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki"><code>BIP 65</code></a>: The CHECKLOCKTIMEVERIFY softfork was merged in <strong>v1.14.0</strong></li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki"><code>BIP 66</code></a>: The strict DER rules and associated version 3 blocks have been implemented since <strong>v1.10.0</strong></li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki"><code>BIP 70</code></a> <a href="https://github.com/bitcoin/bips/blob/master/bip-0071.mediawiki"><code>71</code></a> <a href="https://github.com/bitcoin/bips/blob/master/bip-0072.mediawiki"><code>72</code></a>: Payment Protocol support has been available in Dogecoin Core GUI since <strong>v1.7.0</strong></li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0111.mediawiki"><code>BIP 111</code></a>: <code>NODE_BLOOM</code> service bit added, and enforced for all peer versions as of <strong>v1.10.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki"><code>BIP 125</code></a>: Opt-in full replace-by-fee signaling honoured in mempool and mining as of <strong>v1.14.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0130.mediawiki"><code>BIP 130</code></a>: direct headers announcement is negotiated with peer versions <code>&gt;=70012</code> as of <strong>v1.14.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0133.mediawiki"><code>BIP 133</code></a>: feefilter messages are respected and sent for peer versions <code>&gt;=70013</code> as of <strong>v1.14.0</strong>.</li>
+<li><a href="https://github.com/bitcoin/bips/blob/master/bip-0152.mediawiki"><code>BIP 152</code></a>: Compact block transfer version 1 are used as of <strong>v1.14.0</strong>.</li>
+</ul>
+<h3 id="from-litecoin"><a class="header" href="#from-litecoin">From Litecoin</a></h3>
+<ul>
+<li>(Spec missing!): Scrypt-1024 proof-of-work was enabled since <strong>v1.0.0</strong>.</li>
+</ul>
+<h3 id="from-namecoin"><a class="header" href="#from-namecoin">From Namecoin</a></h3>
+<ul>
+<li><a href="https://en.bitcoin.it/wiki/Merged_mining_specification">Merged Mining</a> (AuxPoW): AuxPoW blocks were enabled as valid proof of work as of <strong>v1.8.0</strong>.</li>
+</ul>
+<h3 id="from-digibyte"><a class="header" href="#from-digibyte">From DigiByte</a></h3>
+<ul>
+<li>(Spec missing!): DigiShield difficulty adjustments were enabled as of <strong>v1.6.0</strong>.</li>
+</ul>
+<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;"><div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;border-radius:5px"><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/en/index.html'>EN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/br/index.html'>BR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/cn/index.html'>CN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/fr/index.html'>FR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/ir/index.html'>IR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/pt/index.html'>PT</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/vn/index.html'>VN</a></div></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../en/doc/benchmarking.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../en/doc/build-archlinux.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../en/doc/benchmarking.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../en/doc/build-archlinux.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

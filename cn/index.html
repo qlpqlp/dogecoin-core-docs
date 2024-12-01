@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Readme - Dogecoin Core [DOGE, Ð]</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Dogecoin CORE Documentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dogecoin Core [DOGE, Ð]</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/tree/main/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/edit/main/src/cn/README.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 align="center">
+  <img align="center" src="https://static.tumblr.com/ppdj5y9/Ae9mxmxtp/300coin.png" width="300">
+  <br/><br/>
+  狗狗币核心 (Dogecoin Core) [DOGE, Ð]
+</h1>
+<div align="center">
+<p><a href="https://dogecoin.com"><img src="https://img.shields.io/badge/Doge-Coin-yellow.svg" alt="DogecoinBadge" /></a>
+<a href="https://dogecoin.com"><img src="https://img.shields.io/badge/Much-Wow-yellow.svg" alt="MuchWow" /></a></p>
+</div>
+<p>狗狗币是一款受柴犬表情包启发，由社区驱动的加密货币。通过狗狗币内核软件，任何人都可以在狗狗币区块链网络中建立一个节点。节点采用Scrypt哈希算法来实现工作量证明(Proof of Work)。狗狗币内核是从比特币内核和其它加密货币演化而来。</p>
+<p>狗狗币网络默认交易费的相关信息请查看<a href="doc/fee-recommendation.html">收费建议</a></p>
+<p><strong>网址:</strong> <a href="https://dogecoin.com">dogecoin.com</a></p>
+<h2 id="使用指南-"><a class="header" href="#使用指南-">使用指南 💻</a></h2>
+<p>开始使用狗狗币内核软件，请参考<a href="INSTALL.html">安装指南</a>和<a href="doc/getting-started.html">入门</a>教程。</p>
+<p>狗狗币内核提供基于自文档化的JSON-RPC API，可用<code>dogecoin-cli help</code>浏览。同时可用'dogecoin-cli help <command>`浏览每条命令的详细信息。另外，可参考游览器版的<a href="https://developer.bitcoin.org/reference/rpc/">比特币内核文档</a>（ 它部署了类似的协议）。</p>
+<h3 id="炫酷的端口"><a class="header" href="#炫酷的端口">炫酷的端口</a></h3>
+<p>狗狗币内核的点对点通信默的默认端口为22556，用于与主网络（mainnet）区块链同步，并接受新交易和新区块的信息。此外，还可打开一个默认端口号为22555的JSONRPC端口供主网络节点使用。强烈建议不要将RPC端口暴露给公共网络。</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">功能 Function</th><th style="text-align: right">主网络 mainnet</th><th style="text-align: right">测试网络 testnet</th><th style="text-align: right">回归测试 regtest</th></tr></thead><tbody>
+<tr><td style="text-align: left">P2P</td><td style="text-align: right">22556</td><td style="text-align: right">44556</td><td style="text-align: right">18444</td></tr>
+<tr><td style="text-align: left">RPC</td><td style="text-align: right">22555</td><td style="text-align: right">44555</td><td style="text-align: right">18332</td></tr>
+</tbody></table>
+</div>
+<h2 id="进行中的开发---月球计划-"><a class="header" href="#进行中的开发---月球计划-">进行中的开发 - 月球计划 🌒</a></h2>
+<p>狗狗币内核是一个社区驱动的开源软件。其开发过程是开放的并公开可见的。任何人都可以查看，讨论和使用该软件。</p>
+<p>主要开发资料：</p>
+<ul>
+<li><a href="https://github.com/dogecoin/dogecoin/projects">Github Projects</a>用于跟踪即将发布的计划和正在进行的工作。</li>
+<li><a href="https://github.com/dogecoin/dogecoin/discussions">Github Discussion</a>用于讨论与狗狗币内核软件开发、底层协议和狗狗币资产相关的计划内和计划外功能。</li>
+<li><a href="https://www.reddit.com/r/dogecoindev/">Dogecoindev subreddit</a></li>
+</ul>
+<h2 id="版本说明"><a class="header" href="#版本说明">版本说明</a></h2>
+<p>版本号码遵循以下语法：<code>major.minor.patch</code>。</p>
+<h2 id="代码库分支branch"><a class="header" href="#代码库分支branch">代码库分支(branch)</a></h2>
+<p>本代码库有3个branch：</p>
+<ul>
+<li><strong>master（主代码库）:</strong> 稳定。包含最新版本的release，以<em>major.minor</em>形式呈现。</li>
+<li><strong>maintenance（维护代码库）:</strong> 稳定。包含正在维护中的上一个release的最新版本。格式： <code>&lt;version&gt;-maint</code></li>
+<li><strong>development（正在开发代码库）:</strong> 不稳定。包含下一个release的最新代码。格式： <code>&lt;version&gt;-dev</code></li>
+</ul>
+<p><em>Master 和 maintenance 互不干扰。最新release永远包含一个development分支。新的 pull request 应该发布于此。Maintenance 分支<strong>只能用于调试程序</strong>。请将新开发的功能发布在 development 分支的最高版本。</em></p>
+<h2 id="炫酷的贡献-"><a class="header" href="#炫酷的贡献-">炫酷的贡献 🤝</a></h2>
+<p>如果您发现错误或者遇到问题，请报告在<a href="https://github.com/dogecoin/dogecoin/issues/new?assignees=&amp;labels=bug&amp;template=bug_report.md&amp;title=%5Bbug%5D+">问题系统</a></p>
+<p>想了解如何参与狗狗币内核开发，请访问<a href="CONTRIBUTING.html">贡献指引</a>。
+那里常常有<a href="https://github.com/dogecoin/dogecoin/labels/help%20wanted">主题需要帮助</a>。
+您的贡献一定会产生很大的影响并赢得炫酷的称赞。哇哦(wow)。</p>
+<h2 id="社区-"><a class="header" href="#社区-">社区 🚀🍾</a></h2>
+<p>您能通过不同的社交媒体加入狗狗币社区。在那里您可以看到最近的新闻，与别人见面和讨论，找到最新的表情包，进一步了解狗狗币，帮忙别人或者请求帮忙，分享您的项目。</p>
+<p>以下是一些社区的访问链接:</p>
+<ul>
+<li><a href="https://www.reddit.com/r/dogecoin/">Dogecoin subreddit</a></li>
+<li><a href="https://www.reddit.com/r/dogeducation/">Dogeducation subreddit</a></li>
+<li><a href="https://discord.gg/dogecoin">Discord</a></li>
+<li><a href="https://twitter.com/dogecoin">Dogecoin Twitter</a></li>
+</ul>
+<h2 id="灰常常见的问题-"><a class="header" href="#灰常常见的问题-">灰常常见的问题 ❓</a></h2>
+<p>如果对狗狗币有问题，答案很可能已经在<a href="doc/FAQ.html">常见问答</a>或者<a href="https://github.com/dogecoin/dogecoin/discussions/categories/q-a">问与答</a>!里了。</p>
+<h2 id="许可证----灰常的许可-"><a class="header" href="#许可证----灰常的许可-">许可证 -  灰常的许可 ⚖️</a></h2>
+<p>狗狗币内核是根据MIT许可条款发布的。更多相关信息，请参阅<a href="COPYING">COPYING</a>或者查看<a href="https://opensource.org/licenses/MIT">opensource.org</a></p>
+<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;"><div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;border-radius:5px"><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/en/index.html'>EN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/br/index.html'>BR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/cn/index.html'>CN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/fr/index.html'>FR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/ir/index.html'>IR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/pt/index.html'>PT</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/vn/index.html'>VN</a></div></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../br/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../fr/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../br/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../fr/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../ace.js"></script>
+        <script src="../editor.js"></script>
+        <script src="../mode-rust.js"></script>
+        <script src="../theme-dawn.js"></script>
+        <script src="../theme-tomorrow_night.js"></script>
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

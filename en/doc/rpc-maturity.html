@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Rpc-maturity - Dogecoin Core [DOGE, Ð]</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Dogecoin CORE Documentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dogecoin Core [DOGE, Ð]</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/tree/main/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/edit/main/src/en/doc/rpc-maturity.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="rpc-method-maturity"><a class="header" href="#rpc-method-maturity">RPC method maturity</a></h2>
+<p>This document records the maturity of each method made available by the Dogecoin
+Core RPC. Maturity is expressed over 3 stages:</p>
+<ol>
+<li>UNSTABLE - These methods are often new, and can change within minor version
+updates.</li>
+<li>STABLE - These methods can be used safely and will not see breaking changes
+on minor version updates.</li>
+<li>DEPRECATED - These methods are no longer recommended to be used and may be
+removed in future versions.</li>
+</ol>
+<hr />
+<div class="table-wrapper"><table><thead><tr><th>method</th><th>Maturity</th><th>Comment</th></tr></thead><tbody>
+<tr><td>abandontransaction</td><td>STABLE</td><td></td></tr>
+<tr><td>addmultisigaddress</td><td>STABLE</td><td></td></tr>
+<tr><td>addnode</td><td>STABLE</td><td></td></tr>
+<tr><td>addwitnessaddress</td><td>UNSTABLE</td><td>Not functional yet</td></tr>
+<tr><td>backupwallet</td><td>UNSTABLE</td><td>Breaking change since 1.14.6</td></tr>
+<tr><td>bumpfee</td><td>STABLE</td><td></td></tr>
+<tr><td>clearbanned</td><td>STABLE</td><td></td></tr>
+<tr><td>createauxblock</td><td>STABLE</td><td></td></tr>
+<tr><td>createmultisig</td><td>STABLE</td><td></td></tr>
+<tr><td>createrawtransaction</td><td>STABLE</td><td></td></tr>
+<tr><td>decoderawtransaction</td><td>STABLE</td><td></td></tr>
+<tr><td>decodescript</td><td>STABLE</td><td></td></tr>
+<tr><td>disconnectnode</td><td>STABLE</td><td></td></tr>
+<tr><td>dumpprivkey</td><td>STABLE</td><td></td></tr>
+<tr><td>dumpwallet</td><td>UNSTABLE</td><td>Breaking change since 1.14.6</td></tr>
+<tr><td>encryptwallet</td><td>STABLE</td><td></td></tr>
+<tr><td>estimatefee</td><td>UNSTABLE</td><td>Brought back from deprecation since 1.14.7</td></tr>
+<tr><td>estimatepriority</td><td>DEPRECATED</td><td>To be replaced with estimatefee</td></tr>
+<tr><td>estimatesmartfee</td><td>UNSTABLE</td><td>Brought back from deprecation since 1.14.7</td></tr>
+<tr><td>estimatesmartpriority</td><td>DEPRECATED</td><td>To be replaced with estimatesmartfee</td></tr>
+<tr><td>fundrawtransaction</td><td>STABLE</td><td></td></tr>
+<tr><td>generate</td><td>STABLE</td><td></td></tr>
+<tr><td>generatetoaddress</td><td>STABLE</td><td></td></tr>
+<tr><td>getaccount</td><td>DEPRECATED</td><td>Deprecated since 1.14.0</td></tr>
+<tr><td>getaccountaddress</td><td>DEPRECATED</td><td>Deprecated since 1.14.0</td></tr>
+<tr><td>getaddednodeinfo</td><td>STABLE</td><td></td></tr>
+<tr><td>getaddressesbyaccount</td><td>DEPRECATED</td><td>Deprecated since 1.14.0</td></tr>
+<tr><td>getauxblock</td><td>STABLE</td><td></td></tr>
+<tr><td>getbalance</td><td>STABLE</td><td></td></tr>
+<tr><td>getbestblockhash</td><td>STABLE</td><td></td></tr>
+<tr><td>getblock</td><td>STABLE</td><td></td></tr>
+<tr><td>getblockchaininfo</td><td>STABLE</td><td></td></tr>
+<tr><td>getblockcount</td><td>STABLE</td><td></td></tr>
+<tr><td>getblockhash</td><td>STABLE</td><td></td></tr>
+<tr><td>getblockheader</td><td>STABLE</td><td></td></tr>
+<tr><td>getblockstats</td><td>UNSTABLE</td><td>Introduced in 1.14.7</td></tr>
+<tr><td>getblocktemplate</td><td>STABLE</td><td></td></tr>
+<tr><td>getchaintips</td><td>STABLE</td><td></td></tr>
+<tr><td>getconnectioncount</td><td>STABLE</td><td></td></tr>
+<tr><td>getdifficulty</td><td>STABLE</td><td></td></tr>
+<tr><td>getinfo</td><td>DEPRECATED</td><td>Deprecated since 1.14.0</td></tr>
+<tr><td>getmemoryinfo</td><td>STABLE</td><td></td></tr>
+<tr><td>getmempoolancestors</td><td>STABLE</td><td></td></tr>
+<tr><td>getmempooldescendants</td><td>STABLE</td><td></td></tr>
+<tr><td>getmempoolentry</td><td>STABLE</td><td></td></tr>
+<tr><td>getmempoolinfo</td><td>STABLE</td><td></td></tr>
+<tr><td>getmininginfo</td><td>STABLE</td><td></td></tr>
+<tr><td>getnettotals</td><td>STABLE</td><td></td></tr>
+<tr><td>getnetworkhashps</td><td>STABLE</td><td></td></tr>
+<tr><td>getnetworkinfo</td><td>STABLE</td><td></td></tr>
+<tr><td>getnewaddress</td><td>STABLE</td><td></td></tr>
+<tr><td>getpeerinfo</td><td>STABLE</td><td></td></tr>
+<tr><td>getrawchangeaddress</td><td>STABLE</td><td></td></tr>
+<tr><td>getrawmempool</td><td>STABLE</td><td></td></tr>
+<tr><td>getrawtransaction</td><td>STABLE</td><td></td></tr>
+<tr><td>getreceivedbyaccount</td><td>DEPRECATED</td><td>Deprecated since 1.14.0</td></tr>
+<tr><td>getreceivedbyaddress</td><td>STABLE</td><td></td></tr>
+<tr><td>gettransaction</td><td>STABLE</td><td></td></tr>
+<tr><td>gettxout</td><td>STABLE</td><td></td></tr>
+<tr><td>gettxoutproof</td><td>STABLE</td><td></td></tr>
+<tr><td>gettxoutsetinfo</td><td>STABLE</td><td></td></tr>
+<tr><td>getunconfirmedbalance</td><td>STABLE</td><td></td></tr>
+<tr><td>getwalletinfo</td><td>STABLE</td><td></td></tr>
+<tr><td>help</td><td>STABLE</td><td></td></tr>
+<tr><td>importaddress</td><td>STABLE</td><td></td></tr>
+<tr><td>importmulti</td><td>STABLE</td><td></td></tr>
+<tr><td>importprivkey</td><td>STABLE</td><td></td></tr>
+<tr><td>importprunedfunds</td><td>STABLE</td><td></td></tr>
+<tr><td>importpubkey</td><td>STABLE</td><td></td></tr>
+<tr><td>importwallet</td><td>STABLE</td><td></td></tr>
+<tr><td>keypoolrefill</td><td>STABLE</td><td></td></tr>
+<tr><td>listaccounts</td><td>DEPRECATED</td><td>Deprecated since 1.14.0</td></tr>
+<tr><td>listaddressgroupings</td><td>STABLE</td><td></td></tr>
+<tr><td>listbanned</td><td>STABLE</td><td></td></tr>
+<tr><td>listlockunspent</td><td>STABLE</td><td></td></tr>
+<tr><td>listreceivedbyaccount</td><td>DEPRECATED</td><td>Deprecated since 1.14.0</td></tr>
+<tr><td>listreceivedbyaddress</td><td>STABLE</td><td></td></tr>
+<tr><td>listsinceblock</td><td>STABLE</td><td></td></tr>
+<tr><td>liststucktransactions</td><td>STABLE</td><td></td></tr>
+<tr><td>listtransactions</td><td>STABLE</td><td></td></tr>
+<tr><td>listunspent</td><td>STABLE</td><td></td></tr>
+<tr><td>lockunspent</td><td>STABLE</td><td></td></tr>
+<tr><td>move</td><td>DEPRECATED</td><td>Deprecated since 1.14.0</td></tr>
+<tr><td>ping</td><td>STABLE</td><td></td></tr>
+<tr><td>preciousblock</td><td>STABLE</td><td></td></tr>
+<tr><td>prioritisetransaction</td><td>STABLE</td><td></td></tr>
+<tr><td>pruneblockchain</td><td>STABLE</td><td></td></tr>
+<tr><td>removeprunedfunds</td><td>STABLE</td><td></td></tr>
+<tr><td>rescan</td><td>STABLE</td><td></td></tr>
+<tr><td>sendfrom</td><td>STABLE</td><td></td></tr>
+<tr><td>sendmany</td><td>STABLE</td><td></td></tr>
+<tr><td>sendrawtransaction</td><td>STABLE</td><td></td></tr>
+<tr><td>sendtoaddress</td><td>STABLE</td><td></td></tr>
+<tr><td>setaccount</td><td>STABLE</td><td></td></tr>
+<tr><td>setban</td><td>STABLE</td><td></td></tr>
+<tr><td>setmaxconnections</td><td>UNSTABLE</td><td>New since 1.14.6</td></tr>
+<tr><td>setnetworkactive</td><td>STABLE</td><td></td></tr>
+<tr><td>settxfee</td><td>STABLE</td><td></td></tr>
+<tr><td>signmessage</td><td>STABLE</td><td></td></tr>
+<tr><td>signmessagewithprivkey</td><td>STABLE</td><td></td></tr>
+<tr><td>signrawtransaction</td><td>STABLE</td><td></td></tr>
+<tr><td>stop</td><td>STABLE</td><td></td></tr>
+<tr><td>submitauxblock</td><td>STABLE</td><td></td></tr>
+<tr><td>submitblock</td><td>STABLE</td><td></td></tr>
+<tr><td>validateaddress</td><td>STABLE</td><td></td></tr>
+<tr><td>verifychain</td><td>STABLE</td><td></td></tr>
+<tr><td>verifymessage</td><td>STABLE</td><td></td></tr>
+<tr><td>verifytxoutproof</td><td>STABLE</td><td></td></tr>
+</tbody></table>
+</div><div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;"><div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;border-radius:5px"><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/en/index.html'>EN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/br/index.html'>BR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/cn/index.html'>CN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/fr/index.html'>FR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/ir/index.html'>IR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/pt/index.html'>PT</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/vn/index.html'>VN</a></div></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../en/doc/release-process.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../en/doc/shared-libraries.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../en/doc/release-process.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../en/doc/shared-libraries.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

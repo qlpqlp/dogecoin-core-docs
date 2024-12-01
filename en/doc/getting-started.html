@@ -1,0 +1,521 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Getting-started - Dogecoin Core [DOGE, Ð]</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Dogecoin CORE Documentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Dogecoin Core [DOGE, Ð]</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/tree/main/" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/edit/main/src/en/doc/getting-started.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="getting-started"><a class="header" href="#getting-started">Getting started</a></h2>
+<p>This tutorial will help you to go through the basics to use Dogecoin Core after you completed the <a href="/INSTALL.html">installation instructions</a>. You now have <code>dogecoind</code> or <code>dogecoin-qt</code> executables available to run a node, and <code>dogecoin-cli</code>/<code>dogecoin-tx</code> tools to help you transact DOGE.</p>
+<blockquote>
+<p><strong>Note:</strong> For simplicity, this guide assumes that executables can be found under the <code>PATH</code> environment variable.
+If needed, you can specify their location by typing <code>PATH=$PATH:/path/to/executables</code>, or prepend the full path to the command like:</p>
+<pre><code class="language-console">shibetoshi:~$ /path/to/dogecoin-cli [arguments ...]
+</code></pre>
+</blockquote>
+<h3 id="table-of-contents"><a class="header" href="#table-of-contents">Table of contents</a></h3>
+<ol>
+<li><a href="#starting-a-dogecoin-node">Starting a dogecoin node</a></li>
+<li><a href="#introduction-to-the-json-rpc-api">Introduction to the JSON-RPC API</a>
+<ul>
+<li><a href="#creating-a-wallet">Creating a wallet</a></li>
+<li><a href="#verifying-your-balance">Verifying your balance</a></li>
+<li><a href="#sending-transactions">Sending transactions</a></li>
+<li><a href="#inspecting-blocks-and-transactions">Inspecting blocks and transactions</a></li>
+</ul>
+</li>
+<li><a href="#node-configuration">Node configuration</a>
+<ul>
+<li><a href="#mainnet-testnet-and-regtest">Mainnet, testnet and regtest</a></li>
+<li><a href="#data-directory">Data directory</a></li>
+<li><a href="#rpc-credentials">RPC credentials</a></li>
+<li><a href="#ports">Ports</a></li>
+<li><a href="#memory">Memory</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ol>
+<h2 id="starting-a-dogecoin-node"><a class="header" href="#starting-a-dogecoin-node">Starting a Dogecoin node</a></h2>
+<p>To start your node, you can run an headless server using <code>dogecoind</code>:</p>
+<pre><code class="language-console">shibetoshi:~$ dogecoind -daemon
+</code></pre>
+<p>Or you can use the Graphical User Interface (GUI), <code>dogecoin-qt</code>:</p>
+<pre><code class="language-console">shibetoshi:~$ dogecoin-qt
+</code></pre>
+<p>Detailed logging is recorded in <code>debug.log</code>, located in the <a href="#data-directory">data directory</a>.
+<em>Use <code>-help</code> to see all available options for each executable.</em></p>
+<p>Your node is now running and starts with a <em>synchronization process</em> that downloads the entire blockchain from other nodes. This operation will take many hours to complete, but you are now part of the Dogecoin network!</p>
+<blockquote>
+<p><strong>Note:</strong> The rest of this guide assumes the use of an headless node. The RPC server is not exposed with <code>dogecoin-qt</code> until you activate the <code>-server</code> option as a startup argument, but inside the GUI application, you can use all the commands explored below (without <code>dogecoin-cli</code>) by going to <code>Help -&gt; Debug window</code> and inside the popup window selecting the tab <code>Console</code>.</p>
+</blockquote>
+<h2 id="introduction-to-the-json-rpc-api"><a class="header" href="#introduction-to-the-json-rpc-api">Introduction to the JSON-RPC API</a></h2>
+<p>Dogecoin Core exposes a JSON-RPC interface that allows you to request information about the network, blockchain and individual transactions, send transactions to the networks and manage your wallet.</p>
+<p>The Dogecoin Core installation provides the <code>dogecoin-cli</code> tool to interact with the JSON-RPC from the command line, and the interface is exposed over HTTP on port <code>22555</code>, so that other tools and libraries can interact with it.</p>
+<p>To have an overview of the available commands, use the <code>help</code> command:</p>
+<pre><code class="language-console">#List all commands
+shibetoshi:~$ dogecoin-cli help
+
+#Get help for a specific command
+shibetoshi:~$ dogecoin-cli help COMMAND
+</code></pre>
+<p>Some commands are different, but it's possible to use the <a href="https://developer.bitcoin.org/reference/rpc/">bitcoin RPC API documentation</a>.</p>
+<h3 id="creating-a-wallet"><a class="header" href="#creating-a-wallet">Creating a wallet</a></h3>
+<p>To receive DOGE, you need an address that is securely derived from a private key through a series of automatic, cryptographic operations. The <em>address</em> can be shared with anyone to receive DOGE, but the <em>private key</em> is  sensitive information that allows anyone that knows it to spend the DOGE on the associated address.</p>
+<p>By default, the Dogecoin Core software will automatically create an address for you and securely store the private key in the wallet file.</p>
+<p>You can list wallet addresses using <code>getaddressesbyaccount</code>:</p>
+<pre><code class="language-console">shibetoshi:~$ dogecoin-cli getaddressesbyaccount ""
+[
+  "DA2fBazU8Y4epNJ2fQRZCcWpxKZY9HrhLN"
+]
+</code></pre>
+<p>Using <code>getnewaddress</code> will generate a new wallet address:</p>
+<pre><code class="language-console">shibetoshi:~$ dogecoin-cli getnewaddress
+DNnGtXk9khadE7EKCmQzxjnehenX92PKAv
+</code></pre>
+<p>Private keys are stored in the <code>wallet.dat</code> file. You can use <code>backupwallet</code> to save a copy:</p>
+<pre><code class="language-console">shibetoshi:~$ dogecoin-cli backupwallet /path/of/wallet/backup
+</code></pre>
+<p><strong>Tip:</strong> Dogecoin addresses start with the letter <code>D</code>.</p>
+<p>You now have two wallet addresses to share with other people to receive DOGE! Consider avoiding <a href="https://en.bitcoin.it/wiki/Address_reuse">address reuse</a> for anonymity and security reasons.</p>
+<h3 id="verifying-your-balance"><a class="header" href="#verifying-your-balance">Verifying your balance</a></h3>
+<p>The total balance of all addresses held in your wallet can be found with the <code>getbalance</code> command.</p>
+<pre><code class="language-console">#Syntax
+shibetoshi:~$ dogecoin-cli getbalance "*" minconf
+</code></pre>
+<p><code>minconf</code> stands for minimum confirmations.
+For example, to see current balance with transaction having at least 5 confirmations:</p>
+<pre><code class="language-console">shibetoshi:~$ dogecoin-cli getbalance "*" 5
+421.552000
+</code></pre>
+<h3 id="sending-transactions"><a class="header" href="#sending-transactions">Sending transactions</a></h3>
+<p>Dogecoin implements the <a href="https://en.wikipedia.org/wiki/Unspent_transaction_output">Unspent Transaction Output (UTXO)</a> model to track which amounts of coin belong to an address. Owning DOGE means that you know the private key(s) to addresses that are associated with unspent outputs. To spend them, you have to compose a new transaction that spends the value from currently unspent outputs to new outputs.</p>
+<h5 id="sendtoaddress"><a class="header" href="#sendtoaddress">sendtoaddress</a></h5>
+<p>It's possible to use a single command to create, sign and send a transaction :</p>
+<pre><code class="language-console">#Syntax
+shibetoshi:~$ dogecoin-cli sendtoaddress address amount
+
+#Example
+shibetoshi:~$ dogecoin-cli sendtoaddress nWSYUqtimF7B6qW4GBdczaG6jvqKutS1Nh 420
+</code></pre>
+<p>So much spending power !</p>
+<p>Alternatively, four commands are needed to manually create a transaction: <code>listunspent</code>, <code>createrawtransaction</code>, <code>signrawtransaction</code> and <code>sendrawtransaction</code>.</p>
+<h5 id="listunspent"><a class="header" href="#listunspent">listunspent</a></h5>
+<p>This displays a list of UTXOs associated to addresses kept in the wallet.</p>
+<pre><code class="language-console">#Syntax
+shibetoshi:~$ dogecoin-cli listunspent minconf maxconf '["address", ...]'
+
+#Example
+shibetoshi:~$ dogecoin-cli listunspent 1 9999999 '["nnJDY1xCRgWQc7vBXHUPMPsEynuZW23Y3P"]'
+[
+  {
+    "txid": "b869ed6606d52e6446dc12db02cf868ab693dd5b9f661116269536f0f8fa2433",
+    "vout": 0,
+    "address": "nnJDY1xCRgWQc7vBXHUPMPsEynuZW23Y3P",
+    "account": "",
+    "scriptPubKey": "76a914c6977da37560e1432c2e14e16952981a4c272cac88ac",
+    "amount": 100.00000000,
+    "confirmations": 1355,
+    "spendable": true,
+    "solvable": true
+  }
+]
+</code></pre>
+<p>The <code>minconf</code> and <code>maxconf</code> parameters filter the minimum and maximum number of <a href="https://www.pcmag.com/encyclopedia/term/bitcoin-confirmation">confirmations</a> of the UTXO returned.</p>
+<blockquote>
+<p><strong>Note:</strong> The example address starts with <code>n</code> instead of <code>D</code>, because it uses <a href="#mainnet-testnet-and-regtest">testnet</a>.</p>
+</blockquote>
+<h5 id="createrawtransaction"><a class="header" href="#createrawtransaction">createrawtransaction</a></h5>
+<p>You can now build a new transaction using the available UTXOs from above.</p>
+<pre><code class="language-console">#Syntax
+shibetoshi:~$ utxos_to_use='
+  [
+    {
+      "txid": "id",
+      "vout": n
+    },
+    ...
+  ]'
+shibetoshi:~$ dogecoin-cli createrawtransaction "$utxos_to_use" '{"address":amount, ...}'
+
+#Example
+shibetoshi:~$ utxos_to_use='
+[
+  {
+    "txid": "b869ed6606d52e6446dc12db02cf868ab693dd5b9f661116269536f0f8fa2433",
+    "vout": 0
+  }
+]'
+shibetoshi:~$ dogecoin-cli createrawtransaction "$utxos_to_use" '{"nWSYUqtimF7B6qW4GBdczaG6jvqKutS1Nh":69, "nnJDY1xCRgWQc7vBXHUPMPsEynuZW23Y3P": 30.999}'
+01000000013324faf8f03695261611669f5bdd93b68a86cf02db12dc46642ed50666ed69b80000000000ffffffff0200a5459b010000001976a91418a89ee36293f15c4db4c01173babd579243161188ac60b8c4b8000000001976a914c6977da37560e1432c2e14e16952981a4c272cac88ac00000000
+</code></pre>
+<p>You can combine multiple UTXO and send it to multiple recipients by extending the <code>utxos_to_use</code> and recipient JSON structures.</p>
+<blockquote>
+<p><strong>Tip:</strong> The transaction returned is encoded in hexadecimal encoding. You can use <code>dogecoin-cli decoderawtransaction</code> or <code>dogecoin-tx -json</code> to convert the content to JSON format.</p>
+</blockquote>
+<h5 id="signrawtransaction"><a class="header" href="#signrawtransaction">signrawtransaction</a></h5>
+<p>Before sending a transaction, it must be signed by the private key that the address was derived from. Dogecoin Core will automatically use the correct private key when spending UTXO known to the wallet.</p>
+<pre><code class="language-console">#Syntax
+shibetoshi:~$ dogecoin-cli signrawtransaction encoded_transaction
+
+#Example
+shibetoshi:~$ dogecoin-cli signrawtransaction "01000000013324faf8f03695261611669f5bdd93b68a86cf02db12dc46642ed50666ed69b80000000000ffffffff0200a5459b010000001976a91418a89ee36293f15c4db4c01173babd579243161188ac60b8c4b8000000001976a914c6977da37560e1432c2e14e16952981a4c272cac88ac00000000"
+{
+  "hex": "01000000013324faf8f03695261611669f5bdd93b68a86cf02db12dc46642ed50666ed69b8000000006a47304402200e1bf722d4335179de170f7c762755b463b3f7b8f026f30950f701bc834f0e6e022036295fdd5e607ca41c4e0e62e59d0911b607bfabedde2424665ffae13564d0e001210388f8f226d12eccd3ba93c1454ec4498b065cea96e29b918fbdb517872ebbf581ffffffff0200a5459b010000001976a91418a89ee36293f15c4db4c01173babd579243161188ac60b8c4b8000000001976a914c6977da37560e1432c2e14e16952981a4c272cac88ac00000000",
+  "complete": true
+}
+</code></pre>
+<h5 id="sendrawtransaction"><a class="header" href="#sendrawtransaction">sendrawtransaction</a></h5>
+<p>Finally, broadcast the transaction to the network so that it can be included in a block by miners:</p>
+<pre><code class="language-console">#Syntax
+shibetoshi:~$ dogecoin-cli sendrawtransaction signed_transaction
+
+#Example
+shibetoshi:~$ dogecoin-cli sendrawtransaction 01000000013324faf8f03695261611669f5bdd93b68a86cf02db12dc46642ed50666ed69b8000000006a47304402200e1bf722d4335179de170f7c762755b463b3f7b8f026f30950f701bc834f0e6e022036295fdd5e607ca41c4e0e62e59d0911b607bfabedde2424665ffae13564d0e001210388f8f226d12eccd3ba93c1454ec4498b065cea96e29b918fbdb517872ebbf581ffffffff0200a5459b010000001976a91418a89ee36293f15c4db4c01173babd579243161188ac60b8c4b8000000001976a914c6977da37560e1432c2e14e16952981a4c272cac88ac00000000
+b4fae2a43cb35f8016a547e9658e061f1da4a043efafecc42f739d46d95dee21
+</code></pre>
+<h3 id="inspecting-blocks-and-transactions"><a class="header" href="#inspecting-blocks-and-transactions">Inspecting blocks and transactions</a></h3>
+<p>Blocks and transactions are identified by unique <em>hashes</em>.
+Let's find the <em><a href="https://www.javatpoint.com/coinbase-transaction">coinbase transaction</a></em> of block 69.</p>
+<blockquote>
+<p><strong>Note:</strong> To be able to query transactions not related to your own wallet, like in this example, you will need to enable the <code>-txindex</code> option. This options requires the Dogecoin Core software to re-index the entire blockchain, and can take up to several hours.</p>
+</blockquote>
+<p>First, request the information about block 69:</p>
+<pre><code class="language-console">#Find block hash from his height
+shibetoshi:~$ dogecoin-cli getblockhash 69
+3d2def20cd0d3aca148741ef469bda11647a3040d7669c82745d03c728706a8b
+
+#Get block data
+shibetoshi:~$ dogecoin-cli getblock 3d2def20cd0d3aca148741ef469bda11647a3040d7669c82745d03c728706a8b
+{
+  "hash": "3d2def20cd0d3aca148741ef469bda11647a3040d7669c82745d03c728706a8b",
+  "confirmations": 7816,
+  "strippedsize": 190,
+  "size": 190,
+  "weight": 760,
+  "height": 69,
+  "version": 1,
+  "versionHex": "00000001",
+  "merkleroot": "695ce4208fa7a87ef9e99805b0910dc129058ecdceb5cef7e25f71dcdc7936db",
+  "tx": [
+    "695ce4208fa7a87ef9e99805b0910dc129058ecdceb5cef7e25f71dcdc7936db"
+  ],
+  "time": 1386475225,
+  "mediantime": 1386475209,
+  "nonce": 3923708672,
+  "bits": "1e0ffff0",
+  "difficulty": 0.000244140625,
+  "chainwork": "0000000000000000000000000000000000000000000000000000000004600460",
+  "previousblockhash": "ffa69e04f928b84f19d84da25fb544340e54dca6c03c33930da245719e61c5ea",
+  "nextblockhash": "44bf8abbbb96d4dcfb95df563e606c37987133ea3e013b23bbddde8d7f905fdd"
+}
+</code></pre>
+<p>The <code>tx</code> field contains a list of all transactions included in this block. Only one transaction exist in block 69, the coinbase transaction.</p>
+<p>We can see the entire transaction by querying for its identifier:</p>
+<pre><code class="language-console">#Syntax
+shibetoshi:~$ dogecoin-cli getrawtransaction txid verbose
+
+#Example
+shibetoshi:~$ dogecoin-cli getrawtransaction 695ce4208fa7a87ef9e99805b0910dc129058ecdceb5cef7e25f71dcdc7936db 1
+{
+  "hex": "01000000010000000000000000000000000000000000000000000000000000000000000000ffffffff0e04d9eea3520101062f503253482fffffffff0100ac6156be23000023210340a42a5ad6c4c0cd5ae539657032e0a359bd3e0f95771f34d71691b13460a624ac00000000",
+  "txid": "695ce4208fa7a87ef9e99805b0910dc129058ecdceb5cef7e25f71dcdc7936db",
+  "hash": "695ce4208fa7a87ef9e99805b0910dc129058ecdceb5cef7e25f71dcdc7936db",
+  "size": 109,
+  "vsize": 109,
+  "version": 1,
+  "locktime": 0,
+  "vin": [
+    {
+      "coinbase": "04d9eea3520101062f503253482f",
+      "sequence": 4294967295
+    }
+  ],
+  "vout": [
+    {
+      "value": 393004.00000000,
+      "n": 0,
+      "scriptPubKey": {
+        "asm": "0340a42a5ad6c4c0cd5ae539657032e0a359bd3e0f95771f34d71691b13460a624 OP_CHECKSIG",
+        "hex": "210340a42a5ad6c4c0cd5ae539657032e0a359bd3e0f95771f34d71691b13460a624ac",
+        "reqSigs": 1,
+        "type": "pubkey",
+        "addresses": [
+          "D5TjotnkoXekNQBCn54CBWxjEzCJMMe7WS"
+        ]
+      }
+    }
+  ],
+  "blockhash": "3d2def20cd0d3aca148741ef469bda11647a3040d7669c82745d03c728706a8b",
+  "confirmations": 3964556,
+  "time": 1386475225,
+  "blocktime": 1386475225
+}
+</code></pre>
+<p>The <code>vout</code> structure will give you information about where the transaction output.</p>
+<h2 id="node-configuration"><a class="header" href="#node-configuration">Node configuration</a></h2>
+<p>There are many parameters that can be configured to tune your node to your liking. There are two ways to change the configuration.</p>
+<p>Using <code>dogecoind -help</code> will display all available configuration parameters that can be added as arguments:</p>
+<p><strong>Command example :</strong></p>
+<pre><code class="language-console">shibetoshi:~$ dogecoind -daemon -paytxfee=0.01 -sendfreetransactions=1 -maxconnections=150
+</code></pre>
+<p>Configuration can be persisted by creating a <code>dogecoin.conf</code> file. Create it in the directory defined with the <code>datadir</code> setting, <code>$HOME/.dogecoin</code> by default, or specify the file location with <code>-conf</code>.</p>
+<p><strong>dogecoin.conf example :</strong></p>
+<pre><code>daemon=1
+server=1
+listen=1
+paytxfee=0.01
+sendfreetransactions=1
+maxconnections=150
+</code></pre>
+<p>You can see a more concrete example <a href="/contrib/debian/examples/dogecoin.conf">here</a>.</p>
+<h3 id="mainnet-testnet-and-regtest"><a class="header" href="#mainnet-testnet-and-regtest">Mainnet, testnet and regtest</a></h3>
+<p>When trying out new things, for example to test your application that interacts with the Dogecoin chain, it is recommended to not use the main Dogecoin network. Multiple networks are built-in for this purpose.</p>
+<p><strong>Mainnet</strong> : The main network where real transaction operate.<br />
+<strong>Testnet</strong> : The test network, with peers.<br />
+<strong>Regtest</strong> : The regression test network, to test with only local peers and create blocks on-demand.</p>
+<p>When not specifying any network, <em>Mainnet</em> is the network used by default. To enable <em>testnet</em>, use the <code>dogecoind -testnet</code>.</p>
+<p>To enable <em>regtest</em>, use the <code>-regtest</code> option.</p>
+<blockquote>
+<p><strong>Tip:</strong> Remember to specify the network when you want to use <code>dogecoin-cli</code>.</p>
+</blockquote>
+<h3 id="data-directory"><a class="header" href="#data-directory">Data directory</a></h3>
+<p>The data directory is the location where Dogecoin Core files are stored, including the wallet, log files and blocks. You can modify the location with the <code>-datadir</code> setting.</p>
+<p><strong>Default location :</strong></p>
+<div class="table-wrapper"><table><thead><tr><th>Platform</th><th>Data directory path</th></tr></thead><tbody>
+<tr><td>Linux</td><td><code>$HOME/.dogecoin</code></td></tr>
+<tr><td>macOS</td><td><code>$HOME/Library/Application Support/Dogecoin</code></td></tr>
+<tr><td>Windows</td><td><code>%APPDATA%\Dogecoin</code></td></tr>
+</tbody></table>
+</div>
+<p>You may need to specify <code>-datadir</code> also when using <code>dogecoin-cli</code>.</p>
+<p>See the <a href="files.html">full documentation on file system</a> for more information.</p>
+<h3 id="rpc-credentials"><a class="header" href="#rpc-credentials">RPC credentials</a></h3>
+<p>Authentication is required to interact with the RPC interface. When no credentials are provided, Dogecoin uses a <a href="https://bitcoin.org/en/release/v0.12.0#rpc-random-cookie-rpc-authentication">random cookie</a> that gets generated when the software is launched. It's possible to define your own credentials using <code>rpcuser</code> and <code>rpcpassword</code> parameters.</p>
+<h3 id="ports"><a class="header" href="#ports">Ports</a></h3>
+<p>A node can expose 2 different ports: one port for the <strong>Peer to Peer Network</strong> (P2P) to communicate with other nodes, and a second port for access to the RPC API. By default, the ports are configured as follows:</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Function</th><th style="text-align: right">mainnet</th><th style="text-align: right">testnet</th><th style="text-align: right">regtest</th></tr></thead><tbody>
+<tr><td style="text-align: left">P2P</td><td style="text-align: right">22556</td><td style="text-align: right">44556</td><td style="text-align: right">18444</td></tr>
+<tr><td style="text-align: left">RPC</td><td style="text-align: right">22555</td><td style="text-align: right">44555</td><td style="text-align: right">18332</td></tr>
+</tbody></table>
+</div>
+<p>To configure them use the <code>-port</code> and <code>-rpcport</code> parameters.</p>
+<h3 id="memory"><a class="header" href="#memory">Memory</a></h3>
+<p>Running Dogecoin Core can require a lot of memory, so in some situations it may be necessary to optimize its usage. You can find more information about reducing the memory footprint in the <a href="reduce-memory.html">related guide</a>.</p>
+<h3 id="troubleshooting"><a class="header" href="#troubleshooting">Troubleshooting</a></h3>
+<p>By default, Dogecoin Core keeps detailed logs in the <code>debug.log</code> file, located in the <code>datadir</code>. Alternatively, the <code>-printtoconsole</code> parameter displays the log interactively to the terminal instead.</p>
+<p>To get more verbose log output, you can enable debug mode by using the <code>-debug=&lt;topic&gt;</code> parameter to increase logic for a specific topic, or use <code>-debug=all</code> to see detailed logs on all topics.</p>
+<div class="dropdown" style="position: fixed; top: 50px; right: 20px; z-index: 1000;"><div class="dropdown-content" style="background-color: #fff;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1000;border-radius:5px"><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/en/index.html'>EN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/br/index.html'>BR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/cn/index.html'>CN</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/fr/index.html'>FR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/ir/index.html'>IR</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/pt/index.html'>PT</a><a style='color: black; padding: 5px 5px; text-decoration: none; display: block;' href='/vn/index.html'>VN</a></div></div>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../en/doc/fuzzing.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../en/doc/gitian-building.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../en/doc/fuzzing.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../en/doc/gitian-building.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+        <script>
+            window.playground_line_numbers = true;
+        </script>
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="../../ace.js"></script>
+        <script src="../../editor.js"></script>
+        <script src="../../mode-rust.js"></script>
+        <script src="../../theme-dawn.js"></script>
+        <script src="../../theme-tomorrow_night.js"></script>
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
