@@ -3731,6 +3731,350 @@ h3 {
     color: var(--accent-primary);
 }
 
+/* Responsive Transactions Section */
+@media (max-width: 768px) {
+    .transaction-types {
+        flex-direction: column;
+        gap: var(--space-xl);
+    }
+    
+    .transaction-type {
+        width: 100%;
+    }
+    
+    .parameters-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .parameter-item {
+        padding: var(--space-md);
+    }
+    
+    .raw-tx-steps {
+        margin-top: var(--space-lg);
+    }
+    
+    .step {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+    
+    .step-number {
+        align-self: flex-start;
+        margin-bottom: var(--space-sm);
+    }
+    
+    .tools-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .tool {
+        padding: var(--space-lg);
+    }
+    
+    .code-block pre {
+        font-size: 0.8rem;
+        padding: var(--space-md);
+        overflow-x: auto;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-all;
+        max-width: 100%;
+    }
+    
+    .code-block {
+        overflow-x: auto;
+        max-width: 100%;
+        margin: var(--space-md) 0;
+    }
+    
+    .code-header {
+        flex-direction: column;
+        gap: var(--space-sm);
+        align-items: flex-start;
+    }
+    
+    .code-header span {
+        font-size: 0.9rem;
+        word-wrap: break-word;
+    }
+    
+    .copy-btn {
+        align-self: flex-end;
+        font-size: 0.8rem;
+        padding: var(--space-xs) var(--space-sm);
+    }
+    
+    /* Text wrapping fixes */
+    * {
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.3;
+    }
+    
+    p, span, div {
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+    
+    code {
+        word-wrap: break-word;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        white-space: pre-wrap;
+    }
+    
+    .code-block pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+    
+    .parameter-name code {
+        word-break: break-all;
+        white-space: normal;
+    }
+    
+    .doge-word {
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+@media (max-width: 480px) {
+    .transaction-parameters {
+        padding: var(--space-md);
+        margin: var(--space-lg) 0;
+    }
+    
+    .parameters-grid {
+        gap: var(--space-sm);
+    }
+    
+    .parameter-item {
+        padding: var(--space-sm);
+    }
+    
+    .parameter-name {
+        font-size: 0.9rem;
+    }
+    
+    .parameter-description {
+        font-size: 0.85rem;
+    }
+    
+    .raw-tx-steps .step {
+        margin-bottom: var(--space-lg);
+    }
+    
+    .step-content h4 {
+        font-size: 1rem;
+    }
+    
+    .tools-grid {
+        gap: var(--space-md);
+    }
+    
+    .tool h4 {
+        font-size: 1rem;
+    }
+    
+    .code-block pre {
+        font-size: 0.75rem;
+        padding: var(--space-sm);
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        word-break: break-all !important;
+        overflow-x: auto !important;
+        max-width: 100% !important;
+    }
+    
+    .code-block {
+        overflow-x: auto !important;
+        max-width: 100% !important;
+        margin: var(--space-sm) 0 !important;
+        border-radius: var(--radius-sm) !important;
+    }
+    
+    .code-header {
+        flex-direction: column !important;
+        gap: var(--space-xs) !important;
+        align-items: flex-start !important;
+        padding: var(--space-sm) !important;
+    }
+    
+    .code-header span {
+        font-size: 0.8rem !important;
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        line-height: 1.3 !important;
+    }
+    
+    .copy-btn {
+        align-self: flex-end !important;
+        font-size: 0.7rem !important;
+        padding: var(--space-xs) var(--space-sm) !important;
+        margin-top: var(--space-xs) !important;
+    }
+    
+    /* Fix for long URLs and commands */
+    pre code {
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        word-break: break-all !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    /* Transaction type containers */
+    .transaction-type {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+    }
+    
+    .transaction-type h3 {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        line-height: 1.3 !important;
+    }
+    
+    .transaction-type p {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        line-height: 1.4 !important;
+    }
+    
+    /* Enhanced text wrapping for small screens */
+    * {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        hyphens: auto !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.2 !important;
+        max-width: 100% !important;
+    }
+    
+    p, span, div, li {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+    }
+    
+    code, pre {
+        word-wrap: break-word !important;
+        word-break: break-all !important;
+        overflow-wrap: break-word !important;
+        white-space: pre-wrap !important;
+        max-width: 100% !important;
+    }
+    
+    .section-title {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.2 !important;
+    }
+    
+    .doge-word {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        display: inline-block !important;
+        max-width: 100% !important;
+    }
+    
+    .hero-title {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-subtitle {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    .btn {
+        word-wrap: break-word !important;
+        white-space: normal !important;
+        text-align: center !important;
+    }
+    
+    .nav-link span {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    /* Additional mobile fixes for all sections */
+    .container {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+        padding: 0 var(--space-sm) !important;
+    }
+    
+    .section {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+    }
+    
+    .transaction-content {
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+    }
+    
+    .transaction-intro {
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    
+    .transaction-intro p {
+        line-height: 1.4 !important;
+        word-wrap: break-word !important;
+        word-break: break-word !important;
+    }
+    
+    /* Fix for all pre elements */
+    pre {
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        word-break: break-all !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+    }
+    
+    /* Fix for all code elements */
+    code {
+        white-space: pre-wrap !important;
+        word-wrap: break-word !important;
+        word-break: break-all !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+    }
+}
+
 /* Responsive Social Media */
 @media (max-width: 768px) {
     .social-grid {
