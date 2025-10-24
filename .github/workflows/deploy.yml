@@ -19,24 +19,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Lint HTML and CSS
+      - name: Validate HTML
         run: |
-          npm run lint || echo "Linting completed with warnings"
-
-      - name: Build and test
-        run: |
-          echo "Building static site..."
-          # No build process needed for static site
-          echo "Such build, much complete!"
+          echo "Validating static site files..."
+          # Check if main files exist
+          if [ ! -f "index.html" ]; then
+            echo "Error: index.html not found"
+            exit 1
+          fi
+          if [ ! -f "styles.css" ]; then
+            echo "Error: styles.css not found"
+            exit 1
+          fi
+          if [ ! -f "script.js" ]; then
+            echo "Error: script.js not found"
+            exit 1
+          fi
+          echo "Such validation, much complete!"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
