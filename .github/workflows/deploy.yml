@@ -1,41 +1,19 @@
-name: Deploy Dogecoin Core Documentation
+name: Deploy Static Site
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
     branches:
       - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pages: write
-      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Validate HTML
-        run: |
-          echo "Validating static site files..."
-          # Check if main files exist
-          if [ ! -f "index.html" ]; then
-            echo "Error: index.html not found"
-            exit 1
-          fi
-          if [ ! -f "styles.css" ]; then
-            echo "Error: styles.css not found"
-            exit 1
-          fi
-          if [ ! -f "script.js" ]; then
-            echo "Error: script.js not found"
-            exit 1
-          fi
-          echo "Such validation, much complete!"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
