@@ -1,0 +1,50 @@
+{
+  "name": "dogecoin-core-docs",
+  "version": "1.0.0",
+  "description": "Modern documentation website for Dogecoin Core - Such learning, much education!",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -p 8000",
+    "dev": "npx live-server --port=8000 --open=/",
+    "build": "echo 'No build process needed - static site!'",
+    "lint": "npx htmlhint index.html && npx csslint styles.css",
+    "test": "echo 'No tests yet - such testing, much needed!'",
+    "deploy": "echo 'Deploy to your preferred static hosting service'"
+  },
+  "keywords": [
+    "dogecoin",
+    "cryptocurrency",
+    "blockchain",
+    "documentation",
+    "education",
+    "tutorial",
+    "rpc",
+    "mining",
+    "node",
+    "development"
+  ],
+  "author": "Dogecoin Community",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qlpqlp/dogecoin-core-docs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qlpqlp/dogecoin-core-docs/issues"
+  },
+  "homepage": "https://qlpqlp.github.io/dogecoin-core-docs/",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1",
+    "htmlhint": "^1.1.4",
+    "csslint": "^1.0.5"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

@@ -1,0 +1,3307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dogecoin Core Documentation - Much Wow! Such Learn!</title>
+    <meta name="description" content="Complete guide to Dogecoin Core - Learn to compile, run nodes, mine, and develop with DOGE! Such education, much knowledge!">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="images/dogecoin.svg">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-navbar">
+        <div class="top-nav-container">
+            <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+                <span class="material-icons">menu</span>
+            </button>
+            <div class="top-nav-logo">
+                <img src="images/dogecoin.svg" alt="Dogecoin" class="logo-icon">
+                <span class="logo-text">Dogecoin Core Documentation</span>
+            </div>
+            <div class="top-nav-actions">
+                <a href="https://github.com/dogecoin/dogecoin" target="_blank" class="top-nav-link" title="View Source Code">
+                    <span class="material-icons">code</span>
+                </a>
+                <a href="https://github.com/qlpqlp/dogecoin-core-docs" target="_blank" class="top-nav-link" title="Edit This Site">
+                    <span class="material-icons">edit</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">
+                <span class="material-icons">pets</span>
+                <span>Dogecoin Core</span>
+            </div>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+        
+        <div class="sidebar-search">
+            <div class="search-container">
+                <span class="material-icons search-icon">search</span>
+                <input type="text" id="sidebarSearch" placeholder="Search documentation..." class="search-input">
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section">
+                <div class="nav-section-title">Getting Started</div>
+                <a href="#getting-started" class="nav-link">
+                    <span class="material-icons">rocket_launch</span>
+                    <span>Quick Start</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Setup & Installation</div>
+                <a href="#compilation" class="nav-link">
+                    <span class="material-icons">build</span>
+                    <span>Compilation</span>
+                </a>
+                <a href="#full-node" class="nav-link">
+                    <span class="material-icons">dns</span>
+                    <span>Full Node</span>
+                </a>
+                <a href="#networking" class="nav-link">
+                    <span class="material-icons">network_check</span>
+                    <span>Networking</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Development</div>
+                <a href="#rpc-zmq" class="nav-link">
+                    <span class="material-icons">api</span>
+                    <span>RPC & ZMQ</span>
+                </a>
+                <a href="#transactions" class="nav-link">
+                    <span class="material-icons">swap_horiz</span>
+                    <span>Transactions</span>
+                </a>
+                <a href="#opcodes" class="nav-link">
+                    <span class="material-icons">code</span>
+                    <span>OP_CODES</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Advanced Topics</div>
+                <a href="#mining" class="nav-link">
+                    <span class="material-icons">build</span>
+                    <span>Mining</span>
+                </a>
+                <a href="#console-commands" class="nav-link">
+                    <span class="material-icons">terminal</span>
+                    <span>Console Commands</span>
+                </a>
+                <a href="#foundation" class="nav-link">
+                    <span class="material-icons">foundation</span>
+                    <span>Foundation Projects</span>
+                </a>
+            </div>
+
+            <div class="nav-section">
+                <div class="nav-section-title">Community</div>
+                <a href="#translate" class="nav-link">
+                    <span class="material-icons">translate</span>
+                    <span>Help Translate</span>
+                </a>
+                <a href="https://github.com/qlpqlp/dogecoin-core-docs/issues" target="_blank" class="nav-link">
+                    <span class="material-icons">bug_report</span>
+                    <span>Report Issues</span>
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-links">
+                <a href="https://dogecoin.com" target="_blank" class="footer-link">
+                    <span class="material-icons">language</span>
+                    <span>Official Website</span>
+                </a>
+                <a href="https://dogecoin.org" target="_blank" class="footer-link">
+                    <span class="material-icons">account_balance</span>
+                    <span>Dogecoin Foundation</span>
+                </a>
+                <a href="https://x.com/dogecoin" target="_blank" class="footer-link">
+                    <span class="material-icons">pets</span>
+                    <span>X</span>
+                </a>
+                <a href="https://discord.gg/dogecoin" target="_blank" class="footer-link">
+                    <span class="material-icons">chat</span>
+                    <span>Discord</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="material-icons">pets</span>
+                        <span>Much Fun Learning</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Dogecoin Core Documentation
+                        <span class="doge-accent">Such Learn!</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Complete guide to mininging, running, and developing with Dogecoin Core. 
+                        <span class="doge-word">Much education</span> for developers of all ages!
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#getting-started" class="btn btn-primary">
+                            <span class="material-icons">school</span>
+                            Start Learning
+                        </a>
+                        <a href="https://github.com/dogecoin/dogecoin" target="_blank" class="btn btn-secondary">
+                            <span class="material-icons">code</span>
+                            View Source
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="card-header">
+                            <span class="material-icons">terminal</span>
+                            <span>Quick Start</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="code-line">
+                                <span class="code-prompt">$</span>
+                                <span class="code-text">git clone https://github.com/dogecoin/dogecoin.git</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-prompt">$</span>
+                                <span class="code-text">cd dogecoin && ./autogen.sh</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-prompt">$</span>
+                                <span class="code-text">./configure && make</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">1.14.9</span>
+                            <span class="stat-label">Latest Version</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15.1k</span>
+                            <span class="stat-label">GitHub Stars</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">MIT</span>
+                            <span class="stat-label">License</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Quick Start Section -->
+    <section id="getting-started" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                Getting Started
+                <span class="doge-word">Such Easy!</span>
+            </h2>
+            <div class="quick-start-grid">
+                <div class="quick-start-card">
+                    <div class="card-icon">
+                        <span class="material-icons">download</span>
+                    </div>
+                    <h3>Install Dogecoin Core</h3>
+                    <p>Download and install the official Dogecoin Core wallet for your operating system.</p>
+                    <a href="#compilation" class="card-link">Learn More <span class="material-icons">arrow_forward</span></a>
+                </div>
+                <div class="quick-start-card">
+                    <div class="card-icon">
+                        <span class="material-icons">dns</span>
+                    </div>
+                    <h3>Run Full Node</h3>
+                    <p>Set up your own Dogecoin node to support the network and access advanced features.</p>
+                    <a href="#full-node" class="card-link">Learn More <span class="material-icons">arrow_forward</span></a>
+                </div>
+                <div class="quick-start-card">
+                    <div class="card-icon">
+                        <span class="material-icons">flash_on</span>
+                    </div>
+                    <h3>Enable RPC</h3>
+                    <p>Configure RPC and ZMQ interfaces to interact with your node programmatically.</p>
+                    <a href="#rpc-zmq" class="card-link">Learn More <span class="material-icons">arrow_forward</span></a>
+                </div>
+                <div class="quick-start-card">
+                    <div class="card-icon">
+                        <span class="material-icons">developer_mode</span>
+                    </div>
+                    <h3>Start Developing</h3>
+                    <p>Learn about transactions, OP_CODES, and smart contracts on Dogecoin.</p>
+                    <a href="#transactions" class="card-link">Learn More <span class="material-icons">arrow_forward</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compilation Section -->
+    <section id="compilation" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">
+                Compiling Dogecoin Core
+                <span class="doge-word">Much Build!</span>
+            </h2>
+            <div class="compilation-content">
+                <div class="compilation-intro">
+                    <p>Build Dogecoin Core from source code to get the latest features and contribute to development. Such compilation, much control!</p>
+                </div>
+                
+                <div class="platform-tabs">
+                    <button class="tab-btn active" data-platform="linux">Linux</button>
+                    <button class="tab-btn" data-platform="windows">Windows</button>
+                    <button class="tab-btn" data-platform="macos">macOS</button>
+                    <button class="tab-btn" data-platform="freebsd">FreeBSD</button>
+                </div>
+
+                <div class="platform-content">
+                    <!-- Linux -->
+                    <div id="linux" class="platform-section active">
+                        <h3><span class="material-icons">terminal</span> Linux Compilation</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Ubuntu/Debian</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Install dependencies
+sudo apt update
+sudo apt install mining-essential libtool autotools-dev automake pkg-config bsdmainutils python3
+sudo apt install libssl-dev libevent-dev libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-test-dev libboost-thread-dev
+sudo apt install libminiupnpc-dev libzmq3-dev libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev-tools libprotobuf-dev protobuf-compiler
+
+# Clone repository
+git clone https://github.com/dogecoin/dogecoin.git
+cd dogecoin
+
+# Checkout latest release
+git checkout v1.14.9
+
+# Build
+./autogen.sh
+./configure
+make -j$(nproc)
+
+# Install (optional)
+sudo make install</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Windows -->
+                    <div id="windows" class="platform-section">
+                        <h3><span class="material-icons">laptop_windows</span> Windows Compilation</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Using MSYS2</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Install MSYS2 from https://www.msys2.org/
+# Open MSYS2 terminal and install dependencies
+
+pacman -S mingw-w64-x86_64-toolchain
+pacman -S mingw-w64-x86_64-boost
+pacman -S mingw-w64-x86_64-qt5
+pacman -S mingw-w64-x86_64-protobuf
+pacman -S mingw-w64-x86_64-libevent
+pacman -S mingw-w64-x86_64-openssl
+pacman -S mingw-w64-x86_64-zeromq
+
+# Clone and mining
+git clone https://github.com/dogecoin/dogecoin.git
+cd dogecoin
+git checkout v1.14.9
+
+# Configure and mining
+./autogen.sh
+./configure --with-incompatible-bdb
+make -j$(nproc)</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- macOS -->
+                    <div id="macos" class="platform-section">
+                        <h3><span class="material-icons">laptop_mac</span> macOS Compilation</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Using Homebrew</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Install Xcode Command Line Tools
+xcode-select --install
+
+# Install Homebrew (if not already installed)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Install dependencies
+brew install autoconf automake libtool pkg-config boost libevent openssl zeromq protobuf
+
+# Clone and mining
+git clone https://github.com/dogecoin/dogecoin.git
+cd dogecoin
+git checkout v1.14.9
+
+# Build
+./autogen.sh
+./configure
+make -j$(sysctl -n hw.ncpu)</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- FreeBSD -->
+                    <div id="freebsd" class="platform-section">
+                        <h3><span class="material-icons">computer</span> FreeBSD Compilation</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Using pkg</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Install dependencies
+pkg install autotools boost-libs libevent2 openssl zeromq4 protobuf
+
+# Clone and mining
+git clone https://github.com/dogecoin/dogecoin.git
+cd dogecoin
+git checkout v1.14.9
+
+# Build
+./autogen.sh
+./configure
+make -j$(sysctl -n hw.ncpu)</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="compilation-notes">
+                    <h4><span class="material-icons">notes</span> Compilation Notes</h4>
+                    <ul>
+                        <li><span class="material-icons">priority_high</span><strong>Such Important:</strong> Always use the latest stable release (currently v1.14.9)</li>
+                        <li><span class="material-icons">memory</span><strong>Much Memory:</strong> Compilation requires at least 4GB RAM</li>
+                        <li><span class="material-icons">speed</span><strong>So Fast:</strong> Use <code>-j$(nproc)</code> for parallel compilation</li>
+                        <li><span class="material-icons">bug_report</span><strong>Wow Debug:</strong> Add <code>--enable-debug</code> for debug minings</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Node Section -->
+    <section id="full-node" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                Running a Full Node
+                <span class="doge-word">Such Support!</span>
+            </h2>
+            
+            <div class="node-content">
+                <div class="node-intro">
+                    <p>Running a full node helps support the Dogecoin network and gives you access to all blockchain data. Much decentralization, so wow!</p>
+                </div>
+
+                <div class="node-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Download & Install</h3>
+                            <p>Download Dogecoin Core from the official website or compile from source (see compilation guide above).</p>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Initial Sync</h3>
+                            <p>Start Dogecoin Core and let it synchronize with the network. This may take several hours on first run.</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Start Dogecoin Core</span>
+                                </div>
+                                <pre><code># Start with GUI
+dogecoin-qt
+
+# Or start headless
+dogecoind</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Configure Your Node</h3>
+                            <p>Customize your node settings for optimal performance and security.</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>dogecoin.conf</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code># Basic node configuration
+server=1
+rpcuser=your_username
+rpcpassword=your_secure_password
+rpcallowip=127.0.0.1
+rpcport=22555
+port=22556
+
+# Optional: Enable ZMQ for real-time data
+zmqpubrawblock=tcp://127.0.0.1:28332
+zmqpubrawtx=tcp://127.0.0.1:28333
+
+# Optional: Reduce bandwidth usage
+maxconnections=40
+maxuploadtarget=5000
+
+# Optional: Enable pruning to save disk space
+prune=550</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Verify Your Node</h3>
+                            <p>Check that your node is properly connected and synchronized.</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Check node status</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code># Check if node is running
+dogecoin-cli getinfo
+
+# Check network info
+dogecoin-cli getnetworkinfo
+
+# Check blockchain info
+dogecoin-cli getblockchaininfo
+
+# Check peer connections
+dogecoin-cli getpeerinfo</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="node-benefits">
+                    <h3><span class="material-icons">star</span> How Your Full Node Helps Others & The Network</h3>
+                    <p class="benefits-intro">Running a full node isn't just about personal benefits - you're contributing to the entire Dogecoin ecosystem! Such community spirit, much network support!</p>
+                    <div class="benefits-grid">
+                        <div class="benefit">
+                            <div class="benefit-icon">
+                                <span class="material-icons">public</span>
+                            </div>
+                            <h4>Strengthens Network Decentralization</h4>
+                            <p>Your node adds to the global network of peers, making Dogecoin more resilient against attacks and censorship. Every node counts!</p>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">
+                                <span class="material-icons">people</span>
+                            </div>
+                            <h4>Helps New Users Sync Faster</h4>
+                            <p>New users can download blockchain data from your node, making their initial sync much faster. You're helping onboard new Shibes!</p>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">
+                                <span class="material-icons">security</span>
+                            </div>
+                            <h4>Validates Transactions for Others</h4>
+                            <p>Your node verifies and relays valid transactions, helping ensure the network processes payments correctly and securely.</p>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">
+                                <span class="material-icons">cloud_sync</span>
+                            </div>
+                            <h4>Provides Redundancy & Backup</h4>
+                            <p>If other nodes go offline, yours keeps the network running. You're providing essential backup infrastructure for the community!</p>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">
+                                <span class="material-icons">developer_mode</span>
+                            </div>
+                            <h4>Enables Developer Tools</h4>
+                            <p>Developers can connect to your node to mining apps, wallets, and services that make Dogecoin more useful for everyone.</p>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">
+                                <span class="material-icons">trending_up</span>
+                            </div>
+                            <h4>Supports Network Growth</h4>
+                            <p>More nodes mean better performance, lower latency, and a more robust network that can handle increased usage as Dogecoin grows.</p>
+                        </div>
+                    </div>
+                    <div class="community-callout">
+                        <div class="callout-content">
+                            <span class="material-icons">favorite</span>
+                            <div class="callout-text">
+                                <h4>You're Making a Difference!</h4>
+                                <p>Every full node operator is a hero in the Dogecoin community. You're not just running software - you're helping secure and grow the network that millions of people rely on. Such contribution, much wow! <span class="material-icons">rocket_launch</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RPC & ZMQ Section -->
+    <section id="rpc-zmq" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">
+                RPC & ZMQ Configuration
+                <span class="doge-word">Such Interface!</span>
+            </h2>
+            
+            <div class="rpc-content">
+                <div class="rpc-intro">
+                    <p>Enable RPC (Remote Procedure Call) and ZMQ (ZeroMQ) interfaces to interact with your Dogecoin node programmatically. Much API, so powerful!</p>
+                </div>
+
+                <div class="rpc-sections">
+                    <div class="rpc-section">
+                        <h3><span class="material-icons">settings_ethernet</span> RPC Configuration</h3>
+                        <p>RPC allows you to send commands to your Dogecoin node from external applications.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>dogecoin.conf - RPC Setup</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Enable RPC server
+server=1
+
+# RPC authentication
+rpcuser=your_username
+rpcpassword=your_secure_password
+
+# RPC binding
+rpcbind=127.0.0.1
+rpcport=22555
+
+# Allow RPC from localhost only (recommended)
+rpcallowip=127.0.0.1
+
+# For development, you can allow specific IPs
+# rpcallowip=192.168.1.100
+
+# Enable RPC commands
+rpcworkqueue=32</code></pre>
+                        </div>
+
+                        <h4><span class="material-icons">security</span> Security Best Practices</h4>
+                        <ul class="security-list">
+                            <li><span class="material-icons">security</span><strong>Such Secure:</strong> Use strong, unique passwords for RPC</li>
+                            <li><span class="material-icons">block</span><strong>Much Restrict:</strong> Only allow RPC from trusted IP addresses</li>
+                            <li><span class="material-icons">warning</span><strong>So Careful:</strong> Never expose RPC to the public internet</li>
+                            <li><span class="material-icons">https</span><strong>Wow Encrypt:</strong> Use HTTPS when possible for remote connections</li>
+                        </ul>
+                    </div>
+
+                    <div class="rpc-section">
+                        <h3><span class="material-icons">flash_on</span> ZMQ Configuration</h3>
+                        <p>ZMQ provides real-time notifications for blocks and transactions. Such streaming, much real-time!</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>dogecoin.conf - ZMQ Setup</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># ZMQ notifications
+zmqpubrawblock=tcp://127.0.0.1:28332
+zmqpubrawtx=tcp://127.0.0.1:28333
+zmqpubhashtx=tcp://127.0.0.1:28334
+zmqpubhashblock=tcp://127.0.0.1:28335
+
+# ZMQ sequence numbers (optional)
+zmqpubsequence=tcp://127.0.0.1:28336</code></pre>
+                        </div>
+
+                        <h4><span class="material-icons">satellite_alt</span> ZMQ Topics Available</h4>
+                        <div class="zmq-topics">
+                            <div class="topic">
+                                <code>rawblock</code>
+                                <span>Raw block data as received from the network</span>
+                            </div>
+                            <div class="topic">
+                                <code>rawtx</code>
+                                <span>Raw transaction data as received from the network</span>
+                            </div>
+                            <div class="topic">
+                                <code>hashtx</code>
+                                <span>Transaction hash (32 bytes)</span>
+                            </div>
+                            <div class="topic">
+                                <code>hashblock</code>
+                                <span>Block hash (32 bytes)</span>
+                            </div>
+                            <div class="topic">
+                                <code>sequence</code>
+                                <span>Sequence number and raw data</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rpc-examples">
+                    <h3><span class="material-icons">computer</span> Example Usage</h3>
+                    <div class="example-tabs">
+                        <button class="example-tab active" data-example="curl">CURL Examples</button>
+                        <button class="example-tab" data-example="python">Python</button>
+                        <button class="example-tab" data-example="javascript">JavaScript</button>
+                    </div>
+
+                    <div class="example-content">
+                        <div id="curl" class="example-section active">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Basic RPC Commands with CURL</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code># Get blockchain info
+curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"1.0","id":"1","method":"getblockchaininfo","params":[]}' \
+  http://127.0.0.1:22555/
+
+# Get wallet info
+curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"1.0","id":"1","method":"getwalletinfo","params":[]}' \
+  http://127.0.0.1:22555/
+
+# Get network info
+curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"1.0","id":"1","method":"getnetworkinfo","params":[]}' \
+  http://127.0.0.1:22555/
+
+# Get peer info
+curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"1.0","id":"1","method":"getpeerinfo","params":[]}' \
+  http://127.0.0.1:22555/</code></pre>
+                            </div>
+                        </div>
+
+                        <div id="python" class="example-section">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Python RPC Client</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code>import requests
+import json
+
+class DogecoinRPC:
+    def __init__(self, rpc_user, rpc_password, rpc_host='127.0.0.1', rpc_port=22555):
+        self.rpc_url = f"http://{rpc_host}:{rpc_port}/"
+        self.auth = (rpc_user, rpc_password)
+    
+    def call(self, method, params=None):
+        if params is None:
+            params = []
+        
+        payload = {
+            "jsonrpc": "1.0",
+            "id": "1",
+            "method": method,
+            "params": params
+        }
+        
+        response = requests.post(
+            self.rpc_url,
+            auth=self.auth,
+            json=payload,
+            headers={'Content-Type': 'application/json'}
+        )
+        
+        return response.json()
+
+# Usage example
+rpc = DogecoinRPC('your_username', 'your_password')
+
+# Get blockchain info
+blockchain_info = rpc.call('getblockchaininfo')
+print(f"Blocks: {blockchain_info['result']['blocks']}")
+
+# Get wallet balance
+wallet_info = rpc.call('getwalletinfo')
+print(f"Balance: {wallet_info['result']['balance']} DOGE")</code></pre>
+                            </div>
+                        </div>
+
+                        <div id="javascript" class="example-section">
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>JavaScript RPC Client</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code>class DogecoinRPC {
+    constructor(rpcUser, rpcPassword, rpcHost = '127.0.0.1', rpcPort = 22555) {
+        this.rpcUrl = `http://${rpcHost}:${rpcPort}/`;
+        this.auth = btoa(`${rpcUser}:${rpcPassword}`);
+    }
+    
+    async call(method, params = []) {
+        const payload = {
+            jsonrpc: "1.0",
+            id: "1",
+            method: method,
+            params: params
+        };
+        
+        const response = await fetch(this.rpcUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Basic ${this.auth}`
+            },
+            body: JSON.stringify(payload)
+        });
+        
+        return await response.json();
+    }
+}
+
+// Usage example
+const rpc = new DogecoinRPC('your_username', 'your_password');
+
+// Get blockchain info
+rpc.call('getblockchaininfo').then(result => {
+    console.log(`Blocks: ${result.result.blocks}`);
+});
+
+// Get wallet balance
+rpc.call('getwalletinfo').then(result => {
+    console.log(`Balance: ${result.result.balance} DOGE`);
+});</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transactions Section -->
+    <section id="transactions" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                Transactions & Raw Transactions
+                <span class="doge-word">Such Transfer!</span>
+            </h2>
+            
+            <div class="transaction-content">
+                <div class="transaction-intro">
+                    <p>Learn how to send regular transactions and create raw transactions for advanced use cases. Much sending, so transaction!</p>
+                </div>
+
+                <div class="transaction-types">
+                    <div class="transaction-type">
+                        <h3><span class="material-icons">send</span> Regular Transactions</h3>
+                        <p>Simple way to send DOGE using the wallet interface or RPC commands.</p>
+                        
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Send DOGE via RPC</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Send 10 DOGE to an address
+curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"sendtoaddress",
+    "params":["D7Y55vD8n2pwcGpcuVrBAeErVHuum6Quwb", 10.0, "Payment for services", "Such payment!"]
+  }' \
+  http://127.0.0.1:22555/</code></pre>
+                        </div>
+
+                        <div class="transaction-parameters">
+                            <h4><span class="material-icons">list</span> Regular Transaction Parameters</h4>
+                            <div class="parameters-grid">
+                                <div class="parameter-item">
+                                    <div class="parameter-name">
+                                        <code>address</code>
+                                    </div>
+                                    <div class="parameter-description">
+                                        Destination DOGE address where the funds will be sent
+                                    </div>
+                                </div>
+                                <div class="parameter-item">
+                                    <div class="parameter-name">
+                                        <code>amount</code>
+                                    </div>
+                                    <div class="parameter-description">
+                                        Amount to send in DOGE (can include decimal places)
+                                    </div>
+                                </div>
+                                <div class="parameter-item">
+                                    <div class="parameter-name">
+                                        <code>comment</code>
+                                    </div>
+                                    <div class="parameter-description">
+                                        Optional comment for your own records (not stored on blockchain)
+                                    </div>
+                                </div>
+                                <div class="parameter-item">
+                                    <div class="parameter-name">
+                                        <code>comment_to</code>
+                                    </div>
+                                    <div class="parameter-description">
+                                        Optional comment visible to the recipient (not stored on blockchain)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transaction-type">
+                        <h3><span class="material-icons">settings</span> Raw Transactions</h3>
+                        <p>Create transactions manually for advanced use cases like multi-sig, custom scripts, or integration with external systems.</p>
+                        
+                        <div class="raw-tx-steps">
+                            <div class="step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Create Raw Transaction</h4>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>Create raw transaction</span>
+                                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                        </div>
+                                        <pre><code># Create raw transaction
+curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"createrawtransaction",
+    "params":[
+      [{"txid":"previous_tx_id", "vout":0}],
+      {"D7Y55vD8n2pwcGpcuVrBAeErVHuum6Quwb": 9.5}
+    ]
+  }' \
+  http://127.0.0.1:22555/</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>Sign Raw Transaction</h4>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>Sign the transaction</span>
+                                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                        </div>
+                                        <pre><code># Sign raw transaction
+curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"signrawtransaction",
+    "params":["raw_transaction_hex"]
+  }' \
+  http://127.0.0.1:22555/</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Send Raw Transaction</h4>
+                                    <div class="code-block">
+                                        <div class="code-header">
+                                            <span>Broadcast to network</span>
+                                            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                        </div>
+                                        <pre><code># Send raw transaction
+curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"sendrawtransaction",
+    "params":["signed_transaction_hex"]
+  }' \
+  http://127.0.0.1:22555/</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transaction-tools">
+                    <h3><span class="material-icons">build</span> Transaction Tools & Utilities</h3>
+                    <div class="tools-grid">
+                        <div class="tool">
+                            <h4>Decode Raw Transaction</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Decode transaction</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code>curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"decoderawtransaction",
+    "params":["raw_transaction_hex"]
+  }' \
+  http://127.0.0.1:22555/</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="tool">
+                            <h4>Estimate Transaction Fee</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Estimate fee</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code>curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"estimatesmartfee",
+    "params":[6]
+  }' \
+  http://127.0.0.1:22555/</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="tool">
+                            <h4>Get Transaction Details</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Get transaction info</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code>curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"gettransaction",
+    "params":["transaction_id"]
+  }' \
+  http://127.0.0.1:22555/</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OP_CODES Section -->
+    <section id="opcodes" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">
+                OP_CODES & Smart Contracts
+                <span class="doge-word">Such Script!</span>
+            </h2>
+            
+            <div class="opcodes-content">
+                <div class="opcodes-intro">
+                    <p>Dogecoin supports a scripting language with OP_CODES that enable smart contract-like functionality. Much scripting, so programmable!</p>
+                </div>
+
+                <div class="opcodes-explanation">
+                    <h3><span class="material-icons">code</span> What are OP_CODES?</h3>
+                    <p>OP_CODES are operation codes in Dogecoin's scripting language that define how transactions can be spent. They enable conditional spending, multi-signature wallets, and other advanced features.</p>
+                </div>
+
+                <div class="opcodes-categories">
+                    <div class="category">
+                        <h3><span class="material-icons">lock</span> Basic OP_CODES</h3>
+                        <div class="opcode-list">
+                            <div class="opcode-item">
+                                <code>OP_DUP</code>
+                                <span>Duplicates the top stack item</span>
+                            </div>
+                            <div class="opcode-item">
+                                <code>OP_HASH160</code>
+                                <span>Hash160 of the top stack item</span>
+                            </div>
+                            <div class="opcode-item">
+                                <code>OP_EQUALVERIFY</code>
+                                <span>Verifies top two stack items are equal</span>
+                            </div>
+                            <div class="opcode-item">
+                                <code>OP_CHECKSIG</code>
+                                <span>Verifies signature against public key</span>
+                            </div>
+                            <div class="opcode-item">
+                                <code>OP_RETURN</code>
+                                <span>Marks transaction as unspendable (data storage)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h3><span class="material-icons">calculate</span> Arithmetic OP_CODES</h3>
+                        <div class="opcode-list">
+                            <div class="opcode-item">
+                                <code>OP_ADD</code>
+                                <span>Adds top two stack items</span>
+                            </div>
+                            <div class="opcode-item">
+                                <code>OP_SUB</code>
+                                <span>Subtracts top two stack items</span>
+                            </div>
+                            <div class="opcode-item">
+                                <code>OP_MUL</code>
+                                <span>Multiplies top two stack items</span>
+                            </div>
+                            <div class="opcode-item">
+                                <code>OP_DIV</code>
+                                <span>Divides top two stack items</span>
+                            </div>
+                            <div class="opcode-item">
+                                <code>OP_MOD</code>
+                                <span>Modulo operation on top two stack items</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category">
+                        <h3><span class="material-icons">group</span> Multi-Signature OP_CODES</h3>
+                        <div class="opcode-list">
+                            <div class="opcode-item">
+                                <code>OP_CHECKMULTISIG</code>
+                                <span>Verifies multiple signatures</span>
+                            </div>
+                            <div class="opcode-item">
+                                <code>OP_1</code> to <code>OP_16</code>
+                                <span>Push numbers 1-16 onto stack</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="smart-contract-examples">
+                    <h3><span class="material-icons">lightbulb</span> Smart Contract Examples</h3>
+                    
+                    <div class="example">
+                        <h4>1. Data Storage (OP_RETURN)</h4>
+                        <p>Store data on the blockchain using OP_RETURN. Such data, much permanent!</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Store "Hello Dogecoin!" on blockchain</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Create transaction with OP_RETURN
+# This stores "Hello Dogecoin!" as hex: 48656c6c6f20446f6765636f696e21
+
+# Raw transaction output script:
+# OP_RETURN 48656c6c6f20446f6765636f696e21
+
+# Using RPC to create:
+curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"createrawtransaction",
+    "params":[
+      [{"txid":"input_tx_id", "vout":0}],
+      {
+        "D7Y55vD8n2pwcGpcuVrBAeErVHuum6Quwb": 9.9,
+        "data": "48656c6c6f20446f6765636f696e21"
+      }
+    ]
+  }' \
+  http://127.0.0.1:22555/</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h4>2. Multi-Signature Wallet</h4>
+                        <p>Create a 2-of-3 multi-signature wallet. Such security, much protection!</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Create 2-of-3 multisig address</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Create multisig address
+curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"createmultisig",
+    "params":[
+      2,
+      [
+        "public_key_1",
+        "public_key_2", 
+        "public_key_3"
+      ]
+    ]
+  }' \
+  http://127.0.0.1:22555/
+
+# The resulting script will be:
+# OP_2 pubkey1 pubkey2 pubkey3 OP_3 OP_CHECKMULTISIG</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h4>3. Time-Locked Transaction</h4>
+                        <p>Create a transaction that can only be spent after a certain time. Such patience, much timing!</p>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Time-locked transaction</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Create time-locked transaction
+# This requires understanding of block height and time locks
+# Example: Can only spend after block 4,000,000
+
+# Script: OP_IF OP_4 OP_CHECKLOCKTIMEVERIFY OP_DROP pubkey OP_CHECKSIG OP_ELSE pubkey2 OP_CHECKSIG OP_ENDIF
+
+# This allows spending with either:
+# 1. After block 4,000,000 with pubkey signature
+# 2. Anytime with pubkey2 signature (emergency)</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="opcodes-education">
+                    <h3><span class="material-icons">school</span> Learning Resources</h3>
+                    <div class="education-grid">
+                        <div class="education-item">
+                            <h4><span class="material-icons">bug_report</span> Script Debugger</h4>
+                            <p>Use the script debugger to test your OP_CODE scripts before using them in real transactions.</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Debug script</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code>curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"decodescript",
+    "params":["script_hex"]
+  }' \
+  http://127.0.0.1:22555/</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="education-item">
+                            <h4><span class="material-icons">search</span> Transaction Analysis</h4>
+                            <p>Analyze existing transactions to understand how OP_CODES are used in practice.</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Analyze transaction</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code>curl -u your_username:your_password \
+  -X POST \
+  -H "Content-Type: application/json" \
+  -d '{
+    "jsonrpc":"1.0",
+    "id":"1",
+    "method":"getrawtransaction",
+    "params":["txid", true]
+  }' \
+  http://127.0.0.1:22555/</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Networking Section -->
+    <section id="networking" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                Mainnet & Testnet Connection
+                <span class="doge-word">Such Network!</span>
+            </h2>
+            
+            <div class="networking-content">
+                <div class="networking-intro">
+                    <p>Learn how to connect to Dogecoin's mainnet (production network) or testnet (testing network). Such networks, much choice!</p>
+                </div>
+
+                <div class="network-types">
+                    <div class="network-type">
+                        <h3><span class="material-icons">public</span> Mainnet (Production Network)</h3>
+                        <p>The main Dogecoin network where real DOGE transactions occur. Such real, much value!</p>
+                        
+                        <div class="network-details">
+                            <div class="network-info-grid">
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">link</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Network ID</h4>
+                                        <p><code>mainnet</code></p>
+                                        <span class="info-desc">Primary Dogecoin network</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">network_check</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>P2P Port</h4>
+                                        <p><code>22556</code></p>
+                                        <span class="info-desc">Peer-to-peer communication</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">settings_ethernet</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>RPC Port</h4>
+                                        <p><code>22555</code></p>
+                                        <span class="info-desc">JSON-RPC interface</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <img src="images/dogecoin.svg" alt="Dogecoin" class="dogecoin-icon">
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Currency</h4>
+                                        <p><code>Real DOGE</code></p>
+                                        <span class="info-desc">Actual cryptocurrency</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Connect to Mainnet</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Start Dogecoin Core on mainnet (default)
+dogecoin-qt
+
+# Or start headless
+dogecoind
+
+# Configuration for mainnet
+server=1
+rpcuser=your_username
+rpcpassword=your_password
+rpcport=22555
+port=22556
+rpcallowip=127.0.0.1</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="network-type">
+                        <h3><span class="material-icons">science</span> Testnet (Testing Network)</h3>
+                        <p>Test network for development and testing without using real DOGE. Such testing, much safe!</p>
+                        
+                        <div class="network-details">
+                            <div class="network-info-grid">
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">link</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Network ID</h4>
+                                        <p><code>testnet</code></p>
+                                        <span class="info-desc">Testing network</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">network_check</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>P2P Port</h4>
+                                        <p><code>44556</code></p>
+                                        <span class="info-desc">Peer-to-peer communication</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">settings_ethernet</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>RPC Port</h4>
+                                        <p><code>44555</code></p>
+                                        <span class="info-desc">JSON-RPC interface</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">science</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Currency</h4>
+                                        <p><code>Test DOGE</code></p>
+                                        <span class="info-desc">No real value</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Connect to Testnet</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Start Dogecoin Core on testnet
+dogecoin-qt -testnet
+
+# Or start headless
+dogecoind -testnet
+
+# Configuration for testnet
+testnet=1
+server=1
+rpcuser=your_username
+rpcpassword=your_password
+rpcport=44555
+port=44556
+rpcallowip=127.0.0.1</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="network-type">
+                        <h3><span class="material-icons">build</span> Regtest (Local Testing)</h3>
+                        <p>Local regression testing network for development. Such local, much control!</p>
+                        
+                        <div class="network-details">
+                            <div class="network-info-grid">
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">link</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Network ID</h4>
+                                        <p><code>regtest</code></p>
+                                        <span class="info-desc">Local regression test</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">network_check</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>P2P Port</h4>
+                                        <p><code>18444</code></p>
+                                        <span class="info-desc">Peer-to-peer communication</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">settings_ethernet</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>RPC Port</h4>
+                                        <p><code>18332</code></p>
+                                        <span class="info-desc">JSON-RPC interface</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-icon">
+                                        <span class="material-icons">build</span>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Mining</h4>
+                                        <p><code>Instant</code></p>
+                                        <span class="info-desc">Blocks mined instantly</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Connect to Regtest</span>
+                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                            </div>
+                            <pre><code># Start Dogecoin Core on regtest
+dogecoin-qt -regtest
+
+# Or start headless
+dogecoind -regtest
+
+# Configuration for regtest
+regtest=1
+server=1
+rpcuser=your_username
+rpcpassword=your_password
+rpcport=18332
+port=18444
+rpcallowip=127.0.0.1
+
+# Enable mining for testing
+gen=1
+genproclimit=1</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="network-switching">
+                    <h3><span class="material-icons">swap_horiz</span> Switching Between Networks</h3>
+                    <p>Learn how to switch between different networks and manage multiple configurations.</p>
+                    
+                    <div class="switching-methods">
+                        <div class="method">
+                            <h4>Command Line Switching</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Switch networks via command line</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code># Switch to mainnet
+dogecoin-qt
+
+# Switch to testnet
+dogecoin-qt -testnet
+
+# Switch to regtest
+dogecoin-qt -regtest
+
+# Check current network
+dogecoin-cli getnetworkinfo</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="method">
+                            <h4>Configuration File Switching</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Use different config files</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code># Mainnet configuration (dogecoin.conf)
+server=1
+rpcuser=mainnet_user
+rpcpassword=mainnet_pass
+rpcport=22555
+port=22556
+
+# Testnet configuration (dogecoin-testnet.conf)
+testnet=1
+server=1
+rpcuser=testnet_user
+rpcpassword=testnet_pass
+rpcport=44555
+port=44556
+
+# Use specific config file
+dogecoin-qt -conf=dogecoin-testnet.conf</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="network-troubleshooting">
+                    <h3><span class="material-icons">build</span> Network Troubleshooting</h3>
+                    <p>Diagnose and fix common network connectivity issues with your Dogecoin node. Such troubleshooting, much solutions!</p>
+                    
+                    <div class="troubleshooting-categories">
+                        <div class="troubleshooting-category">
+                            <div class="category-header">
+                                <span class="material-icons">wifi_off</span>
+                                <h4>Connection Problems</h4>
+                                <span class="severity high">High Priority</span>
+                            </div>
+                            <div class="troubleshooting-issues">
+                                <div class="troubleshooting-issue">
+                                    <div class="issue-header">
+                                        <span class="material-icons">error</span>
+                                        <h5>Can't Connect to Peers</h5>
+                                        <span class="issue-status">Common</span>
+                                    </div>
+                                    <div class="issue-content">
+                                        <div class="problem-section">
+                                            <h6><span class="material-icons">warning</span> Problem Symptoms:</h6>
+                                            <ul>
+                                                <li>Node shows 0 connections</li>
+                                                <li>"No block source available" message</li>
+                                                <li>Stuck at "Connecting to peers"</li>
+                                            </ul>
+                                        </div>
+                                        <div class="solution-section">
+                                            <h6><span class="material-icons">check_circle</span> Solutions:</h6>
+                                            <div class="solution-steps">
+                                                <div class="solution-step">
+                                                    <span class="step-number">1</span>
+                                                    <div class="step-content">
+                                                        <h6>Check Firewall Settings</h6>
+                                                        <p>Ensure port 22556 (mainnet) or 44556 (testnet) is open</p>
+                                                        <div class="code-snippet">
+                                                            <code># Windows Firewall
+netsh advfirewall firewall add rule name="Dogecoin" dir=in action=allow protocol=TCP localport=22556
+
+# Linux UFW
+sudo ufw allow 22556/tcp</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="solution-step">
+                                                    <span class="step-number">2</span>
+                                                    <div class="step-content">
+                                                        <h6>Verify Network Configuration</h6>
+                                                        <p>Check your dogecoin.conf file for correct settings</p>
+                                                        <div class="code-snippet">
+                                                            <code># Add to dogecoin.conf
+maxconnections=125
+addnode=seed.dogecoin.com
+addnode=seed.multidoge.org</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="solution-step">
+                                                    <span class="step-number">3</span>
+                                                    <div class="step-content">
+                                                        <h6>Test DNS Resolution</h6>
+                                                        <p>Try different DNS servers if connection fails</p>
+                                                        <div class="code-snippet">
+                                                            <code># Test DNS
+nslookup seed.dogecoin.com
+# Try Google DNS: 8.8.8.8, 8.8.4.4</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="troubleshooting-issue">
+                                    <div class="issue-header">
+                                        <span class="material-icons">slow_motion_video</span>
+                                        <h5>Slow Blockchain Sync</h5>
+                                        <span class="issue-status">Performance</span>
+                                    </div>
+                                    <div class="issue-content">
+                                        <div class="problem-section">
+                                            <h6><span class="material-icons">warning</span> Problem Symptoms:</h6>
+                                            <ul>
+                                                <li>Sync progress very slow or stuck</li>
+                                                <li>High CPU usage during sync</li>
+                                                <li>Node falls behind network</li>
+                                            </ul>
+                                        </div>
+                                        <div class="solution-section">
+                                            <h6><span class="material-icons">check_circle</span> Solutions:</h6>
+                                            <div class="solution-steps">
+                                                <div class="solution-step">
+                                                    <span class="step-number">1</span>
+                                                    <div class="step-content">
+                                                        <h6>Optimize Configuration</h6>
+                                                        <p>Increase connection limits and enable parallel processing</p>
+                                                        <div class="code-snippet">
+                                                            <code># Add to dogecoin.conf
+maxconnections=125
+dbcache=1024
+par=4</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="solution-step">
+                                                    <span class="step-number">2</span>
+                                                    <div class="step-content">
+                                                        <h6>Use SSD Storage</h6>
+                                                        <p>Move blockchain data to SSD for faster I/O</p>
+                                                        <div class="code-snippet">
+                                                            <code># Move data directory to SSD
+# Stop dogecoin, move ~/.dogecoin to SSD location
+# Update datadir in dogecoin.conf</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="solution-step">
+                                                    <span class="step-number">3</span>
+                                                    <div class="step-content">
+                                                        <h6>Bootstrap Sync</h6>
+                                                        <p>Download blockchain snapshot for faster initial sync</p>
+                                                        <div class="code-snippet">
+                                                            <code># Download bootstrap.dat from trusted source
+# Place in data directory before first run</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="troubleshooting-category">
+                            <div class="category-header">
+                                <span class="material-icons">storage</span>
+                                <h4>Storage & Performance</h4>
+                                <span class="severity medium">Medium Priority</span>
+                            </div>
+                            <div class="troubleshooting-issues">
+                                <div class="troubleshooting-issue">
+                                    <div class="issue-header">
+                                        <span class="material-icons">storage</span>
+                                        <h5>Insufficient Disk Space</h5>
+                                        <span class="issue-status">Storage</span>
+                                    </div>
+                                    <div class="issue-content">
+                                        <div class="problem-section">
+                                            <h6><span class="material-icons">warning</span> Problem Symptoms:</h6>
+                                            <ul>
+                                                <li>"No space left on device" error</li>
+                                                <li>Node stops syncing</li>
+                                                <li>Database corruption warnings</li>
+                                            </ul>
+                                        </div>
+                                        <div class="solution-section">
+                                            <h6><span class="material-icons">check_circle</span> Solutions:</h6>
+                                            <div class="solution-steps">
+                                                <div class="solution-step">
+                                                    <span class="step-number">1</span>
+                                                    <div class="step-content">
+                                                        <h6>Enable Pruning</h6>
+                                                        <p>Reduce storage requirements by pruning old blocks</p>
+                                                        <div class="code-snippet">
+                                                            <code># Add to dogecoin.conf
+prune=550
+# This keeps only last 550MB of blocks</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="solution-step">
+                                                    <span class="step-number">2</span>
+                                                    <div class="step-content">
+                                                        <h6>Move to Larger Drive</h6>
+                                                        <p>Transfer blockchain data to drive with more space</p>
+                                                        <div class="code-snippet">
+                                                            <code># Stop dogecoin
+# Move ~/.dogecoin to new location
+# Update datadir in dogecoin.conf</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="troubleshooting-category">
+                            <div class="category-header">
+                                <span class="material-icons">settings_ethernet</span>
+                                <h4>RPC & API Issues</h4>
+                                <span class="severity low">Low Priority</span>
+                            </div>
+                            <div class="troubleshooting-issues">
+                                <div class="troubleshooting-issue">
+                                    <div class="issue-header">
+                                        <span class="material-icons">lock</span>
+                                        <h5>RPC Connection Failed</h5>
+                                        <span class="issue-status">API</span>
+                                    </div>
+                                    <div class="issue-content">
+                                        <div class="problem-section">
+                                            <h6><span class="material-icons">warning</span> Problem Symptoms:</h6>
+                                            <ul>
+                                                <li>"Connection refused" to RPC port</li>
+                                                <li>Authentication failed errors</li>
+                                                <li>RPC commands not working</li>
+                                            </ul>
+                                        </div>
+                                        <div class="solution-section">
+                                            <h6><span class="material-icons">check_circle</span> Solutions:</h6>
+                                            <div class="solution-steps">
+                                                <div class="solution-step">
+                                                    <span class="step-number">1</span>
+                                                    <div class="step-content">
+                                                        <h6>Check RPC Configuration</h6>
+                                                        <p>Verify RPC settings in dogecoin.conf</p>
+                                                        <div class="code-snippet">
+                                                            <code># Add to dogecoin.conf
+server=1
+rpcuser=your_username
+rpcpassword=your_secure_password
+rpcport=22555
+rpcallowip=127.0.0.1</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="solution-step">
+                                                    <span class="step-number">2</span>
+                                                    <div class="step-content">
+                                                        <h6>Test RPC Connection</h6>
+                                                        <p>Verify RPC is working with basic commands</p>
+                                                        <div class="code-snippet">
+                                                            <code># Test RPC
+dogecoin-cli getblockchaininfo
+curl -u user:pass -d '{"method":"getblockchaininfo"}' http://127.0.0.1:22555/</code>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="troubleshooting-tools">
+                        <h4><span class="material-icons">build</span> Diagnostic Tools</h4>
+                        <div class="tools-grid">
+                            <div class="tool-card">
+                                <span class="material-icons">analytics</span>
+                                <h5>Network Diagnostics</h5>
+                                <p>Check your node's network status and connectivity</p>
+                                <div class="code-snippet">
+                                    <code># Get network info
+dogecoin-cli getnetworkinfo
+dogecoin-cli getpeerinfo
+dogecoin-cli getconnectioncount</code>
+                                </div>
+                            </div>
+                            <div class="tool-card">
+                                <span class="material-icons">memory</span>
+                                <h5>Performance Monitor</h5>
+                                <p>Monitor node performance and resource usage</p>
+                                <div class="code-snippet">
+                                    <code># Check blockchain info
+dogecoin-cli getblockchaininfo
+dogecoin-cli getmempoolinfo
+dogecoin-cli getmininginfo</code>
+                                </div>
+                            </div>
+                            <div class="tool-card">
+                                <span class="material-icons">bug_report</span>
+                                <h5>Debug Mode</h5>
+                                <p>Enable debug logging for detailed troubleshooting</p>
+                                <div class="code-snippet">
+                                    <code># Enable debug logging
+dogecoin-cli logging '["net","rpc"]'
+# Check debug.log for detailed information</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="network-monitoring">
+                    <h3><span class="material-icons">analytics</span> Network Monitoring</h3>
+                    <p>Monitor your node's connection and performance.</p>
+                    
+                    <div class="monitoring-commands">
+                        <div class="command-group">
+                            <h4>Connection Status</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Check network status</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code># Get network information
+dogecoin-cli getnetworkinfo
+
+# Get peer information
+dogecoin-cli getpeerinfo
+
+# Get connection count
+dogecoin-cli getconnectioncount
+
+# Get network totals
+dogecoin-cli getnettotals</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="command-group">
+                            <h4>Blockchain Status</h4>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Check blockchain status</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code># Get blockchain info
+dogecoin-cli getblockchaininfo
+
+# Get sync status
+dogecoin-cli getblockcount
+dogecoin-cli getbestblockhash
+
+# Get mempool info
+dogecoin-cli getmempoolinfo
+
+# Get mining info
+dogecoin-cli getmininginfo</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mining Section -->
+    <section id="mining" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                Mining & Merged Mining
+                <span class="doge-word">Such Hash!</span>
+            </h2>
+            
+            <div class="mining-content">
+                <div class="mining-intro">
+                    <p>Learn about Dogecoin mining, how it works, and the unique merged mining system that makes Dogecoin special. Much mining, so secure!</p>
+                </div>
+
+                <div class="mining-sections">
+                    <div class="mining-section">
+                        <h3><span class="material-icons">build</span> How Dogecoin Mining Works</h3>
+                        <p>Dogecoin uses the Scrypt hashing algorithm for Proof of Work. Miners compete to solve cryptographic puzzles and earn block rewards.</p>
+                        
+                        <div class="mining-details">
+                            <div class="detail">
+                                <h4><span class="material-icons">build</span> Algorithm</h4>
+                                <p><strong>Scrypt</strong> - Memory-hard hashing function that requires significant RAM</p>
+                            </div>
+                            <div class="detail">
+                                <h4><span class="material-icons">schedule</span> Block Time</h4>
+                                <p><strong>1 minute</strong> - New blocks are created every minute</p>
+                            </div>
+                            <div class="detail">
+                                <h4><img src="images/dogecoin.svg" alt="Dogecoin" class="dogecoin-icon-inline"> Block Reward</h4>
+                                <p><strong>10,000 DOGE</strong> - Fixed reward per block (no halving)</p>
+                            </div>
+                            <div class="detail">
+                                <h4><span class="material-icons">lock</span> Difficulty</h4>
+                                <p><strong>Dynamic</strong> - Adjusts every block to maintain 1-minute intervals</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mining-section">
+                        <h3><span class="material-icons">swap_horiz</span> Merged Mining with Litecoin</h3>
+                        <p>Dogecoin's revolutionary feature! The historical partnership with Litecoin that made Dogecoin more secure and efficient. Such innovation, much history!</p>
+                        
+                        <div class="merged-mining-history">
+                            <h4><span class="material-icons">history</span> The History of Dogecoin-Litecoin Merged Mining</h4>
+                            <div class="history-timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-date">December 2013</div>
+                                    <div class="timeline-content">
+                                        <h5>Dogecoin Launch</h5>
+                                        <p>Dogecoin launched as a fun, community-driven cryptocurrency based on Litecoin's codebase.</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">August 2014</div>
+                                    <div class="timeline-content">
+                                        <h5>Merged Mining Implementation</h5>
+                                        <p>Dogecoin implemented Auxiliary Proof of Work (AuxPoW) to enable merged mining with Litecoin, dramatically increasing network security.</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-date">Present</div>
+                                    <div class="timeline-content">
+                                        <h5>Secure & Efficient</h5>
+                                        <p>Today, Dogecoin's massive network actually provides significant security to Litecoin through merged mining, while maintaining its own unique characteristics and community.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="merged-mining-explanation">
+                            <h4>How Dogecoin-Litecoin Merged Mining Works</h4>
+                            <div class="technical-explanation">
+                                <div class="explanation-step">
+                                    <div class="step-icon">
+                                        <span class="material-icons">build</span>
+                                    </div>
+                                    <div class="step-content">
+                                        <h5>1. Litecoin Mining</h5>
+                                        <p>Litecoin miners solve Scrypt-based proof-of-work puzzles to secure the Litecoin network.</p>
+                                    </div>
+                                </div>
+                                <div class="explanation-step">
+                                    <div class="step-icon">
+                                        <span class="material-icons">swap_horiz</span>
+                                    </div>
+                                    <div class="step-content">
+                                        <h5>2. AuxPoW Integration</h5>
+                                        <p>The same work that secures Litecoin can also secure Dogecoin through Auxiliary Proof of Work.</p>
+                                    </div>
+                                </div>
+                                <div class="explanation-step">
+                                    <div class="step-icon">
+                                        <span class="material-icons">security</span>
+                                    </div>
+                                    <div class="step-content">
+                                        <h5>3. Dual Security</h5>
+                                        <p>Dogecoin inherits Litecoin's massive hashrate, making it extremely secure against 51% attacks.</p>
+                                    </div>
+                                </div>
+                                <div class="explanation-step">
+                                    <div class="step-icon">
+                                        <span class="material-icons">account_balance</span>
+                                    </div>
+                                    <div class="step-content">
+                                        <h5>4. Dual Rewards</h5>
+                                        <p>Miners earn both LTC and DOGE rewards for the same computational work.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="merged-mining-benefits">
+                            <h4>Benefits of Dogecoin-Litecoin Merged Mining</h4>
+                            <div class="benefits-grid">
+                                <div class="benefit-item">
+                                    <span class="material-icons">security</span>
+                                    <h5>Enhanced Security</h5>
+                                    <p>Dogecoin's massive network provides security to both networks through merged mining, making it one of the most secure cryptocurrencies.</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="material-icons">speed</span>
+                                    <h5>Energy Efficiency</h5>
+                                    <p>No additional energy consumption needed - the same work secures both networks.</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="material-icons">trending_up</span>
+                                    <h5>Economic Incentive</h5>
+                                    <p>Miners earn rewards from both networks, making mining more profitable.</p>
+                                </div>
+                                <div class="benefit-item">
+                                    <span class="material-icons">public</span>
+                                    <h5>Network Stability</h5>
+                                    <p>Reduces the risk of network instability and potential attacks on Dogecoin.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mining-section">
+                        <h3><span class="material-icons">build</span> Mining Setup</h3>
+                        <p>Set up your mining operation to start earning DOGE. Such setup, much configuration!</p>
+                        
+                        <div class="mining-setup">
+                            <div class="setup-step">
+                                <h4>1. Choose Mining Software</h4>
+                                <div class="mining-software">
+                                    <div class="software">
+                                        <h5>CCMiner</h5>
+                                        <p>Popular for NVIDIA GPUs</p>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>CCMiner command</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                            </div>
+                                            <pre><code>ccminer -a scrypt -o stratum+tcp://stratum.dogecoin.com:3333 -u username.worker -p password</code></pre>
+                                        </div>
+                                    </div>
+                                    <div class="software">
+                                        <h5>BFGMiner</h5>
+                                        <p>Good for ASICs and FPGAs</p>
+                                        <div class="code-block">
+                                            <div class="code-header">
+                                                <span>BFGMiner command</span>
+                                                <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                            </div>
+                                            <pre><code>bfgminer -o stratum+tcp://stratum.dogecoin.com:3333 -u username.worker -p password -S auto</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setup-step">
+                                <h4>2. Choose Mining Strategy</h4>
+                                <p>You can mine solo or join a pool. Each approach has different benefits and considerations.</p>
+                                
+                                <div class="mining-strategies">
+                                    <div class="strategy-card recommended">
+                                        <div class="strategy-header">
+                                            <span class="material-icons">person</span>
+                                            <h5>Solo Mining</h5>
+                                            <span class="recommended-badge">Recommended</span>
+                                        </div>
+                                        <div class="strategy-content">
+                                            <p><strong>Why Solo Mining?</strong></p>
+                                            <ul>
+                                                <li><span class="material-icons">security</span>Decentralizes the network</li>
+                                                <li><span class="material-icons">account_balance</span>Keep 100% of block rewards</li>
+                                                <li><span class="material-icons">public</span>Supports network health</li>
+                                                <li><span class="material-icons">warning</span>Prevents hashrate centralization</li>
+                                            </ul>
+                                            <div class="strategy-note">
+                                                <span class="material-icons">info</span>
+                                                <p><strong>Important:</strong> Solo mining helps prevent hashrate centralization, which is crucial for network security and decentralization.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="strategy-card">
+                                        <div class="strategy-header">
+                                            <span class="material-icons">group</span>
+                                            <h5>Pool Mining</h5>
+                                        </div>
+                                        <div class="strategy-content">
+                                            <p><strong>Pool Mining Considerations:</strong></p>
+                                            <ul>
+                                                <li><span class="material-icons">trending_up</span>More frequent payouts</li>
+                                                <li><span class="material-icons">trending_down</span>Smaller individual rewards</li>
+                                                <li><span class="material-icons">warning</span>Contributes to centralization</li>
+                                                <li><span class="material-icons">account_balance_wallet</span>Pool fees apply</li>
+                                            </ul>
+                                            <div class="pool-warning">
+                                                <span class="material-icons">warning</span>
+                                                <p><strong>Centralization Risk:</strong> Large mining pools can lead to hashrate centralization, making the network vulnerable to attacks.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mining-pools-info">
+                                    <h5>Popular Dogecoin Pools (If You Choose Pool Mining)</h5>
+                                    <div class="pools-grid">
+                                        <div class="pool-item">
+                                            <span class="material-icons">build</span>
+                                            <div class="pool-info">
+                                                <h6>Litecoinpool.org</h6>
+                                                <span class="pool-type">Merged Mining</span>
+                                            </div>
+                                        </div>
+                                        <div class="pool-item">
+                                            <span class="material-icons">build</span>
+                                            <div class="pool-info">
+                                                <h6>F2Pool</h6>
+                                                <span class="pool-type">Multi-coin</span>
+                                            </div>
+                                        </div>
+                                        <div class="pool-item">
+                                            <span class="material-icons">build</span>
+                                            <div class="pool-info">
+                                                <h6>Antpool</h6>
+                                                <span class="pool-type">Bitmain</span>
+                                            </div>
+                                        </div>
+                                        <div class="pool-item">
+                                            <span class="material-icons">build</span>
+                                            <div class="pool-info">
+                                                <h6>ViaBTC</h6>
+                                                <span class="pool-type">Global</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="setup-step">
+                                <h4>3. Configure Your Wallet</h4>
+                                <p>Set up your Dogecoin Core wallet to receive mining rewards.</p>
+                                <div class="code-block">
+                                    <div class="code-header">
+                                        <span>Mining configuration</span>
+                                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                    </div>
+                                    <pre><code># In dogecoin.conf
+# Enable mining (optional - not recommended for solo mining)
+# gen=1
+# genproclimit=1
+
+# Set your mining address
+# miningaddress=D7Y55vD8n2pwcGpcuVrBAeErVHuum6Quwb
+
+# For merged mining, you'll need additional configuration
+# depending on your mining software</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mining-section">
+                        <h3><span class="material-icons">analytics</span> Mining Economics</h3>
+                        <p>Understand the economics of Dogecoin mining and profitability factors.</p>
+                        
+                        <div class="economics-grid">
+                            <div class="economic-factor">
+                                <h4><span class="material-icons">trending_up</span> Revenue Factors</h4>
+                                <ul>
+                                    <li><img src="images/dogecoin.svg" alt="Dogecoin" class="dogecoin-icon-inline">DOGE</li>
+                                    <li><span class="material-icons">card_giftcard</span>Block rewards (10,000 DOGE)</li>
+                                    <li><span class="material-icons">payments</span>Transaction fees</li>
+                                    <li><span class="material-icons">swap_horiz</span>Merged mining rewards</li>
+                                </ul>
+                            </div>
+                            <div class="economic-factor">
+                                <h4><span class="material-icons">trending_down</span> Cost Factors</h4>
+                                <ul>
+                                    <li><span class="material-icons">electrical_services</span>Electricity costs</li>
+                                    <li><span class="material-icons">computer</span>Hardware costs</li>
+                                    <li><span class="material-icons">ac_unit</span>Cooling requirements</li>
+                                    <li><span class="material-icons">wifi</span>Internet bandwidth</li>
+                                </ul>
+                            </div>
+                            <div class="economic-factor">
+                                <h4><span class="material-icons">assessment</span> Profitability Tools</h4>
+                                <ul>
+                                    <li><span class="material-icons">calculate</span>Mining calculators</li>
+                                    <li><span class="material-icons">analytics</span>Pool statistics</li>
+                                    <li><span class="material-icons">track_changes</span>Difficulty tracking</li>
+                                    <li><span class="material-icons">monitor</span>Price monitoring</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Comparison Section -->
+    <section id="comparison" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="material-icons">compare</span>
+                Dogecoin vs Bitcoin & Litecoin
+                <span class="doge-word">Such Comparison!</span>
+            </h2>
+            
+            <div class="comparison-content">
+                <div class="comparison-intro">
+                    <p>Understanding how Dogecoin compares to Bitcoin and Litecoin in terms of technical specifications and advantages as a currency. Much technical, so informative!</p>
+                </div>
+
+                <div class="comparison-table">
+                    <div class="comparison-header">
+                        <div class="header-spacer"></div>
+                        <div class="crypto-column">
+                            <span class="material-icons">monetization_on</span>
+                            <h3>Bitcoin (BTC)</h3>
+                        </div>
+                        <div class="crypto-column">
+                            <span class="material-icons">monetization_on</span>
+                            <h3>Litecoin (LTC)</h3>
+                        </div>
+                        <div class="crypto-column dogecoin">
+                            <img src="images/dogecoin.svg" alt="Dogecoin" class="dogecoin-icon">
+                            <h3>Dogecoin (DOGE)</h3>
+                        </div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="row-label">
+                            <span class="material-icons">build</span>
+                            <span>Algorithm</span>
+                        </div>
+                        <div class="crypto-value">SHA-256</div>
+                        <div class="crypto-value">Scrypt</div>
+                        <div class="crypto-value dogecoin">Scrypt</div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="row-label">
+                            <span class="material-icons">schedule</span>
+                            <span>Block Time</span>
+                        </div>
+                        <div class="crypto-value">10 minutes</div>
+                        <div class="crypto-value">2.5 minutes</div>
+                        <div class="crypto-value dogecoin">1 minute</div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="row-label">
+                            <span class="material-icons">account_balance</span>
+                            <span>Block Reward</span>
+                        </div>
+                        <div class="crypto-value">6.25 BTC (halving)</div>
+                        <div class="crypto-value">6.25 LTC (halving)</div>
+                        <div class="crypto-value dogecoin">10,000 DOGE (fixed)<br>Ideal for currency due to lost wallets, population & economic growth</div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="row-label">
+                            <span class="material-icons">speed</span>
+                            <span>Transaction Speed</span>
+                        </div>
+                        <div class="crypto-value">Slow (10 min avg)</div>
+                        <div class="crypto-value">Fast (2.5 min avg)</div>
+                        <div class="crypto-value dogecoin">Very Fast (1 min avg)</div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="row-label">
+                            <span class="material-icons">payments</span>
+                            <span>Transaction Fees</span>
+                        </div>
+                        <div class="crypto-value">High ($5-50+)</div>
+                        <div class="crypto-value">Low ($0.01-0.10)</div>
+                        <div class="crypto-value dogecoin">Very Low ($0.001-0.01)</div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="row-label">
+                            <span class="material-icons">security</span>
+                            <span>Security Model</span>
+                        </div>
+                        <div class="crypto-value">Solo Mining</div>
+                        <div class="crypto-value">Solo Mining</div>
+                        <div class="crypto-value dogecoin">Merged Mining with LTC</div>
+                    </div>
+
+                    <div class="comparison-row">
+                        <div class="row-label">
+                            <span class="material-icons">public</span>
+                            <span>Use Case</span>
+                        </div>
+                        <div class="crypto-value">Store of Value</div>
+                        <div class="crypto-value">Digital Silver</div>
+                        <div class="crypto-value dogecoin">Fun Currency & Tipping</div>
+                    </div>
+                </div>
+
+                <div class="dogecoin-advantages">
+                    <h3><span class="material-icons">star</span> Dogecoin's Unique Advantages</h3>
+                    <div class="advantages-grid">
+                        <div class="advantage-card">
+                            <div class="advantage-icon">
+                                <span class="material-icons">speed</span>
+                            </div>
+                            <div class="advantage-content">
+                                <h4>Fastest Transactions</h4>
+                                <p>1-minute block time makes Dogecoin the fastest among major cryptocurrencies, perfect for daily transactions and tipping.</p>
+                            </div>
+                        </div>
+
+                        <div class="advantage-card">
+                            <div class="advantage-icon">
+                                <span class="material-icons">payments</span>
+                            </div>
+                            <div class="advantage-content">
+                                <h4>Lowest Fees</h4>
+                                <p>Transaction fees are typically under $0.01, making micro-transactions and small payments economically viable.</p>
+                            </div>
+                        </div>
+
+                        <div class="advantage-card">
+                            <div class="advantage-icon">
+                                <span class="material-icons">security</span>
+                            </div>
+                            <div class="advantage-content">
+                                <h4>Enhanced Security</h4>
+                                <p>Merged mining with Litecoin provides security comparable to Bitcoin while maintaining efficiency.</p>
+                            </div>
+                        </div>
+
+                        <div class="advantage-card">
+                            <div class="advantage-icon">
+                                <span class="material-icons">mood</span>
+                            </div>
+                            <div class="advantage-content">
+                                <h4>Community Driven</h4>
+                                <p>Strong, welcoming community that promotes fun, charity, and accessibility in cryptocurrency.</p>
+                            </div>
+                        </div>
+
+                        <div class="advantage-card">
+                            <div class="advantage-icon">
+                                <span class="material-icons">trending_up</span>
+                            </div>
+                            <div class="advantage-content">
+                                <h4>Inflationary Model</h4>
+                                <p>Fixed 10,000 DOGE per block creates predictable, low inflation that encourages spending over hoarding.</p>
+                            </div>
+                        </div>
+
+                        <div class="advantage-card">
+                            <div class="advantage-icon">
+                                <span class="material-icons">public</span>
+                            </div>
+                            <div class="advantage-content">
+                                <h4>Real Currency Use</h4>
+                                <p>Designed to be spent, not stored, making it ideal for everyday purchases and micro-transactions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="currency-advantages">
+                    <h3><img src="images/dogecoin.svg" alt="Dogecoin" class="dogecoin-icon-inline"> Why Dogecoin is Better as a Currency</h3>
+                    <div class="currency-comparison">
+                        <div class="currency-point">
+                            <div class="point-icon">
+                                <span class="material-icons">check_circle</span>
+                            </div>
+                            <div class="point-content">
+                                <h4>Psychological Spending</h4>
+                                <p>Unlike Bitcoin's "digital gold" narrative that encourages hoarding, Dogecoin's fun nature and low value per coin encourages spending and circulation.</p>
+                            </div>
+                        </div>
+
+                        <div class="currency-point">
+                            <div class="point-icon">
+                                <span class="material-icons">check_circle</span>
+                            </div>
+                            <div class="point-content">
+                                <h4>Micro-Transaction Friendly</h4>
+                                <p>Low fees and fast confirmation make Dogecoin perfect for small purchases, tips, and micro-payments that would be uneconomical with Bitcoin.</p>
+                            </div>
+                        </div>
+
+                        <div class="currency-point">
+                            <div class="point-icon">
+                                <span class="material-icons">check_circle</span>
+                            </div>
+                            <div class="point-content">
+                                <h4>Accessible Entry Point</h4>
+                                <p>Easy for kids and adults to understand and use because of the friendly community.</p>
+                            </div>
+                        </div>
+
+                        <div class="currency-point">
+                            <div class="point-icon">
+                                <span class="material-icons">check_circle</span>
+                            </div>
+                            <div class="point-content">
+                                <h4>Stable Inflation</h4>
+                                <p>Predictable, low inflation rate (about 3.8% annually) encourages spending while maintaining long-term value stability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Console Commands Documentation Section -->
+    <section id="console-commands" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="material-icons">terminal</span>
+                Dogecoin Core Console Commands
+                <span class="doge-word">Such Commands!</span>
+            </h2>
+            
+            <div class="console-intro">
+                <p>Complete reference for all Dogecoin Core console commands and their RPC equivalents. Such documentation, much helpful! Every command can be used both in the console and via RPC calls.</p>
+            </div>
+
+            <div class="commands-categories">
+                <div class="commands-category">
+                    <h3><span class="material-icons">info</span> Blockchain Information Commands</h3>
+                    <p>Commands for getting blockchain data, block information, and network statistics.</p>
+                    
+                    <div class="commands-grid">
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getblockchaininfo</h4>
+                                <span class="command-type">Info</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns information about the blockchain including current block height, difficulty, and chain state.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getblockchaininfo</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getblockchaininfo"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Block count, chain name, difficulty, network active, verification progress, etc.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getblockcount</h4>
+                                <span class="command-type">Info</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns the number of blocks in the longest blockchain.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getblockcount</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getblockcount"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Integer representing the current block height.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getblock</h4>
+                                <span class="command-type">Info</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns block information for a given block hash or height.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getblock "blockhash"</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getblock","params":["blockhash"]}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Block details including hash, height, time, transactions, etc.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getbestblockhash</h4>
+                                <span class="command-type">Info</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns the hash of the best (tip) block in the longest blockchain.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getbestblockhash</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getbestblockhash"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Block hash string of the current best block.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commands-category">
+                    <h3><span class="material-icons">account_balance_wallet</span> Wallet Commands</h3>
+                    <p>Commands for managing wallets, addresses, and balances.</p>
+                    
+                    <div class="commands-grid">
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getbalance</h4>
+                                <span class="command-type">Wallet</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns the total available balance of the wallet.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getbalance</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getbalance"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Balance in DOGE as a number.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getnewaddress</h4>
+                                <span class="command-type">Wallet</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Generates a new Dogecoin address for receiving payments.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getnewaddress</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getnewaddress"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> New Dogecoin address string.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>sendtoaddress</h4>
+                                <span class="command-type">Wallet</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Sends DOGE to a specified address.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli sendtoaddress "address" 10.5</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"sendtoaddress","params":["address",10.5]}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Transaction ID (txid) of the sent transaction.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>listtransactions</h4>
+                                <span class="command-type">Wallet</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns the most recent transactions for the wallet.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli listtransactions</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"listtransactions"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Array of transaction objects with details.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commands-category">
+                    <h3><span class="material-icons">network_check</span> Network Commands</h3>
+                    <p>Commands for network information, peer management, and connectivity.</p>
+                    
+                    <div class="commands-grid">
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getnetworkinfo</h4>
+                                <span class="command-type">Network</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns information about the node's network state and configuration.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getnetworkinfo</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getnetworkinfo"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Network version, connections, local services, etc.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getpeerinfo</h4>
+                                <span class="command-type">Network</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns data about each connected peer.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getpeerinfo</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getpeerinfo"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Array of peer objects with connection details.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getconnectioncount</h4>
+                                <span class="command-type">Network</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns the number of connections to other nodes.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getconnectioncount</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getconnectioncount"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Number of active connections.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>addnode</h4>
+                                <span class="command-type">Network</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Adds or removes a node from the addnode list.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli addnode "node:port" "add"</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"addnode","params":["node:port","add"]}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> null (success) or error message.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commands-category">
+                    <h3><span class="material-icons">build</span> Mining Commands</h3>
+                    <p>Commands for mining operations and block generation.</p>
+                    
+                    <div class="commands-grid">
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getmininginfo</h4>
+                                <span class="command-type">Mining</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns mining-related information including hashrate and difficulty.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getmininginfo</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getmininginfo"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Mining status, hashrate, difficulty, blocks, etc.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>generate</h4>
+                                <span class="command-type">Mining</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Mines blocks immediately (regtest only).</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli generate 1</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"generate","params":[1]}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Array of block hashes generated.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getblocktemplate</h4>
+                                <span class="command-type">Mining</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns data needed to construct a block to work on.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getblocktemplate</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getblocktemplate"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Block template data for mining.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commands-category">
+                    <h3><span class="material-icons">settings</span> Utility Commands</h3>
+                    <p>General utility commands for node management and debugging.</p>
+                    
+                    <div class="commands-grid">
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>help</h4>
+                                <span class="command-type">Utility</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Lists all available RPC commands or shows help for a specific command.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli help</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"help"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> List of available commands or command help.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>stop</h4>
+                                <span class="command-type">Utility</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Stops the Dogecoin Core daemon.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli stop</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"stop"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> "Dogecoin Core stopping..." message.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>uptime</h4>
+                                <span class="command-type">Utility</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns the total uptime of the server.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli uptime</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"uptime"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Server uptime in seconds.
+                            </div>
+                        </div>
+
+                        <div class="command-card">
+                            <div class="command-header">
+                                <h4>getmemoryinfo</h4>
+                                <span class="command-type">Utility</span>
+                            </div>
+                            <div class="command-description">
+                                <p>Returns information about memory usage.</p>
+                            </div>
+                            <div class="command-examples">
+                                <div class="example">
+                                    <span class="example-label">Console:</span>
+                                    <code>dogecoin-cli getmemoryinfo</code>
+                                </div>
+                                <div class="example">
+                                    <span class="example-label">RPC:</span>
+                                    <code>curl -u user:pass -d '{"method":"getmemoryinfo"}' http://127.0.0.1:22555/</code>
+                                </div>
+                            </div>
+                            <div class="command-returns">
+                                <strong>Returns:</strong> Memory usage statistics.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="commands-footer">
+                <div class="footer-note">
+                    <span class="material-icons">info</span>
+                    <div class="note-content">
+                        <h4>Command Usage Tips</h4>
+                        <ul>
+                            <li><strong>Console:</strong> Use <code>dogecoin-cli</code> for direct command execution</li>
+                            <li><strong>RPC:</strong> Use HTTP POST requests with JSON-RPC format</li>
+                            <li><strong>Parameters:</strong> Most commands accept additional parameters for customization</li>
+                            <li><strong>Help:</strong> Use <code>dogecoin-cli help [command]</code> for detailed information</li>
+                            <li><strong>Security:</strong> Always use proper authentication for RPC calls</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Foundation Projects Section -->
+    <section id="foundation" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">
+                Dogecoin Foundation Projects
+                <span class="doge-word">Such Integration!</span>
+            </h2>
+            
+            <div class="foundation-content">
+                <div class="foundation-intro">
+                    <p>The Dogecoin Foundation develops essential tools and projects that integrate seamlessly with Dogecoin Core. Such innovation, much ecosystem! Each project serves a unique purpose in the Dogecoin ecosystem.</p>
+                </div>
+
+                <div class="projects-overview">
+                    <h3><span class="material-icons">apps</span> Some Foundation Projects</h3>
+                    <p>A list of some official Dogecoin Foundation projects with GitHub links and documentation.</p>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <span class="material-icons">account_balance_wallet</span>
+                                </div>
+                                <div class="project-title">
+                                    <h4>GigaWallet</h4>
+                                    <span class="project-status">Active</span>
+                                </div>
+                            </div>
+                            <div class="project-description">
+                                <p>Lightweight wallet service API for developers. Provides wallet functionality without requiring a full Dogecoin node.</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/dogecoinfoundation/gigawallet" target="_blank" class="project-link github">
+                                    <span class="material-icons">code</span>
+                                    GitHub Repository
+                                </a>
+                                <a href="#gigawallet-docs" class="project-link docs">
+                                    <span class="material-icons">description</span>
+                                    Documentation
+                                </a>
+                            </div>
+                            <div class="project-features">
+                                <span class="feature-tag">REST API</span>
+                                <span class="feature-tag">Lightweight</span>
+                                <span class="feature-tag">Developer Tools</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <span class="material-icons">radio</span>
+                                </div>
+                                <div class="project-title">
+                                    <h4>RadioDoge</h4>
+                                    <span class="project-status">Active</span>
+                                </div>
+                            </div>
+                            <div class="project-description">
+                                <p>Mesh networking solution for Dogecoin transactions. Enables connectivity in areas with limited internet access.</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/dogecoinfoundation/radiodoge" target="_blank" class="project-link github">
+                                    <span class="material-icons">code</span>
+                                    GitHub Repository
+                                </a>
+                                <a href="#radiodoge-docs" class="project-link docs">
+                                    <span class="material-icons">description</span>
+                                    Documentation
+                                </a>
+                            </div>
+                            <div class="project-features">
+                                <span class="feature-tag">Mesh Network</span>
+                                <span class="feature-tag">Offline Support</span>
+                                <span class="feature-tag">Resilient</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <span class="material-icons">inventory</span>
+                                </div>
+                                <div class="project-title">
+                                    <h4>Dogebox OS</h4>
+                                    <span class="project-status">Active</span>
+                                </div>
+                            </div>
+                            <div class="project-description">
+                                <p>Specialized operating system for running Dogecoin Core efficiently on dedicated hardware. Plug-and-play solution.</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/Dogebox-WG/os" target="_blank" class="project-link github">
+                                    <span class="material-icons">code</span>
+                                    GitHub Repository
+                                </a>
+                                <a href="#dogebox-docs" class="project-link docs">
+                                    <span class="material-icons">description</span>
+                                    Documentation
+                                </a>
+                            </div>
+                            <div class="project-features">
+                                <span class="feature-tag">Operating System</span>
+                                <span class="feature-tag">Optimized</span>
+                                <span class="feature-tag">Plug & Play</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-header">
+                                <div class="project-icon">
+                                    <span class="material-icons">library_books</span>
+                                </div>
+                                <div class="project-title">
+                                    <h4>Libdogecoin</h4>
+                                    <span class="project-status">Active</span>
+                                </div>
+                            </div>
+                            <div class="project-description">
+                                <p>Low-level C library for building compliant Dogecoin nodes and wallets. Provides essential cryptographic functions and transaction handling.</p>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/dogecoinfoundation/libdogecoin" target="_blank" class="project-link github">
+                                    <span class="material-icons">code</span>
+                                    GitHub Repository
+                                </a>
+                                <a href="https://github.com/dogecoinfoundation/libdogecoin/blob/0.1.5-dev/doc/getting_started.md" target="_blank" class="project-link docs">
+                                    <span class="material-icons">description</span>
+                                    Documentation
+                                </a>
+                            </div>
+                            <div class="project-features">
+                                <span class="feature-tag">C Library</span>
+                                <span class="feature-tag">Cryptography</span>
+                                <span class="feature-tag">Developer Tools</span>
+                            </div>
+                        </div>
+
+                </div>
+
+                <div class="foundation-integration">
+                    <h3>🔗 Integration Examples</h3>
+                    <p>Here are practical examples of how to integrate these Foundation projects with your Dogecoin Core setup:</p>
+                    
+                    <div class="integration-scenarios">
+                        <div class="scenario">
+                            <h4>E-commerce Integration</h4>
+                            <p>Use GigaWallet + Dogecoin Core for online payments</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Payment flow example</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code># 1. Customer initiates payment
+POST /api/v1/wallets/{wallet_id}/addresses
+{
+  "label": "Payment for Order #12345"
+}
+
+# 2. GigaWallet creates address and monitors via Dogecoin Core
+# 3. Customer sends DOGE to the address
+# 4. GigaWallet detects payment via Dogecoin Core RPC
+# 5. Payment is confirmed and order is processed
+
+# GigaWallet uses Dogecoin Core for:
+# - Address generation
+# - Transaction monitoring
+# - Balance verification
+# - Confirmation counting</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="scenario">
+                            <h4>Remote Area Deployment</h4>
+                            <p>Use RadioDoge + Dogecoin Core for offline transactions</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Mesh network setup</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code># 1. Deploy Dogecoin Core on central node with internet
+# 2. Deploy RadioDoge on mesh network nodes
+# 3. RadioDoge forwards transactions to Dogecoin Core
+# 4. Users can send DOGE over mesh network
+# 5. Transactions are eventually broadcast to main network
+
+# RadioDoge uses Dogecoin Core for:
+# - Transaction validation
+# - Network synchronization
+# - Block verification
+# - Peer management</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="scenario">
+                            <h4>Home Node Setup</h4>
+                            <p>Use Dogebox OS for easy home node deployment</p>
+                            <div class="code-block">
+                                <div class="code-header">
+                                    <span>Home node configuration</span>
+                                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                                </div>
+                                <pre><code># 1. Flash Dogebox OS to SD card
+# 2. Insert into Raspberry Pi or similar device
+# 3. Connect to network and power on
+# 4. Access web dashboard at http://dogebox.local
+# 5. Configure RPC access for your applications
+
+# Dogebox OS provides:
+# - Pre-configured Dogecoin Core
+# - Web-based management interface
+# - Automatic updates
+# - Resource monitoring
+# - Easy RPC configuration</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Translation Section -->
+    <section id="translate" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                Help Translate
+                <span class="doge-word">Such Global!</span>
+            </h2>
+            
+            <div class="translation-content">
+                <div class="translation-intro">
+                    <p>Help make Dogecoin Core documentation accessible to everyone around the world! Such community, much global!</p>
+                </div>
+
+                <div class="translation-info">
+                    <div class="translation-steps">
+                        <h3><span class="material-icons">public</span> How to Contribute Translations</h3>
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Fork the Repository</h4>
+                                <p>Fork the <a href="https://github.com/qlpqlp/dogecoin-core-docs" target="_blank">dogecoin-core-docs</a> repository to your GitHub account.</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Create Language Directory</h4>
+                                <p>Create a new directory for your language (e.g., <code>es/</code> for Spanish, <code>fr/</code> for French).</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Translate Content</h4>
+                                <p>Translate the HTML files while keeping the structure and Dogecoin memes intact!</p>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h4>Submit Pull Request</h4>
+                                <p>Submit a pull request with your translations for review and inclusion.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="translation-guidelines">
+                        <h3><span class="material-icons">notes</span> Translation Guidelines</h3>
+                        <ul>
+                            <li><span class="material-icons">mood</span><strong>Such Memes:</strong> Keep Dogecoin memes like "Such", "Much", "Wow", "So" in English</li>
+                            <li><span class="material-icons">translate</span><strong>Much Technical:</strong> Translate technical terms appropriately for your language</li>
+                            <li><span class="material-icons">code</span><strong>So Structure:</strong> Maintain the HTML structure and CSS classes</li>
+                            <li><span class="material-icons">celebration</span><strong>Wow Fun:</strong> Keep the playful and educational tone</li>
+                        </ul>
+                    </div>
+
+                    <div class="translation-languages">
+                        <h3><span class="material-icons">translate</span> Languages We Need</h3>
+                        <div class="languages-grid">
+                            <div class="language">
+                                <span class="material-icons">language</span>
+                                <span class="language-name">Spanish</span>
+                                <span class="status needed">Needed</span>
+                            </div>
+                            <div class="language">
+                                <span class="material-icons">language</span>
+                                <span class="language-name">French</span>
+                                <span class="status needed">Needed</span>
+                            </div>
+                            <div class="language">
+                                <span class="material-icons">language</span>
+                                <span class="language-name">German</span>
+                                <span class="status needed">Needed</span>
+                            </div>
+                            <div class="language">
+                                <span class="material-icons">language</span>
+                                <span class="language-name">Japanese</span>
+                                <span class="status needed">Needed</span>
+                            </div>
+                            <div class="language">
+                                <span class="material-icons">language</span>
+                                <span class="language-name">Chinese</span>
+                                <span class="status needed">Needed</span>
+                            </div>
+                            <div class="language">
+                                <span class="material-icons">language</span>
+                                <span class="language-name">Korean</span>
+                                <span class="status needed">Needed</span>
+                            </div>
+                            <div class="language">
+                                <span class="material-icons">language</span>
+                                <span class="language-name">Portuguese</span>
+                                <span class="status needed">Needed</span>
+                            </div>
+                            <div class="language">
+                                <span class="material-icons">language</span>
+                                <span class="language-name">Russian</span>
+                                <span class="status needed">Needed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dogecoin Core</h3>
+                    <p>Such documentation, much learning!</p>
+                    <div class="footer-links">
+                        <a href="https://github.com/dogecoin/dogecoin" target="_blank">Source Code</a>
+                        <a href="https://dogecoin.com" target="_blank">Website</a>
+                        <a href="https://github.com/dogecoin/dogecoin/releases" target="_blank">Releases</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Documentation</h3>
+                    <div class="footer-links">
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs" target="_blank">Edit This Site</a>
+                        <a href="#translate">Help Translate</a>
+                        <a href="https://github.com/qlpqlp/dogecoin-core-docs/issues" target="_blank">Report Issues</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Community</h3>
+                    <div class="footer-links">
+                        <a href="https://x.com/dogecoin" target="_blank">X</a>                        
+                        <a href="https://discord.gg/dogecoin" target="_blank">Discord</a>
+                        <a href="https://reddit.com/r/dogecoin" target="_blank">Reddit</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Foundation</h3>
+                    <div class="footer-links">
+                        <a href="https://dogecoin.org" target="_blank">Website</a>
+                        <a href="https://github.com/dogecoinfoundation/gigawallet" target="_blank">GigaWallet</a>
+                        <a href="https://github.com/dogecoinfoundation/radiodoge" target="_blank">RadioDoge</a>
+                        <a href="https://github.com/Dogebox-WG/os" target="_blank">Dogebox OS</a>
+                        <a href="https://github.com/dogecoinfoundation/libdogecoin" target="_blank">LibDogecoin</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dogecoin Core Documentation. Such open source!</p>
+                <p class="doge-footer">Much thanks for learning with us!</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
